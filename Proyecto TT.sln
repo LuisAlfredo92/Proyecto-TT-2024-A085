@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Block ciphers", "BlockCiphers\Block ciphers.csproj", "{942696A9-A963-4325-80CB-9993D1558C29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{8DF0E342-CD24-4F55-A9B7-D22EE2E5EBD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation tests", "Validation tests\Validation tests.csproj", "{35D04E9F-210D-4770-893D-6406F3BB2F8E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stream ciphers", "Stream ciphers\Stream ciphers.csproj", "{6F9B7AE0-9527-428D-A239-016B6B253F55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asymmetric ciphers", "Asymmetric ciphers\Asymmetric ciphers.csproj", "{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPE ciphers", "FPE ciphers\FPE ciphers.csproj", "{2536B0FD-9D10-46B9-89A1-46D8147D046A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homomorphic ciphers", "Homomorphic ciphers\Homomorphic ciphers.csproj", "{44766E3A-2FA9-44E6-B617-4C03A9387979}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{942696A9-A963-4325-80CB-9993D1558C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942696A9-A963-4325-80CB-9993D1558C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942696A9-A963-4325-80CB-9993D1558C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942696A9-A963-4325-80CB-9993D1558C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF0E342-CD24-4F55-A9B7-D22EE2E5EBD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF0E342-CD24-4F55-A9B7-D22EE2E5EBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF0E342-CD24-4F55-A9B7-D22EE2E5EBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF0E342-CD24-4F55-A9B7-D22EE2E5EBD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D04E9F-210D-4770-893D-6406F3BB2F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D04E9F-210D-4770-893D-6406F3BB2F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D04E9F-210D-4770-893D-6406F3BB2F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D04E9F-210D-4770-893D-6406F3BB2F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9B7AE0-9527-428D-A239-016B6B253F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9B7AE0-9527-428D-A239-016B6B253F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9B7AE0-9527-428D-A239-016B6B253F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9B7AE0-9527-428D-A239-016B6B253F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2536B0FD-9D10-46B9-89A1-46D8147D046A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2536B0FD-9D10-46B9-89A1-46D8147D046A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2536B0FD-9D10-46B9-89A1-46D8147D046A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2536B0FD-9D10-46B9-89A1-46D8147D046A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
+	EndGlobalSection
+EndGlobal

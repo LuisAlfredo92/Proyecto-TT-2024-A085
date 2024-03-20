@@ -1,0 +1,26 @@
+<SessionState ContinuousTestingMode="0" IsActive="True" Name="Fpe tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session">
+  <And>
+    <TestAncestor>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.FPE_ciphers.AesFpeTests</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.FPE_ciphers.CamelliaFpeTests</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.FPE_ciphers.Cast256FpeTests</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.FPE_ciphers.SerpentFpeTests</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.FPE_ciphers.TwoFishTests</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.RsaHomomorphicTests.EncryptDecrypt</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.RsaHomomorphicTests.TestCase2</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.RsaHomomorphicTests.TestCase1</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.ElGamalHomomorphicTests.TestCase1</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.ElGamalHomomorphicTests.TestCase2</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.GoldwasserMicaliTests.TestCase1</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.GoldwasserMicaliTests.TestCase2</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.GoldwasserMicaliTests.TestCase3</TestId>
+      <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Homomorphic_ciphers.GoldwasserMicaliTests.TestCase4</TestId>
+    </TestAncestor>
+    <Not>
+      <And>
+        <Namespace>Validation_tests.Homomorphic_ciphers</Namespace>
+        <Project Location="C:\Users\92lui\OneDrive - Instituto Politecnico Nacional\Trabajo Terminal\Proyecto TT\Validation tests" Presentation="&lt;Validation tests&gt;" />
+      </And>
+    </Not>
+  </And>
+</SessionState>
