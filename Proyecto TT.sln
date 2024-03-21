@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stream ciphers", "Stream ci
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asymmetric ciphers", "Asymmetric ciphers\Asymmetric ciphers.csproj", "{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPE ciphers", "FPE ciphers\FPE ciphers.csproj", "{2536B0FD-9D10-46B9-89A1-46D8147D046A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPE ciphers", "FPE ciphers\FPE ciphers.csproj", "{2536B0FD-9D10-46B9-89A1-46D8147D046A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homomorphic ciphers", "Homomorphic ciphers\Homomorphic ciphers.csproj", "{44766E3A-2FA9-44E6-B617-4C03A9387979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homomorphic ciphers", "Homomorphic ciphers\Homomorphic ciphers.csproj", "{44766E3A-2FA9-44E6-B617-4C03A9387979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashes", "Hashes\Hashes.csproj", "{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44766E3A-2FA9-44E6-B617-4C03A9387979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
