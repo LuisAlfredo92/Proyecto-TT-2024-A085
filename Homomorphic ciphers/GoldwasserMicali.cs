@@ -7,7 +7,6 @@ namespace Homomorphic_ciphers;
 
 public class GoldwasserMicali(GoldwasserMicali.GmPublicKey publicKey, GoldwasserMicali.GmPrivateKey privateKey)
 {
-
     public static GmKeyPair GenerateKeys()
     {
         var secureRandom = new SecureRandom();
