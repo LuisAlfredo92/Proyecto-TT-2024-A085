@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using System.Runtime.InteropServices;
-using Hashes;
+﻿using Hashes;
 
 namespace Validation_tests.Hashes;
 
-public class Sha2Tests
+public class Sha3Tests
 {
     /// <summary>
     /// Input message: "abc", the bit string (0x)616263 of length 24 bits. 
@@ -12,18 +10,18 @@ public class Sha2Tests
     [Fact]
     public void TestCase1()
     {
-        var sha2 = new Sha2();
+        var sha2 = new Sha3();
         var input = "abc"u8.ToArray();
         var expected =
             Convert.FromHexString(
-                "ddaf35a193617aba" +
-                "cc417349ae204131" +
-                "12e6fa4e89a97ea2" +
-                "0a9eeee64b55d39a" +
-                "2192992a274fc1a8" +
-                "36ba3c23a3feebbd" +
-                "454d4423643ce80e" +
-                "2a9ac94fa54ca49f"
+                "b751850b1a57168a" +
+                "5693cd924b6b096e" +
+                "08f621827444f70d" +
+                "884f5d0240d2712e" +
+                "10e116e9192af3c9" +
+                "1a7ec57647e39340" +
+                "57340b4cf408d5a5" +
+                "6592f8274eec53f0"
                 );
         var actual = sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
@@ -35,18 +33,18 @@ public class Sha2Tests
     [Fact]
     public void TestCase2()
     {
-        var sha2 = new Sha2();
+        var sha2 = new Sha3();
         var input = ""u8.ToArray();
         var expected =
             Convert.FromHexString(
-                "cf83e1357eefb8bd" +
-                "f1542850d66d8007" +
-                "d620e4050b5715dc" +
-                "83f4a921d36ce9ce" +
-                "47d0d13c5d85f2b0" +
-                "ff8318d2877eec2f" +
-                "63b931bd47417a81" +
-                "a538327af927da3e"
+                "a69f73cca23a9ac5" +
+                "c8b567dc185a756e" +
+                "97c982164fe25859" +
+                "e0d1dcc1475c80a6" +
+                "15b2123af1f5f94c" +
+                "11e3e9402c3ac558" +
+                "f500199d95b6d3e3" +
+                "01758586281dcd26"
                 );
         var actual = sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
@@ -55,18 +53,18 @@ public class Sha2Tests
     [Fact]
     public void TestCase3()
     {
-        var sha2 = new Sha2();
+        var sha2 = new Sha3();
         var input = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"u8.ToArray();
         var expected =
             Convert.FromHexString(
-                "204a8fc6dda82f0a" +
-                "0ced7beb8e08a416" +
-                "57c16ef468b228a8" +
-                "279be331a703c335" +
-                "96fd15c13b1b07f9" +
-                "aa1d3bea57789ca0" +
-                "31ad85c7a71dd703" +
-                "54ec631238ca3445"
+                "04a371e84ecfb5b8" +
+                "b77cb48610fca818" +
+                "2dd457ce6f326a0f" +
+                "d3d7ec2f1e91636d" +
+                "ee691fbe0c985302" +
+                "ba1b0d8dc78c0863" +
+                "46b533b49c030d99" +
+                "a27daf1139d6e75e"
                 );
         var actual = sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
@@ -75,19 +73,19 @@ public class Sha2Tests
     [Fact]
     public void TestCase4()
     {
-        var sha2 = new Sha2();
+        var sha2 = new Sha3();
         var input = new byte[1000000];
         Array.Fill<byte>(input, 0x61);
         var expected =
             Convert.FromHexString(
-                "e718483d0ce76964" +
-                "4e2e42c7bc15b463" +
-                "8e1f98b13b204428" +
-                "5632a803afa973eb" +
-                "de0ff244877ea60a" +
-                "4cb0432ce577c31b" +
-                "eb009c5c2c49aa2e" +
-                "4eadb217ad8cc09b"
+                "3c3a876da14034ab" +
+                "60627c077bb98f7e" +
+                "120a2a5370212dff" +
+                "b3385a18d4f38859" +
+                "ed311d0a9d5141ce" +
+                "9cc5c66ee689b266" +
+                "a8aa18ace8282a0e" +
+                "0db596c90b0a7b87"
                 );
         var actual = sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
@@ -96,7 +94,7 @@ public class Sha2Tests
     [Fact]
     public void TestCase5()
     {
-        var sha2 = new Sha2();
+        var sha2 = new Sha3();
         Span<byte> bytesToRepeat = stackalloc byte[64];
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmno"u8.ToArray().CopyTo(bytesToRepeat);
         var input = new byte[16777216 * 64];
@@ -106,14 +104,14 @@ public class Sha2Tests
         }
         var expected =
             Convert.FromHexString(
-                "b47c933421ea2db1" +
-                "49ad6e10fce6c7f9" +
-                "3d0752380180ffd7" +
-                "f4629a712134831d" +
-                "77be6091b819ed35" +
-                "2c2967a2e2d4fa50" +
-                "50723c9630691f1a" +
-                "05a7281dbe6c1086"
+                "235ffd53504ef836" +
+                "a1342b488f483b39" +
+                "6eabbfe642cf78ee" +
+                "0d31feec788b23d0" +
+                "d18d5c339550dd59" +
+                "58a500d4b95363da" +
+                "1b5fa18affc1bab2" +
+                "292dc63b7d85097c"
             );
 
         var actual = sha2.Hash(input);
