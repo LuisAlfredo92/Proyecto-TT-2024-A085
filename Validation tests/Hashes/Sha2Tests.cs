@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Runtime.InteropServices;
-using Hashes;
+﻿using Hashes;
 
 namespace Validation_tests.Hashes;
 
