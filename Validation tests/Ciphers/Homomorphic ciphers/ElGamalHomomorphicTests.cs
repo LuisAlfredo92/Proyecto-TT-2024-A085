@@ -4,7 +4,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Security;
 
-namespace Validation_tests.Homomorphic_ciphers;
+namespace Validation_tests.Ciphers.Homomorphic_ciphers;
 
 public class ElGamalHomomorphicTests
 {

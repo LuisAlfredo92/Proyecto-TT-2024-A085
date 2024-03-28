@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using Aes = BlockCiphers.Aes;
 
-namespace Validation_tests.Block_ciphers;
+namespace Validation_tests.Ciphers.Block_ciphers;
 
 /// <summary>
 /// Tests for the AES encryption and decryption.

@@ -3,7 +3,7 @@ using System.Text;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-namespace Identifying_data;
+namespace Identifying_data.Names;
 
 public class NamesGenerator
 {
@@ -19,14 +19,14 @@ public class NamesGenerator
 
         // Last names
         List<string> lastNames = [];
-        using var lastNamesStreamReader = File.OpenText("apellidos.csv");
+        using var lastNamesStreamReader = File.OpenText("./Names/apellidos.csv");
         using var lastNamesReader = new CsvReader(lastNamesStreamReader, csvConfiguration);
         while (lastNamesReader.Read())
             lastNames.Add(lastNamesReader.GetField(0));
         _lastNames = [.. lastNames];
 
         // Men names
-        using var menStreamReader = File.OpenText("hombres.csv");
+        using var menStreamReader = File.OpenText("./Names/hombres.csv");
         List<string> names = [];
         using var menReader = new CsvReader(menStreamReader, csvConfiguration);
         menReader.Read();
@@ -34,7 +34,7 @@ public class NamesGenerator
             names.Add(menReader.GetField(0));
 
         // Women names
-        using var womenStreamReader = File.OpenText("mujeres.csv");
+        using var womenStreamReader = File.OpenText("./Names/mujeres.csv");
         using var womenReader = new CsvReader(womenStreamReader, csvConfiguration);
         womenReader.Read();
         while (womenReader.Read())

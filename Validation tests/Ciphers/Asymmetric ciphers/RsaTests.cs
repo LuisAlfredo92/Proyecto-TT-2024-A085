@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using Asymmetric_ciphers;
 
-namespace Validation_tests.Asymmetric_ciphers;
+namespace Validation_tests.Ciphers.Asymmetric_ciphers;
 
 public class RsaTests : IAsyncLifetime
 {

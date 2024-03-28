@@ -1,7 +1,7 @@
 ﻿using Homomorphic_ciphers;
 using Org.BouncyCastle.Math;
 
-namespace Validation_tests.Homomorphic_ciphers;
+namespace Validation_tests.Ciphers.Homomorphic_ciphers;
 
 public class BenalohTests
 {

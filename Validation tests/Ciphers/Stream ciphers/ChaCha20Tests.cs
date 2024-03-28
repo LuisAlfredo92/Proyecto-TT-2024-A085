@@ -1,6 +1,6 @@
 ﻿using Stream_ciphers;
 
-namespace Validation_tests.Stream_ciphers;
+namespace Validation_tests.Ciphers.Stream_ciphers;
 
 public class ChaCha20Tests
 {

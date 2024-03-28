@@ -1,6 +1,6 @@
 ﻿using FPE_ciphers;
 
-namespace Validation_tests.FPE_ciphers;
+namespace Validation_tests.Ciphers.FPE_ciphers;
 
 public class TwoFishTests
 {

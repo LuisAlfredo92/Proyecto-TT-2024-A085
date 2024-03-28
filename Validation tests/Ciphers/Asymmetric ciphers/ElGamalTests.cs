@@ -3,7 +3,7 @@ using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 
-namespace Validation_tests.Asymmetric_ciphers;
+namespace Validation_tests.Ciphers.Asymmetric_ciphers;
 
 public class ElGamalTests
 {

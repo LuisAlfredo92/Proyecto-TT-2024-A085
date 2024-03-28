@@ -1,6 +1,6 @@
 ﻿using BlockCiphers;
 
-namespace Validation_tests.Block_ciphers;
+namespace Validation_tests.Ciphers.Block_ciphers;
 
 public class CamelliaTests
 {

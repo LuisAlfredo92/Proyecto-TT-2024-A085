@@ -3,7 +3,7 @@ using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities;
 
-namespace Validation_tests.Homomorphic_ciphers;
+namespace Validation_tests.Ciphers.Homomorphic_ciphers;
 
 public class PaillierTests
 {
