@@ -1,6 +1,6 @@
 ﻿using Hashes;
 
-namespace Validation_tests.Hashes;
+namespace Validation_tests.Ciphers.Hashes;
 
 public class Blake3Tests
 {
@@ -83,7 +83,7 @@ public class Blake3Tests
     public void TestCase1(int inputLength, string expectedHexString)
     {
         Span<byte> input = stackalloc byte[inputLength];
-        for (var i = 0; i < inputLength; i++) 
+        for (var i = 0; i < inputLength; i++)
             input[i] = (byte)(i % 251);
 
         var expected = Convert.FromHexString(expectedHexString);

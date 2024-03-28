@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashes", "Hashes\Hashes.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ciphers", "Ciphers", "{63CF0F15-2ADE-4CC9-ACB0-DAAA432CC8A9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data generators", "Data generators", "{3D708D2A-9346-497C-9A8A-3A0C0778D84B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identifying data", "Data generators\Identifying data\Identifying data.csproj", "{6E6D0FF3-20DC-4965-8983-8119A29F61BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6D0FF3-20DC-4965-8983-8119A29F61BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6D0FF3-20DC-4965-8983-8119A29F61BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6D0FF3-20DC-4965-8983-8119A29F61BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6D0FF3-20DC-4965-8983-8119A29F61BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{2536B0FD-9D10-46B9-89A1-46D8147D046A} = {63CF0F15-2ADE-4CC9-ACB0-DAAA432CC8A9}
 		{44766E3A-2FA9-44E6-B617-4C03A9387979} = {63CF0F15-2ADE-4CC9-ACB0-DAAA432CC8A9}
 		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF} = {63CF0F15-2ADE-4CC9-ACB0-DAAA432CC8A9}
+		{6E6D0FF3-20DC-4965-8983-8119A29F61BC} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}

@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Hashes;
 
-namespace Validation_tests.Hashes;
+namespace Validation_tests.Ciphers.Hashes;
 
 public class BCryptTests
 {

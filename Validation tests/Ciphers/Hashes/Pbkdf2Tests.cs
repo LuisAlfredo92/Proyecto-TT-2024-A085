@@ -2,7 +2,7 @@
 using System.Text;
 using Hashes;
 
-namespace Validation_tests.Hashes;
+namespace Validation_tests.Ciphers.Hashes;
 
 /// <summary>
 /// Tests for <see cref="Pbkdf2"/>.
