@@ -1,5 +1,6 @@
 ﻿using Identifying_data.Curps;
 using Identifying_data.Names;
+using Identifying_data.Street_names;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
@@ -34,4 +35,16 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
         }
     }
 
+    // Test street names generator
+    [Fact]
+    public void TestStreetNamesGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var streetName = StreetNamesGenerator.Generate();
+            Assert.NotNull(streetName);
+            Assert.NotEmpty(streetName);
+            testOutputHelper.WriteLine(streetName);
+        }
+    }
 }
