@@ -1,4 +1,6 @@
 ﻿using Identifying_data.Curps;
+using Identifying_data.House_numbers;
+using Identifying_data.Interior_numbers;
 using Identifying_data.Names;
 using Identifying_data.Street_names;
 using Xunit.Abstractions;
@@ -45,6 +47,32 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             Assert.NotNull(streetName);
             Assert.NotEmpty(streetName);
             testOutputHelper.WriteLine(streetName);
+        }
+    }
+
+    // Test house numbers generator
+    [Fact]
+    public void TestHouseNumbersGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var houseNumber = ExteriorNumbersGenerator.GenerateHouseNumber();
+            Assert.NotNull(houseNumber);
+            Assert.NotEmpty(houseNumber);
+            testOutputHelper.WriteLine(houseNumber);
+        }
+    }
+
+    // Test interior numbers generator
+    [Fact]
+    public void TestInteriorNumbersGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var interiorNumber = InteriorNumbersGenerator.GenerateInteriorNumber();
+            Assert.NotNull(interiorNumber);
+            Assert.NotEmpty(interiorNumber);
+            testOutputHelper.WriteLine(interiorNumber);
         }
     }
 }
