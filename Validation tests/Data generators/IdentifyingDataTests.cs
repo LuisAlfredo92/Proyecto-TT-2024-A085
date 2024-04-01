@@ -2,6 +2,7 @@
 using Identifying_data.House_numbers;
 using Identifying_data.Interior_numbers;
 using Identifying_data.Localities;
+using Identifying_data.Municipalities;
 using Identifying_data.Names;
 using Identifying_data.Postal_code;
 using Identifying_data.Settlements;
@@ -116,6 +117,19 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             Assert.NotNull(locality);
             Assert.NotEmpty(locality);
             testOutputHelper.WriteLine(locality);
+        }
+    }
+
+    // Test municipalities generator
+    [Fact]
+    public void TestMunicipalitiesGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var municipality = MunicipalitiesGenerator.Generate();
+            Assert.NotNull(municipality);
+            Assert.NotEmpty(municipality);
+            testOutputHelper.WriteLine(municipality);
         }
     }
 }
