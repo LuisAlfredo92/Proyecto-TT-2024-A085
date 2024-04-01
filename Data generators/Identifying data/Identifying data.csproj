@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <Folder Include="Interior numbers\" />
+    <Folder Include="States\" />
   </ItemGroup>
 
 </Project>

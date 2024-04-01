@@ -6,6 +6,7 @@ using Identifying_data.Municipalities;
 using Identifying_data.Names;
 using Identifying_data.Postal_code;
 using Identifying_data.Settlements;
+using Identifying_data.States;
 using Identifying_data.Street_names;
 using Xunit.Abstractions;
 
@@ -130,6 +131,19 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             Assert.NotNull(municipality);
             Assert.NotEmpty(municipality);
             testOutputHelper.WriteLine(municipality);
+        }
+    }
+
+    // Test states generator
+    [Fact]
+    public void TestStatesGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var state = StatesGenerator.Generate();
+            Assert.NotNull(state);
+            Assert.NotEmpty(state);
+            testOutputHelper.WriteLine(state);
         }
     }
 }
