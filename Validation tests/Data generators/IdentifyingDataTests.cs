@@ -2,6 +2,8 @@
 using Identifying_data.House_numbers;
 using Identifying_data.Interior_numbers;
 using Identifying_data.Names;
+using Identifying_data.Postal_code;
+using Identifying_data.Settlements;
 using Identifying_data.Street_names;
 using Xunit.Abstractions;
 
@@ -73,6 +75,33 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             Assert.NotNull(interiorNumber);
             Assert.NotEmpty(interiorNumber);
             testOutputHelper.WriteLine(interiorNumber);
+        }
+    }
+
+    // Test settlements generator
+    [Fact]
+    public void TestSettlementsGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var settlement = SettlementsGenerator.Generate();
+            Assert.NotNull(settlement);
+            Assert.NotEmpty(settlement);
+            testOutputHelper.WriteLine(settlement);
+        }
+    }
+
+    // Test postal code generator
+    [Fact]
+    public void TestPostalCodeGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var postalCode = PostalCodeGenerator.Generate();
+            Assert.NotNull(postalCode);
+            Assert.NotEmpty(postalCode);
+            Assert.Equal(5, postalCode.Length);
+            testOutputHelper.WriteLine(postalCode);
         }
     }
 }
