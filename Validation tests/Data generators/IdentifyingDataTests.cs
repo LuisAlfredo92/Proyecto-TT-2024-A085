@@ -1,10 +1,17 @@
-﻿using Identifying_data.Curps;
-using Identifying_data.House_numbers;
+﻿using System.Globalization;
+using Identifying_data.Born_dates;
+using Identifying_data.Curps;
+using Identifying_data.Exterior_numbers;
+using Identifying_data.INE_CIC_numbers;
+using Identifying_data.INE_OCR_numbers;
 using Identifying_data.Interior_numbers;
 using Identifying_data.Localities;
+using Identifying_data.Military_service_number;
 using Identifying_data.Municipalities;
 using Identifying_data.Names;
+using Identifying_data.Phone_numbers;
 using Identifying_data.Postal_code;
+using Identifying_data.Rfc;
 using Identifying_data.Settlements;
 using Identifying_data.States;
 using Identifying_data.Street_names;
@@ -28,6 +35,18 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
         }
     }
 
+    // Test born dates generator
+    [Fact]
+    public void TestBornDatesGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var bornDate = BornDatesGenerator.GenerateBornDate();
+            Assert.True(bornDate >= DateTime.MinValue && bornDate <= DateTime.Today);
+            testOutputHelper.WriteLine(bornDate.ToString(CultureInfo.CurrentCulture));
+        }
+    }
+
     // Test CURP generator
     [Fact]
     public void TestCurpsGenerator()
@@ -39,6 +58,30 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             Assert.NotEmpty(curp);
             Assert.Equal(18, curp.Length);
             testOutputHelper.WriteLine(curp);
+        }
+    }
+
+    // Test CIC INE generator
+    [Fact]
+    public void TestCicIneGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var cicIne = IneCicNumbersGenerator.GenerateIneCicNumber();
+            Assert.True(cicIne is >= 1000000000 and <= 9999999999);
+            testOutputHelper.WriteLine(cicIne.ToString());
+        }
+    }
+
+    // Test OCR INE generator
+    [Fact]
+    public void TestOcrIneGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var ocrIne = IneOcrNumbersGenerator.GenerateIneOcrNumber();
+            Assert.True(ocrIne is >= 1000000000000 and <= 9999999999999);
+            testOutputHelper.WriteLine(ocrIne.ToString());
         }
     }
 
@@ -144,6 +187,45 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             Assert.NotNull(state);
             Assert.NotEmpty(state);
             testOutputHelper.WriteLine(state);
+        }
+    }
+
+    // Test RFC generator
+    [Fact]
+    public void TestRfcGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var rfc = RfcGenerator.Generate();
+            Assert.NotNull(rfc);
+            Assert.NotEmpty(rfc);
+            Assert.Equal(13, rfc.Length);
+            testOutputHelper.WriteLine(rfc);
+        }
+    }
+
+    // Test phone number generator
+    [Fact]
+    public void TestPhoneNumberGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var phoneNumber = PhoneNumbersGenerator.GeneratePhoneNumber();
+            Assert.True(phoneNumber is >= 1000000000 and <= 999999999999999);
+            testOutputHelper.WriteLine(phoneNumber.ToString());
+        }
+    }
+
+    // Test military service number generator
+    [Fact]
+    public void TestMilitaryServiceNumberGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var militaryServiceNumber = MilitaryServiceNumbersGenerator.GenerateMilitaryServiceNumber();
+            Assert.NotNull(militaryServiceNumber);
+            Assert.NotEmpty(militaryServiceNumber);
+            testOutputHelper.WriteLine(militaryServiceNumber);
         }
     }
 }

@@ -37,7 +37,16 @@
 
   <ItemGroup>
     <Folder Include="Interior numbers\" />
+    <Folder Include="INE CIC numbers\" />
+    <Folder Include="INE OCR numbers\" />
+    <Folder Include="Born dates\" />
+    <Folder Include="Phone numbers\" />
+    <Folder Include="Rfc\" />
     <Folder Include="States\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\General Data\General Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Identifying_data.House_numbers;
+namespace Identifying_data.Exterior_numbers;
 
 public class ExteriorNumbersGenerator
 {
