@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\General Data\General Data.csproj" />
+    <ProjectReference Include="..\General Data\General data.csproj" />
   </ItemGroup>
 
 </Project>

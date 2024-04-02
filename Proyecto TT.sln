@@ -25,7 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data generators", "Data gen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identifying data", "Data generators\Identifying data\Identifying data.csproj", "{6E6D0FF3-20DC-4965-8983-8119A29F61BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General Data", "Data generators\General Data\General Data.csproj", "{69AB06AF-B287-4BDE-BF66-D66675CD6027}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General data", "Data generators\General Data\General data.csproj", "{69AB06AF-B287-4BDE-BF66-D66675CD6027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digital data", "Digital data\Digital data.csproj", "{EA741EBA-4115-4C82-B84A-57039C6B4632}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{69AB06AF-B287-4BDE-BF66-D66675CD6027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69AB06AF-B287-4BDE-BF66-D66675CD6027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69AB06AF-B287-4BDE-BF66-D66675CD6027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA741EBA-4115-4C82-B84A-57039C6B4632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA741EBA-4115-4C82-B84A-57039C6B4632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA741EBA-4115-4C82-B84A-57039C6B4632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA741EBA-4115-4C82-B84A-57039C6B4632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF} = {63CF0F15-2ADE-4CC9-ACB0-DAAA432CC8A9}
 		{6E6D0FF3-20DC-4965-8983-8119A29F61BC} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
 		{69AB06AF-B287-4BDE-BF66-D66675CD6027} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
+		{EA741EBA-4115-4C82-B84A-57039C6B4632} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
