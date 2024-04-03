@@ -28,9 +28,7 @@ public class CurpsGenerator
     private static string GenerateName()
     {
         var nameStringBuilder = new StringBuilder();
-        for (var i = 0; i < 4; i++)
-            nameStringBuilder.Append(Letters[Random.Shared.Next(0, Letters.Length)]);
-
+        Parallel.For(0, 4, _ => nameStringBuilder.Append(Letters[Random.Shared.Next(0, Letters.Length)]));
         return nameStringBuilder.ToString();
     }
 
@@ -51,9 +49,7 @@ public class CurpsGenerator
     private static string GenerateConsonants()
     {
         var consonantsStringBuilder = new StringBuilder();
-        for (var i = 0; i < 3; i++)
-            consonantsStringBuilder.Append(Consonants[Random.Shared.Next(0, Consonants.Length)]);
-
+        Parallel.For(0, 3, _ => consonantsStringBuilder.Append(Consonants[Random.Shared.Next(0, Consonants.Length)]));
         return consonantsStringBuilder.ToString();
     }
 

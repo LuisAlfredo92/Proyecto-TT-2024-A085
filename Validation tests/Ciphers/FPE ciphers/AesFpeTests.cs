@@ -40,10 +40,7 @@ public class AesFpeTests
         Span<byte> key = stackalloc byte[32];
         var plainData = new char[32];
         Random.Shared.NextBytes(key);
-        for (var i = 0; i < plainData.Length; i++)
-        {
-            plainData[i] = Alphabet[Random.Shared.Next(Alphabet.Length)];
-        }
+        Parallel.For(0, plainData.Length, i => plainData[i] = Alphabet[Random.Shared.Next(Alphabet.Length)]);
 
         AesFpe aesFpe = new(key, Alphabet);
 

@@ -8,8 +8,7 @@ public class StringGenerator
     public static string GenerateString(int length)
     {
         StringBuilder sb = new();
-        for (var i = 0; i < length; i++)
-            sb.Append(Chars[Random.Shared.Next(Chars.Length)]);
+        Parallel.For(0, length, _ => sb.Append(Chars[Random.Shared.Next(Chars.Length)]));
         return sb.ToString();
     }
 }

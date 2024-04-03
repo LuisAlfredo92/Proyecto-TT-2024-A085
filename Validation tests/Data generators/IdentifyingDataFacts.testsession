@@ -1,0 +1,5 @@
+<SessionState ContinuousTestingMode="0" IsActive="True" Name="IdentifyingDataFacts" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session">
+  <TestAncestor>
+    <TestId>xUnit::35D04E9F-210D-4770-893D-6406F3BB2F8E::net8.0::Validation_tests.Data_generators.IdentifyingDataFacts</TestId>
+  </TestAncestor>
+</SessionState>
