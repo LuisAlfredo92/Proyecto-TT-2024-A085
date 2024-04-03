@@ -11,4 +11,8 @@
     <Folder Include="Email\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
+  </ItemGroup>
+
 </Project>
