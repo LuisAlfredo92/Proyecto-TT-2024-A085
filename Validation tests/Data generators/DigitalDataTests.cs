@@ -1,4 +1,5 @@
 ﻿using Digital_data.Email;
+using Digital_data.Passwords;
 using Digital_data.Usernames;
 using Xunit.Abstractions;
 
@@ -35,6 +36,20 @@ public class DigitalDataTests(ITestOutputHelper testOutputHelper)
             Assert.NotEmpty(username);
             Assert.True(username.Length is >= 6 and <= 30);
             testOutputHelper.WriteLine(username);
+        }
+    }
+
+    // Test password generator
+    [Fact]
+    public void TestPasswordGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var length = Random.Shared.Next(12, 32);
+            var password = PasswordsGenerator.GeneratePassword(length);
+            Assert.NotNull(password);
+            Assert.NotEmpty(password);
+            testOutputHelper.WriteLine(password);
         }
     }
 }

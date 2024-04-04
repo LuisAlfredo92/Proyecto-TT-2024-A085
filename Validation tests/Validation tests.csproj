@@ -22,6 +22,8 @@
     <ProjectReference Include="..\BlockCiphers\Block ciphers.csproj" />
     <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
     <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
+    <ProjectReference Include="..\Data generators\LaboralData\LaborData.csproj" />
+    <ProjectReference Include="..\Data generators\TransitAndMigratoryData\TransitAndMigratoryData.csproj" />
     <ProjectReference Include="..\Digital data\Digital data.csproj" />
     <ProjectReference Include="..\FPE ciphers\FPE ciphers.csproj" />
     <ProjectReference Include="..\Hashes\Hashes.csproj" />
