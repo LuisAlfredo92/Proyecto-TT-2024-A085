@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "General data", "Data genera
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digital data", "Digital data\Digital data.csproj", "{EA741EBA-4115-4C82-B84A-57039C6B4632}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborData", "Data generators\LaboralData\LaborData.csproj", "{76D31B21-C2CE-4BFF-959E-10B6949A0AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaborData", "Data generators\LaboralData\LaborData.csproj", "{76D31B21-C2CE-4BFF-959E-10B6949A0AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitAndMigratoryData", "Data generators\TransitAndMigratoryData\TransitAndMigratoryData.csproj", "{98C2FBD9-B391-4B90-AC9C-5778E93E0475}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransitAndMigratoryData", "Data generators\TransitAndMigratoryData\TransitAndMigratoryData.csproj", "{98C2FBD9-B391-4B90-AC9C-5778E93E0475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patrimony data", "Data generators\Patrimony data\Patrimony data.csproj", "{EB3057F4-065E-431D-9E79-B02502AA85F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,10 @@ Global
 		{98C2FBD9-B391-4B90-AC9C-5778E93E0475}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C2FBD9-B391-4B90-AC9C-5778E93E0475}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98C2FBD9-B391-4B90-AC9C-5778E93E0475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3057F4-065E-431D-9E79-B02502AA85F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3057F4-065E-431D-9E79-B02502AA85F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3057F4-065E-431D-9E79-B02502AA85F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3057F4-065E-431D-9E79-B02502AA85F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +113,7 @@ Global
 		{EA741EBA-4115-4C82-B84A-57039C6B4632} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
 		{76D31B21-C2CE-4BFF-959E-10B6949A0AC1} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
 		{98C2FBD9-B391-4B90-AC9C-5778E93E0475} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
+		{EB3057F4-065E-431D-9E79-B02502AA85F3} = {3D708D2A-9346-497C-9A8A-3A0C0778D84B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}

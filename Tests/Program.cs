@@ -23,7 +23,7 @@ public class Tests
     [GlobalSetup]
     public void Setup()
     {
-        _aes = new Aes();
+        //_aes = new Aes();
     }
 
     [Benchmark]

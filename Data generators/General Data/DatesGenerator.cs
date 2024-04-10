@@ -5,7 +5,7 @@
         public static DateTime GenerateDate(DateTime start, DateTime end)
         {
             var range = (end - start).Days;
-            return start.AddDays(Random.Shared.Next(range));
+            return start.AddDays(Random.Shared.Next(int.Abs(range)) * int.Sign(range));
         }
     }
 }

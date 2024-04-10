@@ -22,4 +22,20 @@ public class StringGenerator
             sb.Append(Chars[Random.Shared.Next(Chars.Length)]);
         return sb.ToString();
     }
+
+    public static string GenerateStringWithSpaces(int length)
+    {
+        StringBuilder sb = new();
+        for (var i = 0; i < length; i++)
+            sb.Append(Random.Shared.NextSingle() < 0.25f ? ' ' : Chars[Random.Shared.Next(Chars.Length)]);
+        return sb.ToString();
+    }
+
+    public static string GenerateArbitraryString(int length)
+    {
+        StringBuilder sb = new();
+        for (var i = 0; i < length; i++)
+            sb.Append((char)Random.Shared.Next(32, 256));
+        return sb.ToString();
+    }
 }

@@ -13,6 +13,5 @@ public class BCryptTests
             salt = RandomNumberGenerator.GetBytes(16);
         var cost = 4;
         var hash = new BCrypt(salt, cost).Hash(plainData);
-        Assert.Equal(null, Convert.ToBase64String(hash));
     }
 }

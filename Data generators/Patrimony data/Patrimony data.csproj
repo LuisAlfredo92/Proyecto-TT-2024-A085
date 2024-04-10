@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Patrimony_data</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Card number\" />
+    <Folder Include="Expiration date\" />
+    <Folder Include="Cvv\" />
+    <Folder Include="Emission date\" />
+    <Folder Include="Salary\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext" Version="8.0.3" />
+    <PackageReference Include="itext.bouncy-castle-adapter" Version="8.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\General Data\General data.csproj" />
+    <ProjectReference Include="..\Identifying data\Identifying data.csproj" />
+    <ProjectReference Include="..\TransitAndMigratoryData\TransitAndMigratoryData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Policies\PolicyExample.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
