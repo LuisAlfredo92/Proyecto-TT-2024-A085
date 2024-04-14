@@ -6,6 +6,7 @@ using Patrimony_data.Expiration_date;
 using Patrimony_data.Investment_return;
 using Patrimony_data.Policies;
 using Patrimony_data.Salary;
+using Patrimony_data.Taxes;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
@@ -88,8 +89,16 @@ public class PatrimonyDataTests(ITestOutputHelper testOutputHelper)
     [Fact]
     public void TestPoliciesGenerator()
     {
-        var policiesGenerator = new PoliciesGenerator();
-        var filePath = policiesGenerator.GeneratePolicy();
+        var filePath = PoliciesGenerator.GeneratePolicy();
         testOutputHelper.WriteLine(filePath);
+    }
+
+    // Test taxes generator
+    [Fact]
+    public void TestTaxesGenerator()
+    {
+        var taxes = TaxesGenerator.GenerateTaxes();
+        testOutputHelper.WriteLine(taxes);
+        Assert.NotNull(taxes);
     }
 }

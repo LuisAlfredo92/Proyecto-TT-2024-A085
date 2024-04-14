@@ -8,23 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="31.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Localities\Localities.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Municipalities\Municipalities.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Names\apellidos.csv">
+    <None Update="Names\Apellidos.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Names\hombres.csv">
+    <None Update="Names\Hombres.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Names\mujeres.csv">
+    <None Update="Names\Mujeres.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Settlements\Settlements.txt">

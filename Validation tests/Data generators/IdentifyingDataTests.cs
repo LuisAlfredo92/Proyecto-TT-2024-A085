@@ -25,10 +25,9 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
     [Fact]
     public void TestNamesGenerator()
     {
-        NamesGenerator namesGenerator = new();
         for (var i = 0; i < 100; i++)
         {
-            var name = namesGenerator.GetRandomName();
+            var name = NamesGenerator.Generate();
             Assert.NotNull(name);
             Assert.NotEmpty(name);
             testOutputHelper.WriteLine(name);

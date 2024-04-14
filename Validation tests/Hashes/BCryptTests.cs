@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 using Hashes;
 
 namespace Validation_tests.Hashes;
