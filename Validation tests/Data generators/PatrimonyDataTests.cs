@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Patrimony_data.Afore;
 using Patrimony_data.Bank_accounts;
 using Patrimony_data.Card_number;
 using Patrimony_data.Cvv;
@@ -112,6 +113,18 @@ public class PatrimonyDataTests(ITestOutputHelper testOutputHelper)
             var bankAccount = BankAccounts.GenerateBankAccount();
             Assert.True(bankAccount.Length == 20);
             testOutputHelper.WriteLine(bankAccount);
+        }
+    }
+
+    // Test AFORE generator
+    [Fact]
+    public void TestAforeGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var aforeName = AforeGenerator.GenerateAforeName();
+            Assert.True(aforeName.Length is >= 4 and <= 17);
+            testOutputHelper.WriteLine(aforeName);
         }
     }
 }
