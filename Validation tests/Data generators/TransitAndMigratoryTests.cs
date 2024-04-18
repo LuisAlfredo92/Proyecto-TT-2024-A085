@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
-using TransitAndMigratoryData.Automobile_license_plate;
-using TransitAndMigratoryData.Niv;
-using TransitAndMigratoryData.Passport_id;
-using TransitAndMigratoryData.Vehicular_license;
-using TransitAndMigratoryData.Visa;
+using Transit_and_migratory_data.Automobile_license_plate;
+using Transit_and_migratory_data.Niv;
+using Transit_and_migratory_data.Passport_id;
+using Transit_and_migratory_data.Vehicular_license;
+using Transit_and_migratory_data.Visa;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;

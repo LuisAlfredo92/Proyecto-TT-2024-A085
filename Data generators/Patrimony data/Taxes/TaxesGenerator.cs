@@ -8,8 +8,8 @@ using Identifying_data.Rfc;
 using Identifying_data.Settlements;
 using Identifying_data.States;
 using Identifying_data.Street_names;
-using TransitAndMigratoryData.Automobile_license_plate;
-using TransitAndMigratoryData.Vehicular_license;
+using Transit_and_migratory_data.Automobile_license_plate;
+using Transit_and_migratory_data.Vehicular_license;
 
 namespace Patrimony_data.Taxes;
 

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace TransitAndMigratoryData.Visa;
+namespace Transit_and_migratory_data.Visa;
 
 public class VisaGenerator
 {

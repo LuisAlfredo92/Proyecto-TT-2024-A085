@@ -1,6 +1,6 @@
 ﻿using General_Data;
 
-namespace TransitAndMigratoryData.Vehicular_license;
+namespace Transit_and_migratory_data.Vehicular_license;
 
 public class VehicularLicenseGenerator
 {

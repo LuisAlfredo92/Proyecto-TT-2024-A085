@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using General_Data;
 
-namespace TransitAndMigratoryData.Automobile_license_plate;
+namespace Transit_and_migratory_data.Automobile_license_plate;
 
 public class AutomobileLicensePlateGenerator
 {

@@ -23,7 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\General Data\General data.csproj" />
     <ProjectReference Include="..\Identifying data\Identifying data.csproj" />
-    <ProjectReference Include="..\TransitAndMigratoryData\TransitAndMigratoryData.csproj" />
+    <ProjectReference Include="..\TransitAndMigratoryData\Transit and migratory data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

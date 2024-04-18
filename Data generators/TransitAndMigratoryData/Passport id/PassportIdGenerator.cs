@@ -1,6 +1,6 @@
 ﻿using General_Data;
 
-namespace TransitAndMigratoryData.Passport_id;
+namespace Transit_and_migratory_data.Passport_id;
 
 public class PassportIdGenerator
 {
