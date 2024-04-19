@@ -2,6 +2,7 @@
 using Health_data.Clinic_historical;
 using Health_data.Clinic_studies;
 using Health_data.Diseases;
+using Health_data.Psychological_condition;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
@@ -39,5 +40,17 @@ public class HealthDataTests(ITestOutputHelper testOutputHelper)
         var filePath = ClinicStudiesGenerator.Generate();
         Assert.True(File.Exists(filePath));
         testOutputHelper.WriteLine(filePath);
+    }
+
+    // Test psychological condition generator
+    [Fact]
+    public void TestPsychologicalConditionGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var condition = PsychologicalConditionGenerator.Generate();
+            Assert.True(condition.Length <= 256);
+            testOutputHelper.WriteLine(condition);
+        }
     }
 }
