@@ -17,4 +17,9 @@
     <PackageReference Include="itext.bouncy-castle-adapter" Version="8.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Nss\" />
+    <Folder Include="Treatments\" />
+  </ItemGroup>
+
 </Project>
