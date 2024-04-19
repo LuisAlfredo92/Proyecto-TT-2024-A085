@@ -10,10 +10,10 @@ public class UsernamesGenerator
     {
         var length = Random.Shared.Next(6, 30);
         StringBuilder sb = new();
-        Parallel.For(0, length, _ =>
+        for(var i = 0; i < length; i++)
         {
             sb.Append(Chars[Random.Shared.Next(Chars.Length)]);
-        });
+        }
         return sb.ToString();
     }
 }

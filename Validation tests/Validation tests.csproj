@@ -26,15 +26,16 @@
   <ItemGroup>
     <ProjectReference Include="..\Asymmetric ciphers\Asymmetric ciphers.csproj" />
     <ProjectReference Include="..\BlockCiphers\Block ciphers.csproj" />
+    <ProjectReference Include="..\Data generators\Academic data\Academic data.csproj" />
     <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
     <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
     <ProjectReference Include="..\Data generators\LaboralData\LaborData.csproj" />
     <ProjectReference Include="..\Data generators\Patrimony data\Patrimony data.csproj" />
     <ProjectReference Include="..\Data generators\TransitAndMigratoryData\Transit and migratory data.csproj" />
-    <ProjectReference Include="..\Digital data\Digital data.csproj" />
+    <ProjectReference Include="..\Data generators\Digital data\Digital data.csproj" />
     <ProjectReference Include="..\FPE ciphers\FPE ciphers.csproj" />
     <ProjectReference Include="..\Hashes\Hashes.csproj" />
-    <ProjectReference Include="..\Health data\Health data.csproj" />
+    <ProjectReference Include="..\Data generators\Health data\Health data.csproj" />
     <ProjectReference Include="..\Homomorphic ciphers\Homomorphic ciphers.csproj" />
     <ProjectReference Include="..\Stream ciphers\Stream ciphers.csproj" />
   </ItemGroup>

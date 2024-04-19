@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
-    <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
+    <ProjectReference Include="..\General Data\General data.csproj" />
+    <ProjectReference Include="..\Identifying data\Identifying data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
