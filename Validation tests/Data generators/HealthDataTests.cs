@@ -53,4 +53,13 @@ public class HealthDataTests(ITestOutputHelper testOutputHelper)
             testOutputHelper.WriteLine(condition);
         }
     }
+
+    // Test clinic historical generator
+    [Fact]
+    public void TestClinicHistoricalGenerator()
+    {
+        var filePath = ClinicHistoricalGenerator.GenerateStudies();
+        Assert.True(File.Exists(filePath));
+        testOutputHelper.WriteLine(filePath);
+    }
 }
