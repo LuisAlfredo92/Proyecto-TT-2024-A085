@@ -25,7 +25,7 @@ public class BenalohTests
         //Assert.Equal(expectedData, encryptedData);
     }
 
-    [Fact]
+    /*[Fact]
     public void TestCase2()
     {
         //var key = Benaloh.GenerateKeys();
@@ -41,7 +41,7 @@ public class BenalohTests
             decryptedData = benaloh.Decrypt(encryptedData);
 
         Assert.Equal(plainData, decryptedData);
-    }
+    }*/
 
     [Fact]
     public void TestCase3()

@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Block ciphers", "BlockCiphers\Block ciphers.csproj", "{942696A9-A963-4325-80CB-9993D1558C29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Block ciphers", "Ciphers\Block ciphers\Block ciphers.csproj", "{942696A9-A963-4325-80CB-9993D1558C29}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{8DF0E342-CD24-4F55-A9B7-D22EE2E5EBD6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation tests", "Validation tests\Validation tests.csproj", "{35D04E9F-210D-4770-893D-6406F3BB2F8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stream ciphers", "Stream ciphers\Stream ciphers.csproj", "{6F9B7AE0-9527-428D-A239-016B6B253F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stream ciphers", "Ciphers\Stream ciphers\Stream ciphers.csproj", "{6F9B7AE0-9527-428D-A239-016B6B253F55}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asymmetric ciphers", "Asymmetric ciphers\Asymmetric ciphers.csproj", "{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asymmetric ciphers", "Ciphers\Asymmetric ciphers\Asymmetric ciphers.csproj", "{9D1D0CB6-89A7-46A1-81B9-A8D183AA9582}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPE ciphers", "FPE ciphers\FPE ciphers.csproj", "{2536B0FD-9D10-46B9-89A1-46D8147D046A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPE ciphers", "Ciphers\FPE ciphers\FPE ciphers.csproj", "{2536B0FD-9D10-46B9-89A1-46D8147D046A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homomorphic ciphers", "Homomorphic ciphers\Homomorphic ciphers.csproj", "{44766E3A-2FA9-44E6-B617-4C03A9387979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homomorphic ciphers", "Ciphers\Homomorphic ciphers\Homomorphic ciphers.csproj", "{44766E3A-2FA9-44E6-B617-4C03A9387979}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashes", "Hashes\Hashes.csproj", "{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashes", "Ciphers\Hashes\Hashes.csproj", "{E0B89853-D4A2-48F1-B06F-60ECCA9E4DBF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ciphers", "Ciphers", "{63CF0F15-2ADE-4CC9-ACB0-DAAA432CC8A9}"
 EndProject

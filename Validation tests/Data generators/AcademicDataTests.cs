@@ -14,7 +14,7 @@ public partial class AcademicDataTests(ITestOutputHelper testOutputHelper)
         {
             var cct = CctGenerator.GenerateCct();
             Assert.Equal(10, cct.Length);
-            Assert.True(CctRegex().IsMatch(cct));
+            Assert.Matches(CctRegex(), cct);
             testOutputHelper.WriteLine(cct);
         }
     }
