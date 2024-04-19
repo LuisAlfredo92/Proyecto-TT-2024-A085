@@ -51,10 +51,10 @@ public class PaillierTests
 
         BigInteger encryptedA = paillier.Encrypt(a),
             encryptedB = paillier.Encrypt(b),
-            encryptedAB = encryptedA.ModMultiply(encryptedB, key.Public.N.Pow(2)),
-            decryptedAB = paillier.Decrypt(encryptedAB);
+            encryptedAb = encryptedA.ModMultiply(encryptedB, key.Public.N.Pow(2)),
+            decryptedAb = paillier.Decrypt(encryptedAb);
 
-        Assert.Equal(aPlusB, decryptedAB);
+        Assert.Equal(aPlusB, decryptedAb);
     }
 
     /// <summary>
@@ -73,8 +73,8 @@ public class PaillierTests
 
         BigInteger encryptedA = paillier.Encrypt(a),
             encryptedAPowB = encryptedA.ModPow(b, key.Public.N.Pow(2)),
-            decryptedAB = paillier.Decrypt(encryptedAPowB);
+            decryptedAb = paillier.Decrypt(encryptedAPowB);
 
-        Assert.Equal(aTimesB, decryptedAB);
+        Assert.Equal(aTimesB, decryptedAb);
     }
 }

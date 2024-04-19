@@ -1,6 +1,6 @@
 ﻿namespace Asymmetric_ciphers;
 
-public class NTRUEncrypt
+public class NtruEncrypt
 {
     
 }

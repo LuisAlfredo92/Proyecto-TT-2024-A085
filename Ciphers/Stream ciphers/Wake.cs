@@ -5,7 +5,7 @@ namespace Stream_ciphers;
 public class Wake([Length(4, 4)] ReadOnlySpan<int> key)
 {
     private readonly int[] _table = GenerateTable(key);
-    private int[] r; // end key
+    private int[] _r; // end key
 
     public byte[] Encrypt(byte[] plainText)
     {
@@ -17,7 +17,7 @@ public class Wake([Length(4, 4)] ReadOnlySpan<int> key)
         return cipherText;
     }
 
-    private void Cypher(int[] V, int n, int[] k, ref int[] r)
+    private void Cypher(int[] v, int n, int[] k, ref int[] r)
     {
         int r1, r2, r3, r4, r5, r6, e, d, m = 0x00ffffff;
         r3 = k[0];

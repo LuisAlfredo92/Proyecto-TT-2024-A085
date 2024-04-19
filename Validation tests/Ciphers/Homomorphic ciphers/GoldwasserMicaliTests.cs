@@ -54,12 +54,12 @@ public class GoldwasserMicaliTests
 
         BigInteger[] encryptedA = goldwasserMicali.Encrypt(a),
             encryptedB = goldwasserMicali.Encrypt(b),
-            encryptedAB = new BigInteger[encryptedA.Length];
-        for (var i = 0; i < encryptedAB.Length; i++)
+            encryptedAb = new BigInteger[encryptedA.Length];
+        for (var i = 0; i < encryptedAb.Length; i++)
         {
-            encryptedAB[i] = encryptedA[i].Multiply(encryptedB[i]).Mod(key.Public.N);
+            encryptedAb[i] = encryptedA[i].Multiply(encryptedB[i]).Mod(key.Public.N);
         }
-        var decryptedData = goldwasserMicali.Decrypt(encryptedAB);
+        var decryptedData = goldwasserMicali.Decrypt(encryptedAb);
 
         Assert.Equal(ab, decryptedData);
     }
@@ -83,12 +83,12 @@ public class GoldwasserMicaliTests
 
         BigInteger[] encryptedA = goldwasserMicali.Encrypt(a),
             encryptedB = goldwasserMicali.Encrypt(b),
-            encryptedAB = new BigInteger[encryptedA.Length];
-        for (var i = 0; i < encryptedAB.Length; i++)
+            encryptedAb = new BigInteger[encryptedA.Length];
+        for (var i = 0; i < encryptedAb.Length; i++)
         {
-            encryptedAB[i] = encryptedA[i].Multiply(encryptedB[i]).Mod(key.Public.N);
+            encryptedAb[i] = encryptedA[i].Multiply(encryptedB[i]).Mod(key.Public.N);
         }
-        var decryptedData = goldwasserMicali.Decrypt(encryptedAB);
+        var decryptedData = goldwasserMicali.Decrypt(encryptedAb);
 
         Assert.Equal(ab, decryptedData);
     }
