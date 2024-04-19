@@ -1,5 +1,7 @@
 ﻿using System.Globalization;
-using Health_data;
+using Health_data.Clinic_historical;
+using Health_data.Clinic_studies;
+using Health_data.Diseases;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
@@ -28,5 +30,14 @@ public class HealthDataTests(ITestOutputHelper testOutputHelper)
             Assert.True(date >= DateTime.MinValue && date <= DateTime.MaxValue);
             testOutputHelper.WriteLine(date.ToString(CultureInfo.CurrentCulture));
         }
+    }
+
+    // Test clinic studies generator
+    [Fact]
+    public void TestClinicStudiesGenerator()
+    {
+        var filePath = ClinicStudiesGenerator.Generate();
+        Assert.True(File.Exists(filePath));
+        testOutputHelper.WriteLine(filePath);
     }
 }

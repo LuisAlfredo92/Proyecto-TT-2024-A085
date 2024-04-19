@@ -1,6 +1,6 @@
 ﻿using General_Data;
 
-namespace Health_data;
+namespace Health_data.Diseases;
 
 public class Diseases
 {

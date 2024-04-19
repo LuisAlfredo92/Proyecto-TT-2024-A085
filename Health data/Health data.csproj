@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
+    <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext" Version="8.0.3" />
+    <PackageReference Include="itext.bouncy-castle-adapter" Version="8.0.3" />
   </ItemGroup>
 
 </Project>
