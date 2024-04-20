@@ -94,28 +94,28 @@ public class DegreeGenerator
         #region Date 2
 
         // Day
-        document.Add(new Paragraph(day).AddStyle(SmallText).SetFixedPosition(255, 682, 100).SetPageNumber(2));
+        document.Add(new Paragraph(day).AddStyle(SmallText).SetFixedPosition(2, 255, 682, 100));
         // Month
-        document.Add(new Paragraph(month).AddStyle(SmallText).SetFixedPosition(283, 682, 100).SetPageNumber(2));
+        document.Add(new Paragraph(month).AddStyle(SmallText).SetFixedPosition(2, 283, 682, 100));
         // Year
-        document.Add(new Paragraph(year).AddStyle(SmallText).SetFixedPosition(352, 683.2f, 100).SetPageNumber(2));
+        document.Add(new Paragraph(year).AddStyle(SmallText).SetFixedPosition(2, 352, 683.2f, 100));
 
         #endregion
 
         // Fojas
         var fojas = Random.Shared.Next(1, 100).ToString("D2");
-        document.Add(new Paragraph(fojas).AddStyle(SmallText).SetFixedPosition(308, 668, 100).SetPageNumber(2));
+        document.Add(new Paragraph(fojas).AddStyle(SmallText).SetFixedPosition(2, 308, 668, 100));
 
         #region Stamp
 
         // Fojas
-        document.Add(new Paragraph(fojas).AddStyle(VerySmallText).SetFixedPosition(220, 456, 50).SetPageNumber(2));
+        document.Add(new Paragraph(fojas).AddStyle(VerySmallText).SetFixedPosition(2, 220, 456, 50));
         // Book
-        document.Add(new Paragraph(Random.Shared.Next(1, 1000).ToString("D3")).AddStyle(VerySmallText).SetFixedPosition(265, 454, 50).SetPageNumber(2));
+        document.Add(new Paragraph(Random.Shared.Next(1, 1000).ToString("D3")).AddStyle(VerySmallText).SetFixedPosition(2, 265, 454, 50));
         // Number
-        document.Add(new Paragraph(Random.Shared.Next(1, 1000).ToString("D3")).AddStyle(VerySmallText).SetFixedPosition(219, 444, 50).SetPageNumber(2));
+        document.Add(new Paragraph(Random.Shared.Next(1, 1000).ToString("D3")).AddStyle(VerySmallText).SetFixedPosition(2, 219, 444, 50));
         // ID
-        document.Add(new Paragraph(Random.Shared.Next(1, 100000000).ToString("D8")).AddStyle(VerySmallText).SetFixedPosition(218, 436, 50).SetPageNumber(2));
+        document.Add(new Paragraph(Random.Shared.Next(1, 100000000).ToString("D8")).AddStyle(VerySmallText).SetFixedPosition(2, 218, 436, 50));
 
         #region Date 3
 

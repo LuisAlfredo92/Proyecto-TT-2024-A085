@@ -7,4 +7,10 @@ public class NamesGenerator
 
     public static string Generate()
         => $"{Names[Random.Shared.Next(Names.Length)]} {LastNames[Random.Shared.Next(LastNames.Length)]} {LastNames[Random.Shared.Next(LastNames.Length)]}";
+
+    public static string GetName()
+        => Names[Random.Shared.Next(Names.Length)];
+
+    public static string GetLastName()
+        => LastNames[Random.Shared.Next(LastNames.Length)];
 }
