@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Civil organizations\" />
     <Folder Include="Political preferences\" />
   </ItemGroup>
 

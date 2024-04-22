@@ -1,4 +1,5 @@
-﻿using Ideological_data.Political_preferences;
+﻿using Ideological_data.Civil_organizations;
+using Ideological_data.Political_preferences;
 using Ideological_data.Religion;
 using Ideological_data.Union_affiliation;
 using Xunit.Abstractions;
@@ -42,6 +43,18 @@ public class IdeologicalDataTests(ITestOutputHelper testOutputHelper)
             var name = UnionAffiliationGenerator.GenerateName();
             Assert.InRange(name.Length, 32, 200);
             testOutputHelper.WriteLine($"{id} {name}");
+        }
+    }
+
+    // Test civil organizations generator
+    [Fact]
+    public void TestCivilOrganizationsGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var civilOrganization = CivilOrganizationsGenerator.Generate();
+            Assert.Equal(civilOrganization.Length, 14);
+            testOutputHelper.WriteLine(civilOrganization);
         }
     }
 }
