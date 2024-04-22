@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Certifications\Certificado secundaria.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Degrees\Degree example.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

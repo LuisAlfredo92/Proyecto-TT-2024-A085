@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Academic_data.Cct;
+using Academic_data.Certifications;
 using Academic_data.Degrees;
 using Academic_data.Referrals;
 using Academic_data.Report_cards;
@@ -49,5 +50,14 @@ public partial class AcademicDataTests(ITestOutputHelper testOutputHelper)
         var reportCard = ReportCardsGenerator.Generate();
         Assert.True(File.Exists(reportCard));
         testOutputHelper.WriteLine(reportCard);
+    }
+
+    // Test Certification generator
+    [Fact]
+    public void TestCertificationGenerator()
+    {
+        var certification = CertificationsGenerator.Generate();
+        Assert.True(File.Exists(certification));
+        testOutputHelper.WriteLine(certification);
     }
 }
