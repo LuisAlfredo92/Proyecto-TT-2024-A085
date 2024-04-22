@@ -1,4 +1,5 @@
 ﻿using Intimate_data.Genre;
+using Intimate_data.Marital_status;
 using Intimate_data.Sexual_preferences;
 using Xunit.Abstractions;
 
@@ -35,6 +36,19 @@ public class IntimalDataTests(ITestOutputHelper testOutputHelper)
             Assert.InRange(name.Length, 4, 50);
 
             testOutputHelper.WriteLine($"{id} {name}");
+        }
+    }
+
+    // Test marital status generator
+    [Fact]
+    public void TestMaritalStatusGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var id = MaritalStatusGenerator.Generate();
+            Assert.InRange(id, 1, 6);
+
+            testOutputHelper.WriteLine($"{id}");
         }
     }
 }
