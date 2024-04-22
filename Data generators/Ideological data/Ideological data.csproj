@@ -11,4 +11,8 @@
     <ProjectReference Include="..\General Data\General data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Political preferences\" />
+  </ItemGroup>
+
 </Project>
