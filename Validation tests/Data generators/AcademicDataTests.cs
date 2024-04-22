@@ -2,6 +2,7 @@
 using Academic_data.Cct;
 using Academic_data.Certifications;
 using Academic_data.Degrees;
+using Academic_data.Enrolment;
 using Academic_data.Referrals;
 using Academic_data.Report_cards;
 using Xunit.Abstractions;
@@ -59,5 +60,17 @@ public partial class AcademicDataTests(ITestOutputHelper testOutputHelper)
         var certification = CertificationsGenerator.Generate();
         Assert.True(File.Exists(certification));
         testOutputHelper.WriteLine(certification);
+    }
+
+    // Test Enrolment generator
+    [Fact]
+    public void TestEnrolmentGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var enrolment = EnrolmentGenerator.Generate();
+            Assert.InRange(enrolment.Length, 9, 16);
+            testOutputHelper.WriteLine(enrolment);
+        }
     }
 }
