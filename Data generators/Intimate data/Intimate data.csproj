@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Genre\" />
     <Folder Include="Sexual preferences\" />
   </ItemGroup>
 
