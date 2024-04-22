@@ -53,7 +53,7 @@ public class IdeologicalDataTests(ITestOutputHelper testOutputHelper)
         for (var i = 0; i < 100; i++)
         {
             var civilOrganization = CivilOrganizationsGenerator.Generate();
-            Assert.Equal(civilOrganization.Length, 14);
+            Assert.Equal(14, civilOrganization.Length);
             testOutputHelper.WriteLine(civilOrganization);
         }
     }

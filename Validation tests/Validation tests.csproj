@@ -30,6 +30,7 @@
     <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
     <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
     <ProjectReference Include="..\Data generators\Ideological data\Ideological data.csproj" />
+    <ProjectReference Include="..\Data generators\Intimate data\Intimate data.csproj" />
     <ProjectReference Include="..\Data generators\LaboralData\LaborData.csproj" />
     <ProjectReference Include="..\Data generators\Patrimony data\Patrimony data.csproj" />
     <ProjectReference Include="..\Data generators\TransitAndMigratoryData\Transit and migratory data.csproj" />
