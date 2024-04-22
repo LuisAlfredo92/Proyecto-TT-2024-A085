@@ -2,6 +2,7 @@
 using Academic_data.Cct;
 using Academic_data.Degrees;
 using Academic_data.Referrals;
+using Academic_data.Report_cards;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
@@ -39,5 +40,14 @@ public partial class AcademicDataTests(ITestOutputHelper testOutputHelper)
         var referral = ReferralGenerator.Generate();
         Assert.True(File.Exists(referral));
         testOutputHelper.WriteLine(referral);
+    }
+
+    // Test Report card generator
+    [Fact]
+    public void TestReportCardGenerator()
+    {
+        var reportCard = ReportCardsGenerator.Generate();
+        Assert.True(File.Exists(reportCard));
+        testOutputHelper.WriteLine(reportCard);
     }
 }
