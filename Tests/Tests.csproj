@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data generators\Block ciphers\Block ciphers.csproj" />
   </ItemGroup>
 
 </Project>

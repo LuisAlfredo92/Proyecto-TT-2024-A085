@@ -29,7 +29,7 @@ public class PoliciesGenerator
     {
         string fileName = StringGenerator.GenerateString(10),
             filePath = $"./Policies/{fileName}.pdf";
-        var fileStream = File.Create(filePath);
+        using var fileStream = File.Create(filePath);
         PdfDocument pdfDocument = new(PdfReader, new PdfWriter(fileStream));
         Document document = new(pdfDocument);
 

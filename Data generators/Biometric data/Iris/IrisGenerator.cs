@@ -19,7 +19,7 @@ public class IrisGenerator
         string fileName = StringGenerator.GenerateString(10),
             filePath = $"./Iris/{fileName}.bmp";
         Directory.CreateDirectory("./Iris");
-        var fileStream = File.Create(filePath);
+        using var fileStream = File.Create(filePath);
 
         var rawImage = GenerateRawImage();
         rawImage.Mutate(x => x.Rotate(RotateMode.Rotate180));

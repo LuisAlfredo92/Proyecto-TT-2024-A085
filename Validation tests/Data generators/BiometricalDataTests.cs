@@ -1,4 +1,5 @@
 ﻿using Biometric_data.Iris;
+using Biometric_data.Scars;
 using Biometric_data.Skin_color;
 using Xunit.Abstractions;
 
@@ -29,5 +30,20 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
 
             testOutputHelper.WriteLine($"{fitzpatrick} - {perla}");
         }
+    }
+
+    // Test scars generator
+    [Fact]
+    public void TestScarsGenerator()
+    {
+        var location = ScarsGenerator.GenerateLocation();
+        Assert.InRange(location.Length, 8, 50);
+
+        var size = ScarsGenerator.GenerateSize();
+        Assert.True(size > 0);
+
+        var filePath = ScarsGenerator.GeneratePhoto();
+        Assert.True(File.Exists(filePath));
+        testOutputHelper.WriteLine($"{location} - {size} - {filePath}");
     }
 }
