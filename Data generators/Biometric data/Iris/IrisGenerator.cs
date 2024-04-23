@@ -1,9 +1,6 @@
-﻿using System.Numerics;
-using System.Runtime.InteropServices;
-using General_Data;
+﻿using General_Data;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using System.Security.Cryptography;
 using SixLabors.ImageSharp.Formats.Bmp;
 using SixLabors.ImageSharp.Processing;
 
