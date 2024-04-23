@@ -27,6 +27,7 @@
     <ProjectReference Include="..\Ciphers\Asymmetric ciphers\Asymmetric ciphers.csproj" />
     <ProjectReference Include="..\Ciphers\Block ciphers\Block ciphers.csproj" />
     <ProjectReference Include="..\Data generators\Academic data\Academic data.csproj" />
+    <ProjectReference Include="..\Data generators\Biometric data\Biometric data.csproj" />
     <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
     <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
     <ProjectReference Include="..\Data generators\Ideological data\Ideological data.csproj" />
