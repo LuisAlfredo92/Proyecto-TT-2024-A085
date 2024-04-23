@@ -1,6 +1,8 @@
-﻿using Biometric_data.Iris;
+﻿using System.Globalization;
+using Biometric_data.Iris;
 using Biometric_data.Scars;
 using Biometric_data.Skin_color;
+using Biometric_data.Weight;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
@@ -45,5 +47,18 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
         var filePath = ScarsGenerator.GeneratePhoto();
         Assert.True(File.Exists(filePath));
         testOutputHelper.WriteLine($"{location} - {size} - {filePath}");
+    }
+
+    // Test weight generator
+    [Fact]
+    public void TestWeightGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var weight = WeightGenerator.GenerateWeight();
+            Assert.InRange(weight, 60, 160);
+
+            testOutputHelper.WriteLine(weight.ToString(CultureInfo.CurrentCulture));
+        }
     }
 }
