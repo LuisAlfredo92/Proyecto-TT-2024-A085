@@ -3,6 +3,7 @@ using System.Text;
 using Biometric_data.Adn;
 using Biometric_data.Blood_type;
 using Biometric_data.Fingerprint;
+using Biometric_data.Height;
 using Biometric_data.Iris;
 using Biometric_data.Scars;
 using Biometric_data.Sex;
@@ -142,6 +143,22 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
             Assert.Equal(SexTypes[type], bloodTypeFromType);
 
             testOutputHelper.WriteLine($"{bloodType} / {type} - {bloodTypeFromType}");
+        }
+    }
+
+    // Test height generator
+    [Fact]
+    public void TestHeightGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var height = HeightGenerator.GenerateHeightInCentimeters();
+            Assert.InRange(height, 150, 200);
+
+            var heightMeters = HeightGenerator.GenerateHeightInMeters();
+            Assert.InRange(heightMeters, 1.5f, 2.1f);
+
+            testOutputHelper.WriteLine($"{height} - {heightMeters:0.00}");
         }
     }
 }
