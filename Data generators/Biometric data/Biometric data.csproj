@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="Fingerprint\Images\" />
     <Folder Include="Iris\" />
+    <Folder Include="Blood type\" />
   </ItemGroup>
 
   <ItemGroup>

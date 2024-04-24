@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Text;
 using Biometric_data.Adn;
+using Biometric_data.Blood_type;
 using Biometric_data.Fingerprint;
 using Biometric_data.Iris;
 using Biometric_data.Scars;
@@ -100,6 +101,26 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
             var filePath = FingerprintGenerator.GenerateFingerprint();
             Assert.True(File.Exists(filePath));
             testOutputHelper.WriteLine(filePath);
+        }
+    }
+
+    // Test blood type generator
+    [Fact]
+    public void TestBloodTypeGenerator()
+    {
+        string[] BloodTypes = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Rh nulo"];
+        for (var i = 0; i < 100; i++)
+        {
+            var bloodType = BloodTypeGenerator.GenerateBloodType();
+            Assert.Contains(bloodType, BloodTypes);
+
+            var type = BloodTypeGenerator.GenerateType();
+            Assert.InRange(type, 0, BloodTypes.Length - 1);
+
+            var bloodTypeFromType = BloodTypeGenerator.GetBloodType(type);
+            Assert.Equal(BloodTypes[type], bloodTypeFromType);
+
+            testOutputHelper.WriteLine($"{bloodType} / {type} - {bloodTypeFromType}");
         }
     }
 }
