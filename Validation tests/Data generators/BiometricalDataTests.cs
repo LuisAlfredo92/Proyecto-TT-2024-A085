@@ -5,6 +5,7 @@ using Biometric_data.Blood_type;
 using Biometric_data.Fingerprint;
 using Biometric_data.Iris;
 using Biometric_data.Scars;
+using Biometric_data.Sex;
 using Biometric_data.Skin_color;
 using Biometric_data.Weight;
 using Xunit.Abstractions;
@@ -119,6 +120,26 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
 
             var bloodTypeFromType = BloodTypeGenerator.GetBloodType(type);
             Assert.Equal(BloodTypes[type], bloodTypeFromType);
+
+            testOutputHelper.WriteLine($"{bloodType} / {type} - {bloodTypeFromType}");
+        }
+    }
+
+    // Test sex generator
+    [Fact]
+    public void TestSexGenerator()
+    {
+        string[] SexTypes = ["Masculino", "Femenino", "Otro"];
+        for (var i = 0; i < 100; i++)
+        {
+            var bloodType = SexGenerator.GenerateSex();
+            Assert.Contains(bloodType, SexTypes);
+
+            var type = SexGenerator.GenerateSexType();
+            Assert.InRange(type, 0, SexTypes.Length - 1);
+
+            var bloodTypeFromType = SexGenerator.GetSex(type);
+            Assert.Equal(SexTypes[type], bloodTypeFromType);
 
             testOutputHelper.WriteLine($"{bloodType} / {type} - {bloodTypeFromType}");
         }
