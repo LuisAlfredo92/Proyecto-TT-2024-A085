@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Text;
 using Biometric_data.Adn;
+using Biometric_data.Fingerprint;
 using Biometric_data.Iris;
 using Biometric_data.Scars;
 using Biometric_data.Skin_color;
@@ -87,6 +88,18 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
                 }
             }
             testOutputHelper.WriteLine(sb.ToString());
+        }
+    }
+
+    // Test fingerprint generator
+    [Fact]
+    public void TestFingerprintGenerator()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var filePath = FingerprintGenerator.GenerateFingerprint();
+            Assert.True(File.Exists(filePath));
+            testOutputHelper.WriteLine(filePath);
         }
     }
 }
