@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using System.Text;
+using Biometric_data.Adn;
 using Biometric_data.Iris;
 using Biometric_data.Scars;
 using Biometric_data.Skin_color;
@@ -59,6 +61,32 @@ public class BiometricalDataTests(ITestOutputHelper testOutputHelper)
             Assert.InRange(weight, 60, 160);
 
             testOutputHelper.WriteLine(weight.ToString(CultureInfo.CurrentCulture));
+        }
+    }
+
+    // Test ADN generator
+    [Fact]
+    public void TestAdnGenerator()
+    {
+        for (var k = 0; k < 10; k++)
+        {
+            var adn = AdnGenerator.Generate();
+            StringBuilder sb = new();
+            for (var i = 0; i < 10; i++)
+            {
+                for (var j = 0; j < 4; j++)
+                {
+                    var letter = ((adn[i] >> 6 - j * 2) & 3) switch
+                    {
+                        0 => 'A',
+                        1 => 'T',
+                        2 => 'C',
+                        _ => 'G'
+                    };
+                    sb.Append(letter);
+                }
+            }
+            testOutputHelper.WriteLine(sb.ToString());
         }
     }
 }
