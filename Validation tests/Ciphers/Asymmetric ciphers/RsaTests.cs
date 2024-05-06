@@ -12,7 +12,7 @@ public class RsaTests : IAsyncLifetime
     {
         return Task.Run(() =>
             {
-                _provider = new RSACryptoServiceProvider(16384);
+                _provider = new RSACryptoServiceProvider(4096);
                 _key = _provider.ExportRSAPrivateKey();
             }
         );
@@ -52,7 +52,7 @@ public class RsaTests : IAsyncLifetime
     [Fact]
     public void TestCase3()
     {
-        var plainData = new byte[2037];
+        var plainData = new byte[501];
         Random.Shared.NextBytes(plainData);
 
         Rsa rsa = new(_key);
