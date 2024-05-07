@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Crypto.Engines;
+﻿using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using System.ComponentModel.DataAnnotations;
@@ -7,20 +8,28 @@ namespace BlockCiphers;
 
 public class Cast256
 {
-    private readonly GcmBlockCipher _gcmCipher;
+    private GcmBlockCipher _gcmCipher;
     private readonly GcmBlockCipher _gcmDecipher;
+    private readonly Cast6Engine _cast6EngineEncrypt;
+    private readonly AeadParameters _cipherParameters;
 
     public Cast256([Length(16, 32)] Span<byte> key, [Length(8, 8)] byte[] nonce, byte[]? associatedData = null)
     {
-        Cast6Engine twoFishEngineEncrypt = new();
-        Cast6Engine twoFishEngineDecrypt = new();
-        _gcmCipher = new GcmBlockCipher(twoFishEngineEncrypt);
-        _gcmDecipher = new GcmBlockCipher(twoFishEngineDecrypt);
+        _cast6EngineEncrypt = new();
+        Cast6Engine cast6EngineDecrypt = new();
+        _gcmCipher = new GcmBlockCipher(_cast6EngineEncrypt);
+        _gcmDecipher = new GcmBlockCipher(cast6EngineDecrypt);
         var associatedData1 = associatedData ?? [];
 
-        var cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
-        _gcmCipher.Init(true, cipherParameters);
-        _gcmDecipher.Init(false, cipherParameters);
+        _cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
+        _gcmCipher.Init(true, _cipherParameters);
+        _gcmDecipher.Init(false, _cipherParameters);
+    }
+
+    public void Reset()
+    {
+        _gcmCipher = new GcmBlockCipher(_cast6EngineEncrypt);
+        _gcmCipher.Init(true, _cipherParameters);
     }
 
     public byte[] Encrypt(byte[] plainText)

@@ -1,21 +1,29 @@
-﻿using Org.BouncyCastle.Crypto.Modes;
+﻿using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 
 namespace Stream_ciphers;
 
 public class ChaCha20
 {
-    private readonly ChaCha20Poly1305 _chaCha20Encrypt;
+    private ChaCha20Poly1305 _chaCha20Encrypt;
     private readonly ChaCha20Poly1305 _chaCha20Decrypt;
+    private readonly AeadParameters _cipherParameters;
 
     public ChaCha20(ReadOnlySpan<byte> key, byte[] nonce, byte[]? associatedData = null)
     {
         _chaCha20Encrypt = new ChaCha20Poly1305();
         _chaCha20Decrypt = new ChaCha20Poly1305();
         var associatedData1 = associatedData ?? [];
-        var cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
-        _chaCha20Encrypt.Init(true, cipherParameters);
-        _chaCha20Decrypt.Init(false, cipherParameters);
+        _cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
+        _chaCha20Encrypt.Init(true, _cipherParameters);
+        _chaCha20Decrypt.Init(false, _cipherParameters);
+    }
+
+    public void Reset()
+    {
+        _chaCha20Encrypt = new ChaCha20Poly1305();
+        _chaCha20Encrypt.Init(true, _cipherParameters);
     }
 
     public byte[] Encrypt(byte[] plainText)

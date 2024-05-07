@@ -25,11 +25,12 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
     [Fact]
     public void TestNamesGenerator()
     {
-        for (var i = 0; i < 100; i++)
+        for (var i = 0; i < 1_000_000; i++)
         {
             var name = NamesGenerator.Generate();
             Assert.NotNull(name);
             Assert.NotEmpty(name);
+            Assert.True(name.Length >= 1);
             testOutputHelper.WriteLine(name);
         }
     }

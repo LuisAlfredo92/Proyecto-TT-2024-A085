@@ -12,6 +12,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ciphers\Asymmetric ciphers\Asymmetric ciphers.csproj" />
+    <ProjectReference Include="..\Ciphers\Block ciphers\Block ciphers.csproj" />
+    <ProjectReference Include="..\Ciphers\FPE ciphers\FPE ciphers.csproj" />
+    <ProjectReference Include="..\Ciphers\Hashes\Hashes.csproj" />
+    <ProjectReference Include="..\Ciphers\Homomorphic ciphers\Homomorphic ciphers.csproj" />
+    <ProjectReference Include="..\Ciphers\Stream ciphers\Stream ciphers.csproj" />
+    <ProjectReference Include="..\Data generators\Academic data\Academic data.csproj" />
+    <ProjectReference Include="..\Data generators\Biometric data\Biometric data.csproj" />
+    <ProjectReference Include="..\Data generators\Digital data\Digital data.csproj" />
+    <ProjectReference Include="..\Data generators\General Data\General data.csproj" />
+    <ProjectReference Include="..\Data generators\Health data\Health data.csproj" />
+    <ProjectReference Include="..\Data generators\Identifying data\Identifying data.csproj" />
+    <ProjectReference Include="..\Data generators\Ideological data\Ideological data.csproj" />
+    <ProjectReference Include="..\Data generators\Intimate data\Intimate data.csproj" />
+    <ProjectReference Include="..\Data generators\LaboralData\LaborData.csproj" />
+    <ProjectReference Include="..\Data generators\Patrimony data\Patrimony data.csproj" />
+    <ProjectReference Include="..\Data generators\TransitAndMigratoryData\Transit and migratory data.csproj" />
   </ItemGroup>
 
 </Project>

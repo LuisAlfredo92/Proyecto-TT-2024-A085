@@ -7,25 +7,33 @@ namespace BlockCiphers;
 
 public class TwoFish
 {
-    private readonly GcmBlockCipher _gcmCipher;
+    private GcmBlockCipher? _gcmCipher;
     private readonly GcmBlockCipher _gcmDecipher;
+    private readonly AeadParameters _cipherParameters;
+    private readonly TwofishEngine _twoFishEngineEncrypt;
 
     public TwoFish([Length(16, 32)] Span<byte> key, [Length(8, 8)] byte[] nonce, byte[]? associatedData = null)
     {
-        TwofishEngine twoFishEngineEncrypt = new();
+        _twoFishEngineEncrypt = new TwofishEngine();
         TwofishEngine twoFishEngineDecrypt = new();
-        _gcmCipher = new GcmBlockCipher(twoFishEngineEncrypt);
+        _gcmCipher = new GcmBlockCipher(_twoFishEngineEncrypt);
         _gcmDecipher = new GcmBlockCipher(twoFishEngineDecrypt);
         var associatedData1 = associatedData ?? [];
 
-        var cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
-        _gcmCipher.Init(true, cipherParameters);
-        _gcmDecipher.Init(false, cipherParameters);
+        _cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
+        _gcmCipher.Init(true, _cipherParameters);
+        _gcmDecipher.Init(false, _cipherParameters);
+    }
+
+    public void Reset()
+    {
+        _gcmCipher = new GcmBlockCipher(_twoFishEngineEncrypt);
+        _gcmCipher.Init(true, _cipherParameters);
     }
 
     public byte[] Encrypt(byte[] plainText)
     {
-        var cipherTextData = new byte[_gcmCipher.GetOutputSize(plainText.Length)];
+        var cipherTextData = new byte[_gcmCipher!.GetOutputSize(plainText.Length)];
         var processLength = _gcmCipher.ProcessBytes(plainText, 0, plainText.Length, cipherTextData, 0);
         _gcmCipher.DoFinal(cipherTextData, processLength);
 

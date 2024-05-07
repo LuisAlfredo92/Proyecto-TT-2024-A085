@@ -1,4 +1,6 @@
-﻿using BlockCiphers;
+﻿using System.Text;
+using BlockCiphers;
+using Identifying_data.Names;
 
 namespace Validation_tests.Ciphers.Block_ciphers;
 
@@ -50,5 +52,26 @@ public class BlowfishTests
             decryptedData = blowfish.Decrypt(cipherData);
 
         Assert.Equal(plainData, decryptedData);
+    }
+
+    [Fact]
+    public void TestCase4()
+    {
+        Span<byte> key = stackalloc byte[32],
+        iv = stackalloc byte[8];
+
+        for (var i = 0; i < 1000; i++)
+        {
+            Random.Shared.NextBytes(key);
+            Random.Shared.NextBytes(iv);
+            var plainData = Encoding.UTF8.GetBytes(NamesGenerator.Generate());
+
+            Blowfish blowfish = new(key.ToArray(), iv.ToArray());
+
+            byte[] cipherData = blowfish.Encrypt(plainData),
+                decryptedData = blowfish.Decrypt(cipherData);
+
+            Assert.Equal(plainData, decryptedData);
+        }
     }
 }

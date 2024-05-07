@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Crypto.Engines;
+﻿using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using System.ComponentModel.DataAnnotations;
@@ -7,20 +8,28 @@ namespace BlockCiphers;
 
 public class Serpent
 {
-    private readonly GcmBlockCipher _gcmCipher;
+    private GcmBlockCipher _gcmCipher;
     private readonly GcmBlockCipher _gcmDecipher;
+    private readonly SerpentEngine _serpentEngineEncrypt;
+    private readonly AeadParameters _cipherParameters;
 
     public Serpent([Length(16, 32)] Span<byte> key, [Length(8, 8)] byte[] nonce, byte[]? associatedData = null)
     {
-        SerpentEngine fishEngineEncrypt = new();
-        SerpentEngine fishEngineDecrypt = new();
-        _gcmCipher = new GcmBlockCipher(fishEngineEncrypt);
-        _gcmDecipher = new GcmBlockCipher(fishEngineDecrypt);
+        _serpentEngineEncrypt = new();
+        SerpentEngine serpentEngineDecrypt = new();
+        _gcmCipher = new GcmBlockCipher(_serpentEngineEncrypt);
+        _gcmDecipher = new GcmBlockCipher(serpentEngineDecrypt);
         var associatedData1 = associatedData ?? [];
 
-        var cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
-        _gcmCipher.Init(true, cipherParameters);
-        _gcmDecipher.Init(false, cipherParameters);
+        _cipherParameters = new AeadParameters(new KeyParameter(key), 128, nonce, associatedData1);
+        _gcmCipher.Init(true, _cipherParameters);
+        _gcmDecipher.Init(false, _cipherParameters);
+    }
+
+    public void Reset()
+    {
+        _gcmCipher = new GcmBlockCipher(_serpentEngineEncrypt);
+        _gcmCipher.Init(true, _cipherParameters);
     }
 
     public byte[] Encrypt(byte[] plainText)
