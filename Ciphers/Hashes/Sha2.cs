@@ -4,8 +4,5 @@ namespace Hashes;
 
 public class Sha2
 {
-    public Span<byte> Hash(ReadOnlySpan<byte> input)
-    {
-        return SHA512.HashData(input);
-    } 
+    public static Span<byte> Hash(ReadOnlySpan<byte> input) => SHA512.HashData(input);
 }

@@ -10,7 +10,6 @@ public class Sha2Tests
     [Fact]
     public void TestCase1()
     {
-        var sha2 = new Sha2();
         var input = "abc"u8.ToArray();
         var expected =
             Convert.FromHexString(
@@ -23,7 +22,7 @@ public class Sha2Tests
                 "454d4423643ce80e" +
                 "2a9ac94fa54ca49f"
                 );
-        var actual = sha2.Hash(input);
+        var actual = Sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
     }
 
@@ -33,7 +32,6 @@ public class Sha2Tests
     [Fact]
     public void TestCase2()
     {
-        var sha2 = new Sha2();
         var input = ""u8.ToArray();
         var expected =
             Convert.FromHexString(
@@ -46,14 +44,13 @@ public class Sha2Tests
                 "63b931bd47417a81" +
                 "a538327af927da3e"
                 );
-        var actual = sha2.Hash(input);
+        var actual = Sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
     }
 
     [Fact]
     public void TestCase3()
     {
-        var sha2 = new Sha2();
         var input = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"u8.ToArray();
         var expected =
             Convert.FromHexString(
@@ -66,14 +63,13 @@ public class Sha2Tests
                 "31ad85c7a71dd703" +
                 "54ec631238ca3445"
                 );
-        var actual = sha2.Hash(input);
+        var actual = Sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
     }
 
     [Fact]
     public void TestCase4()
     {
-        var sha2 = new Sha2();
         var input = new byte[1000000];
         Array.Fill<byte>(input, 0x61);
         var expected =
@@ -87,14 +83,13 @@ public class Sha2Tests
                 "eb009c5c2c49aa2e" +
                 "4eadb217ad8cc09b"
                 );
-        var actual = sha2.Hash(input);
+        var actual = Sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
     }
 
     [Fact]
     public void TestCase5()
     {
-        var sha2 = new Sha2();
         Span<byte> bytesToRepeat = stackalloc byte[64];
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmno"u8.ToArray().CopyTo(bytesToRepeat);
         var input = new byte[16777216 * 64];
@@ -114,7 +109,7 @@ public class Sha2Tests
                 "05a7281dbe6c1086"
             );
 
-        var actual = sha2.Hash(input);
+        var actual = Sha2.Hash(input);
         Assert.Equal(expected, actual.ToArray());
     }
 }

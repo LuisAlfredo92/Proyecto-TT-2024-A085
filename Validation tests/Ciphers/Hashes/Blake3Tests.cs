@@ -5,7 +5,7 @@ namespace Validation_tests.Ciphers.Hashes;
 public class Blake3Tests
 {
     /// <summary>
-    /// Test vectors from https://twitter.com/TARU_8naRu/status/1769333467677122651
+    /// Test vectors from https://github.com/BLAKE3-team/BLAKE3/blob/master/test_vectors/test_vectors.json
     /// </summary>
     /// <param name="inputLength"></param>
     /// <param name="expectedHexString"></param>
@@ -87,8 +87,7 @@ public class Blake3Tests
             input[i] = (byte)(i % 251);
 
         var expected = Convert.FromHexString(expectedHexString);
-        Blake3 blake2 = new();
-        var hash = blake2.Hash(input);
+        var hash = Blake3.Hash(input);
 
         Assert.Equal(expected, hash.ToArray());
     }
