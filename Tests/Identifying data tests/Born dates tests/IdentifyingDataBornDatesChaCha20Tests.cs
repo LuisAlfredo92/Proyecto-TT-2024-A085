@@ -1,21 +1,20 @@
-﻿using BenchmarkDotNet.Attributes;
-using Identifying_data.Names;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.Security.Cryptography;
+using BenchmarkDotNet.Attributes;
+using Identifying_data.Born_dates;
 using Stream_ciphers;
 
-namespace Tests.Identifying_data_tests.Name_tests;
+namespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataNameChaCha20Tests
+[SimpleJob(launchCount: 10, iterationCount: 10)]
+public class IdentifyingDataBornDatesChaCha20Tests
 {
     private ChaCha20 _chaCha20 = null!;
-    private byte[] _name = null!;
+    private byte[] _bornDates = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
@@ -28,7 +27,7 @@ public class IdentifyingDataNameChaCha20Tests
         RandomNumberGenerator.Fill(_nonce);
         _chaCha20 = new ChaCha20(_key.AsSpan(), _nonce!);
 
-        _name = Encoding.UTF8.GetBytes(NamesGenerator.Generate());
+        _bornDates = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
     }
 
     [Benchmark]
@@ -42,7 +41,7 @@ public class IdentifyingDataNameChaCha20Tests
     public byte[] EncryptNamesChaCha20()
     {
         _chaCha20.Reset();
-        return _chaCha20.Encrypt(_name);
+        return _chaCha20.Encrypt(_bornDates);
     }
 
     [GlobalSetup(Target = nameof(DecryptNamesChaCha20))]
@@ -54,10 +53,10 @@ public class IdentifyingDataNameChaCha20Tests
         RandomNumberGenerator.Fill(_nonce);
         _chaCha20 = new ChaCha20(_key.AsSpan(), _nonce);
 
-        var generatedName = Encoding.UTF8.GetBytes(NamesGenerator.Generate());
-        _name = _chaCha20.Encrypt(generatedName);
+        var generatedName = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
+        _bornDates = _chaCha20.Encrypt(generatedName);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesChaCha20() => _chaCha20.Decrypt(_name);
+    public byte[] DecryptNamesChaCha20() => _chaCha20.Decrypt(_bornDates);
 }

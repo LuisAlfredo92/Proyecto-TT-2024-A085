@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using General_Data;
 
 namespace Biometric_data.Adn;
 

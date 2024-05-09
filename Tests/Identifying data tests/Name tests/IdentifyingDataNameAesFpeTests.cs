@@ -1,10 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BlockCiphers;
 using Identifying_data.Names;
 using System.Security.Cryptography;
-using System.Text;
 using FPE_ciphers;
-using Stream_ciphers;
 
 namespace Tests.Identifying_data_tests.Name_tests;
 
@@ -29,6 +26,8 @@ public class IdentifyingDataNameAesFpeTests
         _chaCha20 = new AesFpe(_key.AsSpan(), _alphabet);
 
         _name = NamesGenerator.Generate().ToCharArray();
+        if (_name.Length > 30)
+            _name = _name[..30];
     }
 
     [Benchmark]
@@ -42,6 +41,8 @@ public class IdentifyingDataNameAesFpeTests
         _chaCha20 = new AesFpe(_key.AsSpan(), _alphabet);
 
         var generatedName = NamesGenerator.Generate().ToCharArray();
+        if(generatedName.Length > 30)
+            generatedName = generatedName[..30];
         _name = _chaCha20.Encrypt(generatedName);
     }
 

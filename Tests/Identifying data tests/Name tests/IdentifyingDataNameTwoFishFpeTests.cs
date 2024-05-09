@@ -1,10 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BlockCiphers;
 using Identifying_data.Names;
 using System.Security.Cryptography;
-using System.Text;
 using FPE_ciphers;
-using Stream_ciphers;
 
 namespace Tests.Identifying_data_tests.Name_tests;
 
@@ -27,8 +24,9 @@ public class IdentifyingDataNameTwoFishFpeTests
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _chaCha20 = new TwoFishFpe(_key.AsSpan(), _alphabet);
-
         _name = NamesGenerator.Generate().ToCharArray();
+        if (_name.Length > 30)
+            _name = _name[..30];
     }
 
     [Benchmark]
@@ -42,6 +40,8 @@ public class IdentifyingDataNameTwoFishFpeTests
         _chaCha20 = new TwoFishFpe(_key.AsSpan(), _alphabet);
 
         var generatedName = NamesGenerator.Generate().ToCharArray();
+        if (generatedName.Length > 30)
+            generatedName = generatedName[..30];
         _name = _chaCha20.Encrypt(generatedName);
     }
 
