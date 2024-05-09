@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Template tests\ClassDataTypeAesFpeTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeAesTests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeArgon2IdTests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeBCryptTests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeBlake3Tests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeCamelliaFpeTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeCamelliaTests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeCast256FpeTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeCast256Tests.cs" />
     <Compile Remove="Template tests\ClassDataTypeChaCha20Tests.cs" />
     <Compile Remove="Template tests\ClassDataTypeCkksTest.cs" />
@@ -17,15 +23,26 @@
     <Compile Remove="Template tests\ClassDataTypeElGamalTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeGoldwasserMicaliTest.cs" />
     <Compile Remove="Template tests\ClassDataTypePaillierTest.cs" />
+    <Compile Remove="Template tests\ClassDataTypePbkdf2Tests.cs" />
     <Compile Remove="Template tests\ClassDataTypeRsaHomomorphicTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeRsaTests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeSerpentFpeTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeSerpentTests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeSha2Tests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeSha3Tests.cs" />
+    <Compile Remove="Template tests\ClassDataTypeTwoFishFpeTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeTwoFishTests.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Template tests\ClassDataTypeAesFpeTests.cs" />
     <None Include="Template tests\ClassDataTypeAesTests.cs" />
+    <None Include="Template tests\ClassDataTypeArgon2IdTests.cs" />
+    <None Include="Template tests\ClassDataTypeBCryptTests.cs" />
+    <None Include="Template tests\ClassDataTypeBlake3Tests.cs" />
+    <None Include="Template tests\ClassDataTypeCamelliaFpeTests.cs" />
     <None Include="Template tests\ClassDataTypeCamelliaTests.cs" />
+    <None Include="Template tests\ClassDataTypeCast256FpeTests.cs" />
     <None Include="Template tests\ClassDataTypeCast256Tests.cs" />
     <None Include="Template tests\ClassDataTypeChaCha20Tests.cs" />
     <None Include="Template tests\ClassDataTypeCkksTest.cs" />
@@ -33,9 +50,14 @@
     <None Include="Template tests\ClassDataTypeElGamalTests.cs" />
     <None Include="Template tests\ClassDataTypeGoldwasserMicaliTest.cs" />
     <None Include="Template tests\ClassDataTypePaillierTest.cs" />
+    <None Include="Template tests\ClassDataTypePbkdf2Tests.cs" />
     <None Include="Template tests\ClassDataTypeRsaHomomorphicTests.cs" />
     <None Include="Template tests\ClassDataTypeRsaTests.cs" />
+    <None Include="Template tests\ClassDataTypeSerpentFpeTests.cs" />
     <None Include="Template tests\ClassDataTypeSerpentTests.cs" />
+    <None Include="Template tests\ClassDataTypeSha2Tests.cs" />
+    <None Include="Template tests\ClassDataTypeSha3Tests.cs" />
+    <None Include="Template tests\ClassDataTypeTwoFishFpeTests.cs" />
     <None Include="Template tests\ClassDataTypeTwoFishTests.cs" />
   </ItemGroup>
 
