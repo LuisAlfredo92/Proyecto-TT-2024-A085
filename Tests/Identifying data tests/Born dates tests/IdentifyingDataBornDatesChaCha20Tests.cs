@@ -10,7 +10,7 @@ namespace Tests.Identifying_data_tests.Born_dates_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 10, iterationCount: 10)]
+[SimpleJob(launchCount: 1000, iterationCount: 10)]
 public class IdentifyingDataBornDatesChaCha20Tests
 {
     private ChaCha20 _chaCha20 = null!;

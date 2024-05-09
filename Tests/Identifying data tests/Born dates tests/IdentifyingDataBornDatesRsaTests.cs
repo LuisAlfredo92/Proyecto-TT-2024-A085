@@ -10,11 +10,11 @@ namespace Tests.Identifying_data_tests.Born_dates_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 10, iterationCount: 10)]
+[SimpleJob(launchCount: 1000, iterationCount: 10)]
 public class IdentifyingDataBornDatesRsaTests
 {
     private Rsa _rsa = null!;
-    private byte[] _name = null!;
+    private byte[] _bornDate = null!;
     private byte[]? _key;
     private RSACryptoServiceProvider? _provider;
 
@@ -25,14 +25,11 @@ public class IdentifyingDataBornDatesRsaTests
         _key = _provider.ExportRSAPrivateKey();
         _rsa = new Rsa(_key);
 
-        _name = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
+        _bornDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
     }
 
     [Benchmark]
-    public byte[] EncryptBornDatesRsa()
-    {
-        return _rsa.Encrypt(_name);
-    }
+    public byte[] EncryptBornDatesRsa() => _rsa.Encrypt(_bornDate);
 
     [GlobalSetup(Target = nameof(DecryptBornDatesRsa))]
     public void SetupDecryption()
@@ -42,9 +39,9 @@ public class IdentifyingDataBornDatesRsaTests
         _rsa = new Rsa(_key);
 
         var generatedDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
-        _name = _rsa.Encrypt(generatedDate);
+        _bornDate = _rsa.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptBornDatesRsa() => _rsa.Decrypt(_name);
+    public byte[] DecryptBornDatesRsa() => _rsa.Decrypt(_bornDate);
 }

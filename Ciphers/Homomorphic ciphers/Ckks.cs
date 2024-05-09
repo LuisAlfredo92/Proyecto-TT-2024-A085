@@ -33,7 +33,7 @@ public class Ckks
     public static SEALContext GenerateContext()
     {
         EncryptionParameters encryptionParameters = new(SchemeType.CKKS);
-        const ulong polyModulusDegree = 16384;
+        const ulong polyModulusDegree = 8192;
         encryptionParameters.PolyModulusDegree = polyModulusDegree;
         encryptionParameters.CoeffModulus = CoeffModulus.Create(
             polyModulusDegree, [60, 40, 40, 60]);
