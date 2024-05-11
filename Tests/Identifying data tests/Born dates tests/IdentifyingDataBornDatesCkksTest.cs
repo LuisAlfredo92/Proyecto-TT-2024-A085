@@ -3,7 +3,7 @@ using Homomorphic_ciphers;
 using Identifying_data.Born_dates;
 using Microsoft.Research.SEAL;
 
-namespace Tests.Identifying_data_tests.Born_dates_tests;
+BornDatespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [MinColumn]

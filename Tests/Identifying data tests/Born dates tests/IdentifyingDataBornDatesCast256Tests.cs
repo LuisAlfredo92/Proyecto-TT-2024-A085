@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using BlockCiphers;
 using Identifying_data.Born_dates;
 
-namespace Tests.Identifying_data_tests.Born_dates_tests;
+BornDatespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -18,7 +18,7 @@ public class IdentifyingDataBornDatesCast256Tests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCast256Benchmark), nameof(EncryptNamesCast256)])]
+    [GlobalSetup(Targets = [nameof(CleanCast256Benchmark), nameof(EncryptBornDatesCast256)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -38,13 +38,13 @@ public class IdentifyingDataBornDatesCast256Tests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesCast256()
+    public byte[] EncryptBornDatesCast256()
     {
         _cast256.Reset();
         return _cast256.Encrypt(_bornDate);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesCast256))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesCast256))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -58,5 +58,5 @@ public class IdentifyingDataBornDatesCast256Tests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesCast256() => _cast256.Decrypt(_bornDate);
+    public byte[] DecryptBornDatesCast256() => _cast256.Decrypt(_bornDate);
 }

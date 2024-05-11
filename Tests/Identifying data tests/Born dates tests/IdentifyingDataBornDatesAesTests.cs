@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using Identifying_data.Born_dates;
 using Aes = BlockCiphers.Aes;
 
-namespace Tests.Identifying_data_tests.Born_dates_tests;
+BornDatespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [AllStatisticsColumn]
@@ -14,7 +14,7 @@ public class IdentifyingDataBornDatesAesTests
     private byte[] _bornDate = null!;
     private byte[] _tag = null!;
 
-    [GlobalSetup(Target = nameof(EncryptNamesAes))]
+    [GlobalSetup(Target = nameof(EncryptBornDatesAes))]
     public void SetupEncryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -26,9 +26,9 @@ public class IdentifyingDataBornDatesAesTests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesAes() => _aes.Encrypt(_bornDate, out _);
+    public byte[] EncryptBornDatesAes() => _aes.Encrypt(_bornDate, out _);
 
-    [GlobalSetup(Target = nameof(DecryptNamesAes))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesAes))]
     public void SetupDecryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -41,5 +41,5 @@ public class IdentifyingDataBornDatesAesTests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesAes() => _aes.Decrypt(_bornDate, _tag);
+    public byte[] DecryptBornDatesAes() => _aes.Decrypt(_bornDate, _tag);
 }

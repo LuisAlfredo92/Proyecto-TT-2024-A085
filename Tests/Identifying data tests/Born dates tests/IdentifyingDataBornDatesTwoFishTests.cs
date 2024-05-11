@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using BlockCiphers;
 using Identifying_data.Born_dates;
 
-namespace Tests.Identifying_data_tests.Born_dates_tests;
+BornDatespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -44,7 +44,7 @@ public class IdentifyingDataBornDatesTwoFishTests
         return _twoFish.Encrypt(_bornDate);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesTwoFish))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesTwoFish))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -58,5 +58,5 @@ public class IdentifyingDataBornDatesTwoFishTests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesTwoFish() => _twoFish.Decrypt(_bornDate);
+    public byte[] DecryptBornDatesTwoFish() => _twoFish.Decrypt(_bornDate);
 }
