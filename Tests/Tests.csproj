@@ -8,6 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeAesFpeTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeAesTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeArgon2IdTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeBCryptTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeBlake3Tests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeCamelliaTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeCast256Tests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeChaCha20Tests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeCkksTest.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeElGamalHomomorphicTest.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeElGamalTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeGoldwasserMicaliTest.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypePaillierTest.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypePbkdf2Tests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeRsaHomomorphicTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeRsaTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeSerpentTests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeSha2Tests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeSha3Tests.cs" />
+    <Compile Remove="Identifying data tests\INE CIC numbers tests\ClassDataTypeTwoFishTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeAesFpeTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeAesTests.cs" />
     <Compile Remove="Template tests\ClassDataTypeArgon2IdTests.cs" />
