@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using Identifying_data.Born_dates;
 using Stream_ciphers;
 
-BornDatespace Tests.Identifying_data_tests.Born_dates_tests;
+namespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [MinColumn]

@@ -7,7 +7,7 @@ using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Security;
 
-BornDatespace Tests.Identifying_data_tests.Born_dates_tests;
+namespace Tests.Identifying_data_tests.Born_dates_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
