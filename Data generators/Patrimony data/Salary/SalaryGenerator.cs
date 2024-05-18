@@ -4,6 +4,6 @@ public class SalaryGenerator
 {
     public static float GenerateSalary()
     {
-        return Random.Shared.NextSingle() * 10000000;
+        return Random.Shared.NextSingle() * 10_000_000;
     }
 }
