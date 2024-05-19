@@ -14,7 +14,7 @@ public class IdentifyingDataBornDatesAesTests
     private byte[] _bornDate = null!;
     private byte[] _tag = null!;
 
-    [GlobalSetup(Target = nameof(EncryptNamesAes))]
+    [GlobalSetup(Target = nameof(EncryptBornDatesAes))]
     public void SetupEncryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -26,9 +26,9 @@ public class IdentifyingDataBornDatesAesTests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesAes() => _aes.Encrypt(_bornDate, out _);
+    public byte[] EncryptBornDatesAes() => _aes.Encrypt(_bornDate, out _);
 
-    [GlobalSetup(Target = nameof(DecryptNamesAes))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesAes))]
     public void SetupDecryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -41,5 +41,5 @@ public class IdentifyingDataBornDatesAesTests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesAes() => _aes.Decrypt(_bornDate, _tag);
+    public byte[] DecryptBornDatesAes() => _aes.Decrypt(_bornDate, _tag);
 }

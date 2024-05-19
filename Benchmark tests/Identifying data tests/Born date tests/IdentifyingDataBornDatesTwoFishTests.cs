@@ -44,7 +44,7 @@ public class IdentifyingDataBornDatesTwoFishTests
         return _twoFish.Encrypt(_bornDate);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesTwoFish))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesTwoFish))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -58,5 +58,5 @@ public class IdentifyingDataBornDatesTwoFishTests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesTwoFish() => _twoFish.Decrypt(_bornDate);
+    public byte[] DecryptBornDatesTwoFish() => _twoFish.Decrypt(_bornDate);
 }

@@ -18,7 +18,7 @@ public class IdentifyingDataBornDatesChaCha20Tests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptNamesChaCha20)])]
+    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptBornDatesChaCha20)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -38,13 +38,13 @@ public class IdentifyingDataBornDatesChaCha20Tests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesChaCha20()
+    public byte[] EncryptBornDatesChaCha20()
     {
         _chaCha20.Reset();
         return _chaCha20.Encrypt(_bornDates);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesChaCha20))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesChaCha20))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -58,5 +58,5 @@ public class IdentifyingDataBornDatesChaCha20Tests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesChaCha20() => _chaCha20.Decrypt(_bornDates);
+    public byte[] DecryptBornDatesChaCha20() => _chaCha20.Decrypt(_bornDates);
 }

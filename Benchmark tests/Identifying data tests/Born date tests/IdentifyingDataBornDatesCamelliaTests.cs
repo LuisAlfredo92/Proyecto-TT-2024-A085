@@ -18,7 +18,7 @@ public class IdentifyingDataBornDatesCamelliaTests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptNamesCamellia)])]
+    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptBornDatesCamellia)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -38,13 +38,13 @@ public class IdentifyingDataBornDatesCamelliaTests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesCamellia()
+    public byte[] EncryptBornDatesCamellia()
     {
         _camellia.Reset();
         return _camellia.Encrypt(_bornDate);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesCamellia))]
+    [GlobalSetup(Target = nameof(DecryptBornDatesCamellia))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -58,5 +58,5 @@ public class IdentifyingDataBornDatesCamelliaTests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesCamellia() => _camellia.Decrypt(_bornDate);
+    public byte[] DecryptBornDatesCamellia() => _camellia.Decrypt(_bornDate);
 }
