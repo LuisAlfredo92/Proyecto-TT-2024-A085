@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using BenchmarkDotNet.Attributes;
 using Homomorphic_ciphers;
 using Identifying_data.Born_dates;

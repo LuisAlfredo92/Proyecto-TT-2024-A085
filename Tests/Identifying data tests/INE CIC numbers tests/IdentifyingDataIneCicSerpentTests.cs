@@ -1,9 +1,9 @@
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using BlockCiphers;
-using Identifying_data.Born_dates;
+using Identifying_data.INE_CIC_numbers;
 
-namespace Born_date_tests;
+namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -11,14 +11,14 @@ namespace Born_date_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataBornDatesSerpentTests
+public class IdentifyingDataIneCicSerpentTests
 {
     private Serpent _serpent = null!;
-    private byte[] _bornDate = null!;
+    private byte[] _ineCicNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanSerpentBenchmark), nameof(EncryptBornDatesSerpent)])]
+    [GlobalSetup(Targets = [nameof(CleanSerpentBenchmark), nameof(EncryptIneCicSerpent)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -27,7 +27,7 @@ public class IdentifyingDataBornDatesSerpentTests
         RandomNumberGenerator.Fill(_nonce);
         _serpent = new Serpent(_key.AsSpan(), _nonce!);
 
-        _bornDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
+        _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
@@ -38,13 +38,13 @@ public class IdentifyingDataBornDatesSerpentTests
     }
 
     [Benchmark]
-    public byte[] EncryptBornDatesSerpent()
+    public byte[] EncryptIneCicSerpent()
     {
         _serpent.Reset();
-        return _serpent.Encrypt(_bornDate);
+        return _serpent.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptBornDatesSerpent))]
+    [GlobalSetup(Target = nameof(DecryptIneCicSerpent))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -53,10 +53,10 @@ public class IdentifyingDataBornDatesSerpentTests
         RandomNumberGenerator.Fill(_nonce);
         _serpent = new Serpent(_key.AsSpan(), _nonce);
 
-        var generatedDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
-        _bornDate = _serpent.Encrypt(generatedDate);
+        var generatedDate = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
+        _ineCicNumber = _serpent.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptBornDatesSerpent() => _serpent.Decrypt(_bornDate);
+    public byte[] DecryptIneCicSerpent() => _serpent.Decrypt(_ineCicNumber);
 }

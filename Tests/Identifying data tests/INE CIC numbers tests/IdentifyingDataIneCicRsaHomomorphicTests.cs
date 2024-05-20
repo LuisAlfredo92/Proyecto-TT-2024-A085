@@ -1,13 +1,13 @@
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using Homomorphic_ciphers;
-using Identifying_data.Born_dates;
+using Identifying_data.INE_CIC_numbers;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Security;
 
-namespace Born_date_tests;
+namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -15,14 +15,14 @@ namespace Born_date_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataBornDatesRsaHomomorphicTests
+public class IdentifyingDataIneCicRsaHomomorphicTests
 {
     private RsaHomomorphic _rsa = null!;
-    private BigInteger _bornDate = null!;
+    private BigInteger _ineCicNumber = null!;
     private RsaKeyPairGenerator? _pGen;
     private AsymmetricCipherKeyPair? _key;
 
-    [GlobalSetup(Target = nameof(EncryptBornDatesRsaHomomorphic))]
+    [GlobalSetup(Target = nameof(EncryptIneCicRsaHomomorphic))]
     public void SetupEncryption()
     {
         _pGen = new RsaKeyPairGenerator();
@@ -31,13 +31,13 @@ public class IdentifyingDataBornDatesRsaHomomorphicTests
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
 
-        _bornDate = BigInteger.ValueOf(BornDatesGenerator.GenerateBornDate().Ticks);
+        _ineCicNumber = BigInteger.ValueOf(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public BigInteger EncryptBornDatesRsaHomomorphic() => _rsa.Encrypt(_bornDate);
+    public BigInteger EncryptIneCicRsaHomomorphic() => _rsa.Encrypt(_ineCicNumber);
 
-    [GlobalSetup(Target = nameof(DecryptBornDatesRsaHomomorphic))]
+    [GlobalSetup(Target = nameof(DecryptIneCicRsaHomomorphic))]
     public void SetupDecryption()
     {
         _pGen = new RsaKeyPairGenerator();
@@ -46,10 +46,10 @@ public class IdentifyingDataBornDatesRsaHomomorphicTests
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
 
-        var generatedDate = BigInteger.ValueOf(BornDatesGenerator.GenerateBornDate().Ticks);
-        _bornDate = _rsa.Encrypt(generatedDate);
+        var generatedDate = BigInteger.ValueOf(IneCicNumbersGenerator.GenerateIneCicNumber());
+        _ineCicNumber = _rsa.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public BigInteger DecryptBornDatesRsaHomomorphic() => _rsa.Decrypt(_bornDate);
+    public BigInteger DecryptIneCicRsaHomomorphic() => _rsa.Decrypt(_ineCicNumber);
 }

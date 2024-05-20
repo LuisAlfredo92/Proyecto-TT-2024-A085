@@ -1,9 +1,9 @@
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using BlockCiphers;
-using Identifying_data.Born_dates;
+using Identifying_data.INE_CIC_numbers;
 
-namespace Born_date_tests;
+namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -11,14 +11,14 @@ namespace Born_date_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataBornDatesCamelliaTests
+public class IdentifyingDataIneCicCamelliaTests
 {
     private Camellia _camellia = null!;
-    private byte[] _bornDate = null!;
+    private byte[] _ineCicNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptBornDatesCamellia)])]
+    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptNamesCamellia)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -27,7 +27,7 @@ public class IdentifyingDataBornDatesCamelliaTests
         RandomNumberGenerator.Fill(_nonce);
         _camellia = new Camellia(_key.AsSpan(), _nonce!);
 
-        _bornDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
+        _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
@@ -38,13 +38,13 @@ public class IdentifyingDataBornDatesCamelliaTests
     }
 
     [Benchmark]
-    public byte[] EncryptBornDatesCamellia()
+    public byte[] EncryptNamesCamellia()
     {
         _camellia.Reset();
-        return _camellia.Encrypt(_bornDate);
+        return _camellia.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptBornDatesCamellia))]
+    [GlobalSetup(Target = nameof(DecryptNamesCamellia))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -53,10 +53,10 @@ public class IdentifyingDataBornDatesCamelliaTests
         RandomNumberGenerator.Fill(_nonce);
         _camellia = new Camellia(_key.AsSpan(), _nonce);
 
-        var generatedDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
-        _bornDate = _camellia.Encrypt(generatedDate);
+        var generatedDate = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
+        _ineCicNumber = _camellia.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptBornDatesCamellia() => _camellia.Decrypt(_bornDate);
+    public byte[] DecryptNamesCamellia() => _camellia.Decrypt(_ineCicNumber);
 }

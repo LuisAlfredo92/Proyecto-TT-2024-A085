@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 using Asymmetric_ciphers;
 using BenchmarkDotNet.Attributes;
 using Identifying_data.Born_dates;

@@ -1,4 +1,4 @@
-﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes;
 using Homomorphic_ciphers;
 using Identifying_data.Born_dates;
 using Org.BouncyCastle.Math;

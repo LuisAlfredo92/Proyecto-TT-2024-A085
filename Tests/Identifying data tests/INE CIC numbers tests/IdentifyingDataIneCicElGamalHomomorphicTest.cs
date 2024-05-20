@@ -1,13 +1,13 @@
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using Homomorphic_ciphers;
-using Identifying_data.Born_dates;
+using Identifying_data.INE_CIC_numbers;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Security;
 
-namespace Born_date_tests;
+namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -15,17 +15,17 @@ namespace Born_date_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataBornDatesElGamalHomomorphicTests
+public class IdentifyingDataIneCicElGamalHomomorphicTests
 {
     private ElGamalHomomorphic _elGamal = null!;
-    private BigInteger _bornDate = null!;
-    private (BigInteger yotta, BigInteger delta) _bornDateEncrypted;
+    private BigInteger _ineCicNumber = null!;
+    private (BigInteger yotta, BigInteger delta) _ineCicNumberEncrypted;
     private AsymmetricCipherKeyPair? _key;
     private ElGamalParametersGenerator? _parGen;
     private ElGamalParameters? _elParams;
     private ElGamalKeyPairGenerator? _pGen;
 
-    [GlobalSetup(Target = nameof(EncryptBornDatesElGamalHomomorphic))]
+    [GlobalSetup(Target = nameof(EncryptIneCicElGamalHomomorphic))]
     public void SetupEncryption()
     {
         _parGen = new ElGamalParametersGenerator();
@@ -37,13 +37,13 @@ public class IdentifyingDataBornDatesElGamalHomomorphicTests
 
         _elGamal = new ElGamalHomomorphic((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        _bornDate = BigInteger.ValueOf(BornDatesGenerator.GenerateBornDate().Ticks);
+        _ineCicNumber = BigInteger.ValueOf(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public (BigInteger yotta, BigInteger delta) EncryptBornDatesElGamalHomomorphic() => _elGamal.Encrypt(_bornDate);
+    public (BigInteger yotta, BigInteger delta) EncryptIneCicElGamalHomomorphic() => _elGamal.Encrypt(_ineCicNumber);
 
-    [GlobalSetup(Target = nameof(DecryptBornDatesElGamalHomomorphic))]
+    [GlobalSetup(Target = nameof(DecryptIneCicElGamalHomomorphic))]
     public void SetupDecryption()
     {
         _parGen = new ElGamalParametersGenerator();
@@ -55,10 +55,10 @@ public class IdentifyingDataBornDatesElGamalHomomorphicTests
 
         _elGamal = new ElGamalHomomorphic((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        var generatedDate = BigInteger.ValueOf(BornDatesGenerator.GenerateBornDate().Ticks);
-        _bornDateEncrypted = _elGamal.Encrypt(generatedDate);
+        var generatedDate = BigInteger.ValueOf(IneCicNumbersGenerator.GenerateIneCicNumber());
+        _ineCicNumberEncrypted = _elGamal.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public BigInteger DecryptBornDatesElGamalHomomorphic() => _elGamal.Decrypt(_bornDateEncrypted);
+    public BigInteger DecryptIneCicElGamalHomomorphic() => _elGamal.Decrypt(_ineCicNumberEncrypted);
 }

@@ -1,12 +1,12 @@
-using Asymmetric_ciphers;
+﻿using Asymmetric_ciphers;
 using BenchmarkDotNet.Attributes;
-using Identifying_data.Born_dates;
+using Identifying_data.INE_CIC_numbers;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 
-namespace Born_date_tests;
+namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -14,16 +14,16 @@ namespace Born_date_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataBornDatesElGamalTests
+public class IdentifyingDataIneCicElGamalTests
 {
     private ElGamal _elGamal = null!;
-    private byte[] _bornDate = null!;
+    private byte[] _ineCicNumber = null!;
     private AsymmetricCipherKeyPair? _key;
     private ElGamalParametersGenerator? _parGen;
     private ElGamalParameters? _elParams;
     private ElGamalKeyPairGenerator? _pGen;
 
-    [GlobalSetup(Target = nameof(EncryptBornDatesElGamal))]
+    [GlobalSetup(Target = nameof(EncryptIneCicElGamal))]
     public void SetupEncryption()
     {
         _parGen = new ElGamalParametersGenerator();
@@ -35,13 +35,13 @@ public class IdentifyingDataBornDatesElGamalTests
 
         _elGamal = new ElGamal((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        _bornDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
+        _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public byte[] EncryptBornDatesElGamal() => _elGamal.Encrypt(_bornDate);
+    public byte[] EncryptIneCicElGamal() => _elGamal.Encrypt(_ineCicNumber);
 
-    [GlobalSetup(Target = nameof(DecryptBornDatesElGamal))]
+    [GlobalSetup(Target = nameof(DecryptIneCicElGamal))]
     public void SetupDecryption()
     {
         _parGen = new ElGamalParametersGenerator();
@@ -53,10 +53,10 @@ public class IdentifyingDataBornDatesElGamalTests
 
         _elGamal = new ElGamal((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        var generatedDate = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
-        _bornDate = _elGamal.Encrypt(generatedDate);
+        var generatedDate = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
+        _ineCicNumber = _elGamal.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptBornDatesElGamal() => _elGamal.Decrypt(_bornDate);
+    public byte[] DecryptIneCicElGamal() => _elGamal.Decrypt(_ineCicNumber);
 }

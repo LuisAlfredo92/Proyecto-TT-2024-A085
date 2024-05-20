@@ -1,9 +1,9 @@
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
-using Identifying_data.Born_dates;
+using Identifying_data.INE_CIC_numbers;
 using Stream_ciphers;
 
-namespace Born_date_tests;
+namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -11,14 +11,14 @@ namespace Born_date_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataBornDatesChaCha20Tests
+public class IdentifyingDataIneCicChaCha20Tests
 {
     private ChaCha20 _chaCha20 = null!;
-    private byte[] _bornDates = null!;
+    private byte[] _ineCicNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptBornDatesChaCha20)])]
+    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptNamesChaCha20)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -27,7 +27,7 @@ public class IdentifyingDataBornDatesChaCha20Tests
         RandomNumberGenerator.Fill(_nonce);
         _chaCha20 = new ChaCha20(_key.AsSpan(), _nonce!);
 
-        _bornDates = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
+        _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
@@ -38,13 +38,13 @@ public class IdentifyingDataBornDatesChaCha20Tests
     }
 
     [Benchmark]
-    public byte[] EncryptBornDatesChaCha20()
+    public byte[] EncryptNamesChaCha20()
     {
         _chaCha20.Reset();
-        return _chaCha20.Encrypt(_bornDates);
+        return _chaCha20.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptBornDatesChaCha20))]
+    [GlobalSetup(Target = nameof(DecryptNamesChaCha20))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -53,10 +53,10 @@ public class IdentifyingDataBornDatesChaCha20Tests
         RandomNumberGenerator.Fill(_nonce);
         _chaCha20 = new ChaCha20(_key.AsSpan(), _nonce);
 
-        var generatedName = BitConverter.GetBytes(BornDatesGenerator.GenerateBornDate().Ticks);
-        _bornDates = _chaCha20.Encrypt(generatedName);
+        var generatedName = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
+        _ineCicNumber = _chaCha20.Encrypt(generatedName);
     }
 
     [Benchmark]
-    public byte[] DecryptBornDatesChaCha20() => _chaCha20.Decrypt(_bornDates);
+    public byte[] DecryptNamesChaCha20() => _chaCha20.Decrypt(_ineCicNumber);
 }
