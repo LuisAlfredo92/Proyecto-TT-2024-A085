@@ -10,7 +10,7 @@ namespace Phone_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class IdentifyingDataPhoneSerpentTests
 {
     private Serpent _serpent = null!;

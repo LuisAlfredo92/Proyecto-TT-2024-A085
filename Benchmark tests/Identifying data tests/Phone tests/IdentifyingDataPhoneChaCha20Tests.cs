@@ -10,7 +10,7 @@ namespace Phone_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class IdentifyingDataPhoneChaCha20Tests
 {
     private ChaCha20 _chaCha20 = null!;

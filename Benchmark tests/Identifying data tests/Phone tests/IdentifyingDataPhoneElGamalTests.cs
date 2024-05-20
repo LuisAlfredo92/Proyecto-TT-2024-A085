@@ -13,7 +13,7 @@ namespace Phone_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class IdentifyingDataPhoneElGamalTests
 {
     private ElGamal _elGamal = null!;

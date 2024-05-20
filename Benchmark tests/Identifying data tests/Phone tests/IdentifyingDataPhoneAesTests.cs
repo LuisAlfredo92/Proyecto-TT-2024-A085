@@ -7,7 +7,7 @@ namespace Phone_tests;
 
 [MemoryDiagnoser]
 [AllStatisticsColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class IdentifyingDataPhoneAesTests
 {
     private Aes _aes = null!;
