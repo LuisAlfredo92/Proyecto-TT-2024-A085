@@ -63,6 +63,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phone tests", "Benchmark te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ine cic tests", "Benchmark tests\Identifying data tests\Ine cic tests\Ine cic tests.csproj", "{498E660D-128A-4CF7-9810-DAC4AC4C80CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Military service number tests", "Benchmark tests\Identifying data tests\Military service number tests\Military service number tests.csproj", "{C467915F-4E19-4C98-8F42-A6D6B232F84A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -173,6 +175,10 @@ Global
 		{498E660D-128A-4CF7-9810-DAC4AC4C80CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{498E660D-128A-4CF7-9810-DAC4AC4C80CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{498E660D-128A-4CF7-9810-DAC4AC4C80CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +210,7 @@ Global
 		{366C932C-FDEA-424A-926C-F1932BA21704} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
 		{DD051279-CD66-4A14-BC7C-CF12CE00BD82} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
 		{498E660D-128A-4CF7-9810-DAC4AC4C80CE} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
+		{C467915F-4E19-4C98-8F42-A6D6B232F84A} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}

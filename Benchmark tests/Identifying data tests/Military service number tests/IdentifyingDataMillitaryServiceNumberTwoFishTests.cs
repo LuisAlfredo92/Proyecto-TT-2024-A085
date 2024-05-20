@@ -1,8 +1,10 @@
 ﻿using System.Security.Cryptography;
+using System.Text;
 using BenchmarkDotNet.Attributes;
 using BlockCiphers;
+using Identifying_data.Military_service_number;
 
-namespace Tests.Template_tests;
+namespace Military_service_number_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -10,14 +12,14 @@ namespace Tests.Template_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 100, iterationCount: 10)]
-public class ClassDataTypeTwoFishTests
+public class IdentifyingDataMillitaryServiceNumberTwoFishTests
 {
     private TwoFish _twoFish = null!;
-    private byte[] _yourData = null!;
+    private byte[] _serviceNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanTwoFishBenchmark), nameof(EncryptTypeTwoFish)])]
+    [GlobalSetup(Targets = [nameof(CleanTwoFishBenchmark), nameof(EncryptMillitaryServiceNumberTwoFish)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -26,7 +28,7 @@ public class ClassDataTypeTwoFishTests
         RandomNumberGenerator.Fill(_nonce);
         _twoFish = new TwoFish(_key.AsSpan(), _nonce!);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _serviceNumber = Encoding.UTF8.GetBytes(MilitaryServiceNumbersGenerator.GenerateMilitaryServiceNumber());
     }
 
     [Benchmark]
@@ -37,13 +39,13 @@ public class ClassDataTypeTwoFishTests
     }
 
     [Benchmark]
-    public byte[] EncryptTypeTwoFish()
+    public byte[] EncryptMillitaryServiceNumberTwoFish()
     {
         _twoFish.Reset();
-        return _twoFish.Encrypt(_yourData);
+        return _twoFish.Encrypt(_serviceNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptTypeTwoFish))]
+    [GlobalSetup(Target = nameof(DecryptMillitaryServiceNumberTwoFish))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -52,10 +54,10 @@ public class ClassDataTypeTwoFishTests
         RandomNumberGenerator.Fill(_nonce);
         _twoFish = new TwoFish(_key.AsSpan(), _nonce);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _twoFish.Encrypt(generatedType);
+        var generatedMillitaryServiceNumber = Encoding.UTF8.GetBytes(MilitaryServiceNumbersGenerator.GenerateMilitaryServiceNumber());
+        _serviceNumber = _twoFish.Encrypt(generatedMillitaryServiceNumber);
     }
 
     [Benchmark]
-    public byte[] DecryptTypeTwoFish() => _twoFish.Decrypt(_yourData);
+    public byte[] DecryptMillitaryServiceNumberTwoFish() => _twoFish.Decrypt(_serviceNumber);
 }

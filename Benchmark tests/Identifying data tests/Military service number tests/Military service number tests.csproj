@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Military_service_number_tests</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ClassDataTypeAesFpeTests.cs" />
+    <Compile Remove="ClassDataTypeAesTests.cs" />
+    <Compile Remove="ClassDataTypeArgon2IdTests.cs" />
+    <Compile Remove="ClassDataTypeBCryptTests.cs" />
+    <Compile Remove="ClassDataTypeBlake3Tests.cs" />
+    <Compile Remove="ClassDataTypeCamelliaFpeTests.cs" />
+    <Compile Remove="ClassDataTypeCamelliaTests.cs" />
+    <Compile Remove="ClassDataTypeCast256FpeTests.cs" />
+    <Compile Remove="ClassDataTypeCast256Tests.cs" />
+    <Compile Remove="ClassDataTypeChaCha20Tests.cs" />
+    <Compile Remove="ClassDataTypeElGamalTests.cs" />
+    <Compile Remove="ClassDataTypePbkdf2Tests.cs" />
+    <Compile Remove="ClassDataTypeRsaTests.cs" />
+    <Compile Remove="ClassDataTypeSerpentFpeTests.cs" />
+    <Compile Remove="ClassDataTypeSerpentTests.cs" />
+    <Compile Remove="ClassDataTypeSha2Tests.cs" />
+    <Compile Remove="ClassDataTypeSha3Tests.cs" />
+    <Compile Remove="ClassDataTypeTwoFishFpeTests.cs" />
+    <Compile Remove="ClassDataTypeTwoFishTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ciphers\Asymmetric ciphers\Asymmetric ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Block ciphers\Block ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\FPE ciphers\FPE ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Hashes\Hashes.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Stream ciphers\Stream ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Data generators\Identifying data\Identifying data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -39,7 +39,7 @@ public class ClassDataTypeAesFpeTests
         _aesFpe = new AesFpe(_key.AsSpan(), _alphabet);
 
         var generatedType = CurpsGenerator.Generate().ToCharArray();
-        _yourData = _aesFpe.Encrypt(generatedName);
+        _yourData = _aesFpe.Encrypt(generatedType);
     }
 
     [Benchmark]
