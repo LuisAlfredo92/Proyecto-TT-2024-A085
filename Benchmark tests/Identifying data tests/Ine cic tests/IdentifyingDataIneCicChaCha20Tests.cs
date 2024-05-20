@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using Identifying_data.INE_CIC_numbers;
 using Stream_ciphers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -18,7 +18,7 @@ public class IdentifyingDataIneCicChaCha20Tests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptNamesChaCha20)])]
+    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptIneCicChaCha20)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -38,13 +38,13 @@ public class IdentifyingDataIneCicChaCha20Tests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesChaCha20()
+    public byte[] EncryptIneCicChaCha20()
     {
         _chaCha20.Reset();
         return _chaCha20.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesChaCha20))]
+    [GlobalSetup(Target = nameof(DecryptIneCicChaCha20))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -58,5 +58,5 @@ public class IdentifyingDataIneCicChaCha20Tests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesChaCha20() => _chaCha20.Decrypt(_ineCicNumber);
+    public byte[] DecryptIneCicChaCha20() => _chaCha20.Decrypt(_ineCicNumber);
 }

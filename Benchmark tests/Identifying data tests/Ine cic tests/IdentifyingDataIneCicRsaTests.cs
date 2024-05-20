@@ -3,7 +3,7 @@ using Asymmetric_ciphers;
 using BenchmarkDotNet.Attributes;
 using Identifying_data.INE_CIC_numbers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]

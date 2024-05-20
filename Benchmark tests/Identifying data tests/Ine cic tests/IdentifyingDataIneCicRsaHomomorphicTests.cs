@@ -7,7 +7,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Security;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]

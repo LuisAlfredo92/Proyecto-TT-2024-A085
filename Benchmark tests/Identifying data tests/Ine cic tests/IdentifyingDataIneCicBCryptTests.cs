@@ -1,10 +1,8 @@
-﻿using System.Text;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using Hashes;
-using Identifying_data.Curps;
 using Identifying_data.INE_CIC_numbers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -12,17 +10,17 @@ namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataIneCicArgon2IdTests
+public class IdentifyingDataIneCicBCryptTests
 {
-    private readonly Argon2Id _argon2Id = new();
+    private readonly BCrypt _argon2Id = new();
     private byte[] _ineCicNumber = null!;
 
-    [GlobalSetup(Target = nameof(EncryptCurpArgon2Id))]
+    [GlobalSetup(Target = nameof(EncryptIneCicBCrypt))]
     public void SetupEncryption()
     {
         _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public Span<byte> EncryptCurpArgon2Id() => _argon2Id.Hash(_ineCicNumber);
+    public Span<byte> EncryptIneCicBCrypt() => _argon2Id.Hash(_ineCicNumber);
 }

@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using BlockCiphers;
 using Identifying_data.INE_CIC_numbers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -11,52 +11,52 @@ namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataIneCicTwoFishTests
+public class IdentifyingDataIneCicCast256Tests
 {
-    private TwoFish _twoFish = null!;
+    private Cast256 _cast256 = null!;
     private byte[] _ineCicNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanTwoFishBenchmark), nameof(EncryptIneCicTwoFish)])]
+    [GlobalSetup(Targets = [nameof(CleanCast256Benchmark), nameof(EncryptIneCicCast256)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
         _nonce = new byte[8];
         RandomNumberGenerator.Fill(_key);
         RandomNumberGenerator.Fill(_nonce);
-        _twoFish = new TwoFish(_key.AsSpan(), _nonce!);
+        _cast256 = new Cast256(_key.AsSpan(), _nonce!);
 
         _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public byte[] CleanTwoFishBenchmark()
+    public byte[] CleanCast256Benchmark()
     {
-        _twoFish.Reset();
+        _cast256.Reset();
         return [];
     }
 
     [Benchmark]
-    public byte[] EncryptIneCicTwoFish()
+    public byte[] EncryptIneCicCast256()
     {
-        _twoFish.Reset();
-        return _twoFish.Encrypt(_ineCicNumber);
+        _cast256.Reset();
+        return _cast256.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesTwoFish))]
+    [GlobalSetup(Target = nameof(DecryptIneCicCast256))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         _nonce = new byte[8];
         RandomNumberGenerator.Fill(_key);
         RandomNumberGenerator.Fill(_nonce);
-        _twoFish = new TwoFish(_key.AsSpan(), _nonce);
+        _cast256 = new Cast256(_key.AsSpan(), _nonce);
 
         var generatedDate = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
-        _ineCicNumber = _twoFish.Encrypt(generatedDate);
+        _ineCicNumber = _cast256.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesTwoFish() => _twoFish.Decrypt(_ineCicNumber);
+    public byte[] DecryptIneCicCast256() => _cast256.Decrypt(_ineCicNumber);
 }

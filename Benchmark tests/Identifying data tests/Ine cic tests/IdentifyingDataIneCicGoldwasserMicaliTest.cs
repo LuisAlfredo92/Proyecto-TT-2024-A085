@@ -4,7 +4,7 @@ using Homomorphic_ciphers;
 using Identifying_data.INE_CIC_numbers;
 using Org.BouncyCastle.Math;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]

@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using BlockCiphers;
 using Identifying_data.INE_CIC_numbers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -11,52 +11,52 @@ namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataIneCicCamelliaTests
+public class IdentifyingDataIneCicTwoFishTests
 {
-    private Camellia _camellia = null!;
+    private TwoFish _twoFish = null!;
     private byte[] _ineCicNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptNamesCamellia)])]
+    [GlobalSetup(Targets = [nameof(CleanTwoFishBenchmark), nameof(EncryptIneCicTwoFish)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
         _nonce = new byte[8];
         RandomNumberGenerator.Fill(_key);
         RandomNumberGenerator.Fill(_nonce);
-        _camellia = new Camellia(_key.AsSpan(), _nonce!);
+        _twoFish = new TwoFish(_key.AsSpan(), _nonce!);
 
         _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public byte[] CleanCamelliaBenchmark()
+    public byte[] CleanTwoFishBenchmark()
     {
-        _camellia.Reset();
+        _twoFish.Reset();
         return [];
     }
 
     [Benchmark]
-    public byte[] EncryptNamesCamellia()
+    public byte[] EncryptIneCicTwoFish()
     {
-        _camellia.Reset();
-        return _camellia.Encrypt(_ineCicNumber);
+        _twoFish.Reset();
+        return _twoFish.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesCamellia))]
+    [GlobalSetup(Target = nameof(DecryptIneCicTwoFish))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         _nonce = new byte[8];
         RandomNumberGenerator.Fill(_key);
         RandomNumberGenerator.Fill(_nonce);
-        _camellia = new Camellia(_key.AsSpan(), _nonce);
+        _twoFish = new TwoFish(_key.AsSpan(), _nonce);
 
         var generatedDate = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
-        _ineCicNumber = _camellia.Encrypt(generatedDate);
+        _ineCicNumber = _twoFish.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesCamellia() => _camellia.Decrypt(_ineCicNumber);
+    public byte[] DecryptIneCicTwoFish() => _twoFish.Decrypt(_ineCicNumber);
 }

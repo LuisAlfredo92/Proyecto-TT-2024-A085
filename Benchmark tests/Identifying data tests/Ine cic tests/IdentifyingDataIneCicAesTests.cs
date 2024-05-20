@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using Identifying_data.INE_CIC_numbers;
 using Aes = BlockCiphers.Aes;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [AllStatisticsColumn]
@@ -14,7 +14,7 @@ public class IdentifyingDataIneCicAesTests
     private byte[] _ineCicNumber = null!;
     private byte[] _tag = null!;
 
-    [GlobalSetup(Target = nameof(EncryptNamesAes))]
+    [GlobalSetup(Target = nameof(EncryptIneCicAes))]
     public void SetupEncryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -26,9 +26,9 @@ public class IdentifyingDataIneCicAesTests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesAes() => _aes.Encrypt(_ineCicNumber, out _);
+    public byte[] EncryptIneCicAes() => _aes.Encrypt(_ineCicNumber, out _);
 
-    [GlobalSetup(Target = nameof(DecryptNamesAes))]
+    [GlobalSetup(Target = nameof(DecryptIneCicAes))]
     public void SetupDecryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -41,5 +41,5 @@ public class IdentifyingDataIneCicAesTests
     }
 
     [Benchmark]
-    public byte[] DecryptNamesAes() => _aes.Decrypt(_ineCicNumber, _tag);
+    public byte[] DecryptIneCicAes() => _aes.Decrypt(_ineCicNumber, _tag);
 }

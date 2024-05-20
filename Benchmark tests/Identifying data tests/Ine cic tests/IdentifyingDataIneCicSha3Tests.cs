@@ -2,7 +2,7 @@
 using Hashes;
 using Identifying_data.INE_CIC_numbers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -10,16 +10,16 @@ namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataIneCicBlake3Tests
+public class IdentifyingDataIneCicSha3Tests
 {
     private byte[] _ineCicNumber = null!;
 
-    [GlobalSetup(Target = nameof(EncryptCurpBlake3))]
+    [GlobalSetup(Target = nameof(EncryptIneCicSha3))]
     public void SetupEncryption()
     {
         _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public Span<byte> EncryptCurpBlake3() => Blake3.Hash(_ineCicNumber);
+    public Span<byte> EncryptIneCicSha3() => Sha3.Hash(_ineCicNumber);
 }

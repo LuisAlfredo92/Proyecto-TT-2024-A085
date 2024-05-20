@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using BlockCiphers;
 using Identifying_data.INE_CIC_numbers;
 
-namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
+namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [MinColumn]
@@ -11,52 +11,52 @@ namespace Tests.Identifying_data_tests.INE_CIC_numbers_tests;
 [MedianColumn]
 [MaxColumn]
 [SimpleJob(launchCount: 1000, iterationCount: 10)]
-public class IdentifyingDataIneCicCast256Tests
+public class IdentifyingDataIneCicCamelliaTests
 {
-    private Cast256 _cast256 = null!;
+    private Camellia _camellia = null!;
     private byte[] _ineCicNumber = null!;
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCast256Benchmark), nameof(EncryptNamesCast256)])]
+    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptIneCicCamellia)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
         _nonce = new byte[8];
         RandomNumberGenerator.Fill(_key);
         RandomNumberGenerator.Fill(_nonce);
-        _cast256 = new Cast256(_key.AsSpan(), _nonce!);
+        _camellia = new Camellia(_key.AsSpan(), _nonce!);
 
         _ineCicNumber = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
     }
 
     [Benchmark]
-    public byte[] CleanCast256Benchmark()
+    public byte[] CleanCamelliaBenchmark()
     {
-        _cast256.Reset();
+        _camellia.Reset();
         return [];
     }
 
     [Benchmark]
-    public byte[] EncryptNamesCast256()
+    public byte[] EncryptIneCicCamellia()
     {
-        _cast256.Reset();
-        return _cast256.Encrypt(_ineCicNumber);
+        _camellia.Reset();
+        return _camellia.Encrypt(_ineCicNumber);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesCast256))]
+    [GlobalSetup(Target = nameof(DecryptIneCicCamellia))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         _nonce = new byte[8];
         RandomNumberGenerator.Fill(_key);
         RandomNumberGenerator.Fill(_nonce);
-        _cast256 = new Cast256(_key.AsSpan(), _nonce);
+        _camellia = new Camellia(_key.AsSpan(), _nonce);
 
         var generatedDate = BitConverter.GetBytes(IneCicNumbersGenerator.GenerateIneCicNumber());
-        _ineCicNumber = _cast256.Encrypt(generatedDate);
+        _ineCicNumber = _camellia.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesCast256() => _cast256.Decrypt(_ineCicNumber);
+    public byte[] DecryptIneCicCamellia() => _camellia.Decrypt(_ineCicNumber);
 }
