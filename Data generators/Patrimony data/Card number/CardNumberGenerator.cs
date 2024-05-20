@@ -3,5 +3,5 @@
 public class CardNumberGenerator
 {
     public static long GenerateCardNumber()
-        => Random.Shared.NextInt64(1000000000000000, 9999999999999999);
+        => Random.Shared.NextInt64(1_000_000_000_000_000, 9_999_999_999_999_999);
 }

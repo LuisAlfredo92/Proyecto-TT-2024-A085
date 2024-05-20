@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Born_date_tests</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Ciphers\Asymmetric ciphers\Asymmetric ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Block ciphers\Block ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Homomorphic ciphers\Homomorphic ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Stream ciphers\Stream ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Data generators\Identifying data\Identifying data.csproj" />
+  </ItemGroup>
+
+</Project>
