@@ -10,7 +10,7 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeCast256FpeTests
 {
     private Cast256Fpe _serpentFpe = null!;
@@ -18,7 +18,7 @@ public class ClassDataTypeCast256FpeTests
     private byte[]? _key;
     private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
 
-    [GlobalSetup(Target = nameof(EncryptCurpsCast256Fpe))]
+    [GlobalSetup(Target = nameof(EncryptTypeCast256Fpe))]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -28,19 +28,19 @@ public class ClassDataTypeCast256FpeTests
     }
 
     [Benchmark]
-    public char[] EncryptCurpsCast256Fpe() => _serpentFpe.Encrypt(_yourData);
+    public char[] EncryptTypeCast256Fpe() => _serpentFpe.Encrypt(_yourData);
 
-    [GlobalSetup(Target = nameof(DecryptCurpsCast256Fpe))]
+    [GlobalSetup(Target = nameof(DecryptTypeCast256Fpe))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _serpentFpe = new Cast256Fpe(_key.AsSpan(), _alphabet);
 
-        var generatedName = CurpsGenerator.Generate().ToCharArray();
-        _yourData = _serpentFpe.Encrypt(generatedName);
+        var generatedType = CurpsGenerator.Generate().ToCharArray();
+        _yourData = _serpentFpe.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public char[] DecryptCurpsCast256Fpe() => _serpentFpe.Decrypt(_yourData);
+    public char[] DecryptTypeCast256Fpe() => _serpentFpe.Decrypt(_yourData);
 }

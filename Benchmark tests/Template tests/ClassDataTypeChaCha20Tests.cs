@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeChaCha20Tests
 {
     private ChaCha20 _chaCha20 = null!;
@@ -17,7 +17,7 @@ public class ClassDataTypeChaCha20Tests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptNamesChaCha20)])]
+    [GlobalSetup(Targets = [nameof(CleanChaCha20Benchmark), nameof(EncryptTypeChaCha20)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -37,13 +37,13 @@ public class ClassDataTypeChaCha20Tests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesChaCha20()
+    public byte[] EncryptTypeChaCha20()
     {
         _chaCha20.Reset();
         return _chaCha20.Encrypt(_yourData);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesChaCha20))]
+    [GlobalSetup(Target = nameof(DecryptTypeChaCha20))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -52,10 +52,10 @@ public class ClassDataTypeChaCha20Tests
         RandomNumberGenerator.Fill(_nonce);
         _chaCha20 = new ChaCha20(_key.AsSpan(), _nonce);
 
-        var generatedName = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _chaCha20.Encrypt(generatedName);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _chaCha20.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesChaCha20() => _chaCha20.Decrypt(_yourData);
+    public byte[] DecryptTypeChaCha20() => _chaCha20.Decrypt(_yourData);
 }

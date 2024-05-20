@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeTwoFishTests
 {
     private TwoFish _twoFish = null!;
@@ -43,7 +43,7 @@ public class ClassDataTypeTwoFishTests
         return _twoFish.Encrypt(_yourData);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesTwoFish))]
+    [GlobalSetup(Target = nameof(DecryptTypeTwoFish))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -52,10 +52,10 @@ public class ClassDataTypeTwoFishTests
         RandomNumberGenerator.Fill(_nonce);
         _twoFish = new TwoFish(_key.AsSpan(), _nonce);
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
         _yourData = _twoFish.Encrypt(generatedDate);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesTwoFish() => _twoFish.Decrypt(_yourData);
+    public byte[] DecryptTypeTwoFish() => _twoFish.Decrypt(_yourData);
 }

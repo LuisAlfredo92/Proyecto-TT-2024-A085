@@ -10,7 +10,7 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeSerpentFpeTests
 {
     private SerpentFpe _serpentFpe = null!;
@@ -18,7 +18,7 @@ public class ClassDataTypeSerpentFpeTests
     private byte[]? _key;
     private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
 
-    [GlobalSetup(Target = nameof(EncryptCurpsSerpentFpe))]
+    [GlobalSetup(Target = nameof(EncryptTypeSerpentFpe))]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -28,19 +28,19 @@ public class ClassDataTypeSerpentFpeTests
     }
 
     [Benchmark]
-    public char[] EncryptCurpsSerpentFpe() => _serpentFpe.Encrypt(_yourData);
+    public char[] EncryptTypeSerpentFpe() => _serpentFpe.Encrypt(_yourData);
 
-    [GlobalSetup(Target = nameof(DecryptCurpsSerpentFpe))]
+    [GlobalSetup(Target = nameof(DecryptTypeSerpentFpe))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _serpentFpe = new SerpentFpe(_key.AsSpan(), _alphabet);
 
-        var generatedName = CurpsGenerator.Generate().ToCharArray();
-        _yourData = _serpentFpe.Encrypt(generatedName);
+        var generatedType = CurpsGenerator.Generate().ToCharArray();
+        _yourData = _serpentFpe.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public char[] DecryptCurpsSerpentFpe() => _serpentFpe.Decrypt(_yourData);
+    public char[] DecryptTypeSerpentFpe() => _serpentFpe.Decrypt(_yourData);
 }

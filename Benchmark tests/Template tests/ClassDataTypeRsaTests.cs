@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeRsaTests
 {
     private Rsa _rsa = null!;
@@ -37,8 +37,8 @@ public class ClassDataTypeRsaTests
         _key = _provider.ExportRSAPrivateKey();
         _rsa = new Rsa(_key);
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _rsa.Encrypt(generatedDate);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _rsa.Encrypt(generatedType);
     }
 
     [Benchmark]

@@ -10,7 +10,7 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeTwoFishFpeTests
 {
     private TwoFishFpe _twoFishFpe = null!;
@@ -18,7 +18,7 @@ public class ClassDataTypeTwoFishFpeTests
     private byte[]? _key;
     private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
 
-    [GlobalSetup(Target = nameof(EncryptCurpsTwoFishFpe))]
+    [GlobalSetup(Target = nameof(EncryptTypeTwoFishFpe))]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -28,19 +28,19 @@ public class ClassDataTypeTwoFishFpeTests
     }
 
     [Benchmark]
-    public char[] EncryptCurpsTwoFishFpe() => _twoFishFpe.Encrypt(_yourData);
+    public char[] EncryptTypeTwoFishFpe() => _twoFishFpe.Encrypt(_yourData);
 
-    [GlobalSetup(Target = nameof(DecryptCurpsTwoFishFpe))]
+    [GlobalSetup(Target = nameof(DecryptTypeTwoFishFpe))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _twoFishFpe = new TwoFishFpe(_key.AsSpan(), _alphabet);
 
-        var generatedName = CurpsGenerator.Generate().ToCharArray();
-        _yourData = _twoFishFpe.Encrypt(generatedName);
+        var generatedType = CurpsGenerator.Generate().ToCharArray();
+        _yourData = _twoFishFpe.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public char[] DecryptCurpsTwoFishFpe() => _twoFishFpe.Decrypt(_yourData);
+    public char[] DecryptTypeTwoFishFpe() => _twoFishFpe.Decrypt(_yourData);
 }

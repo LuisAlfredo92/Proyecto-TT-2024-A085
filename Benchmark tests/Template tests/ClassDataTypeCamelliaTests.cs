@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeCamelliaTests
 {
     private Camellia _camellia = null!;
@@ -17,7 +17,7 @@ public class ClassDataTypeCamelliaTests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptNamesCamellia)])]
+    [GlobalSetup(Targets = [nameof(CleanCamelliaBenchmark), nameof(EncryptTypeCamellia)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -37,13 +37,13 @@ public class ClassDataTypeCamelliaTests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesCamellia()
+    public byte[] EncryptTypeCamellia()
     {
         _camellia.Reset();
         return _camellia.Encrypt(_yourData);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesCamellia))]
+    [GlobalSetup(Target = nameof(DecryptTypeCamellia))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -52,10 +52,10 @@ public class ClassDataTypeCamelliaTests
         RandomNumberGenerator.Fill(_nonce);
         _camellia = new Camellia(_key.AsSpan(), _nonce);
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _camellia.Encrypt(generatedDate);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _camellia.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesCamellia() => _camellia.Decrypt(_yourData);
+    public byte[] DecryptTypeCamellia() => _camellia.Decrypt(_yourData);
 }

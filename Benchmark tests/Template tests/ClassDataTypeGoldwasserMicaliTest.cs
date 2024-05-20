@@ -10,7 +10,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeGoldwasserMicaliTests
 {
     private GoldwasserMicali _goldwasserMicali = null!;
@@ -38,8 +38,8 @@ public class ClassDataTypeGoldwasserMicaliTests
 
         _goldwasserMicali = new GoldwasserMicali(_key.Public, _key.Private);
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourDataEncrypted = _goldwasserMicali.Encrypt(generatedDate);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourDataEncrypted = _goldwasserMicali.Encrypt(generatedType);
     }
 
     [Benchmark]

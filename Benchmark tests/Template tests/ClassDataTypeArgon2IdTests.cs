@@ -10,18 +10,18 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeArgon2IdTests
 {
     private readonly Argon2Id _argon2Id = new();
     private byte[] _yourData = null!;
 
-    [GlobalSetup(Target = nameof(EncryptCurpArgon2Id))]
+    [GlobalSetup(Target = nameof(EncryptTypeArgon2Id))]
     public void SetupEncryption()
     {
         _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
     }
 
     [Benchmark]
-    public Span<byte> EncryptCurpArgon2Id() => _argon2Id.Hash(_yourData);
+    public Span<byte> EncryptTypeArgon2Id() => _argon2Id.Hash(_yourData);
 }

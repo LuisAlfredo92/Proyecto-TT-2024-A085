@@ -10,18 +10,18 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeBCryptTests
 {
     private readonly BCrypt _argon2Id = new();
     private byte[] _yourData = null!;
 
-    [GlobalSetup(Target = nameof(EncryptCurpBCrypt))]
+    [GlobalSetup(Target = nameof(EncryptTypeBCrypt))]
     public void SetupEncryption()
     {
         _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
     }
 
     [Benchmark]
-    public Span<byte> EncryptCurpBCrypt() => _argon2Id.Hash(_yourData);
+    public Span<byte> EncryptTypeBCrypt() => _argon2Id.Hash(_yourData);
 }

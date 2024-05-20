@@ -10,17 +10,17 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeBlake3Tests
 {
     private byte[] _yourData = null!;
 
-    [GlobalSetup(Target = nameof(EncryptCurpBlake3))]
+    [GlobalSetup(Target = nameof(EncryptTypeBlake3))]
     public void SetupEncryption()
     {
         _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
     }
 
     [Benchmark]
-    public Span<byte> EncryptCurpBlake3() => Blake3.Hash(_yourData);
+    public Span<byte> EncryptTypeBlake3() => Blake3.Hash(_yourData);
 }

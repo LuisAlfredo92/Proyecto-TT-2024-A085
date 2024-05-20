@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeCast256Tests
 {
     private Cast256 _cast256 = null!;
@@ -17,7 +17,7 @@ public class ClassDataTypeCast256Tests
     private byte[]? _key;
     private byte[]? _nonce;
 
-    [GlobalSetup(Targets = [nameof(CleanCast256Benchmark), nameof(EncryptNamesCast256)])]
+    [GlobalSetup(Targets = [nameof(CleanCast256Benchmark), nameof(EncryptTypeCast256)])]
     public void SetupEncryption()
     {
         _key = new byte[32];
@@ -37,13 +37,13 @@ public class ClassDataTypeCast256Tests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesCast256()
+    public byte[] EncryptTypeCast256()
     {
         _cast256.Reset();
         return _cast256.Encrypt(_yourData);
     }
 
-    [GlobalSetup(Target = nameof(DecryptNamesCast256))]
+    [GlobalSetup(Target = nameof(DecryptTypeCast256))]
     public void SetupDecryption()
     {
         _key = new byte[32];
@@ -52,10 +52,10 @@ public class ClassDataTypeCast256Tests
         RandomNumberGenerator.Fill(_nonce);
         _cast256 = new Cast256(_key.AsSpan(), _nonce);
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _cast256.Encrypt(generatedDate);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _cast256.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesCast256() => _cast256.Decrypt(_yourData);
+    public byte[] DecryptTypeCast256() => _cast256.Decrypt(_yourData);
 }

@@ -10,17 +10,17 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeSha2Tests
 {
     private byte[] _yourData = null!;
 
-    [GlobalSetup(Target = nameof(EncryptCurpSha2))]
+    [GlobalSetup(Target = nameof(EncryptTypeSha2))]
     public void SetupEncryption()
     {
         _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
     }
 
     [Benchmark]
-    public Span<byte> EncryptCurpSha2() => Sha2.Hash(_yourData);
+    public Span<byte> EncryptTypeSha2() => Sha2.Hash(_yourData);
 }

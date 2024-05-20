@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeSerpentTests
 {
     private Serpent _serpent = null!;
@@ -52,8 +52,8 @@ public class ClassDataTypeSerpentTests
         RandomNumberGenerator.Fill(_nonce);
         _serpent = new Serpent(_key.AsSpan(), _nonce);
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _serpent.Encrypt(generatedDate);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _serpent.Encrypt(generatedType);
     }
 
     [Benchmark]

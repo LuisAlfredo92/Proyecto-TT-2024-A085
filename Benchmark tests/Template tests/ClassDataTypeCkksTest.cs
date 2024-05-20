@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeCkksTests
 {
     private Ckks _ckks = null!;
@@ -31,8 +31,8 @@ public class ClassDataTypeCkksTests
     {
         _ckks = new Ckks();
 
-        var generatedDate = TypeGenerator.GenerateBornDate().Ticks;
-        _yourDataEncrypted = _ckks.Encrypt(generatedDate);
+        var generatedType = TypeGenerator.GenerateBornDate().Ticks;
+        _yourDataEncrypted = _ckks.Encrypt(generatedType);
     }
 
     [Benchmark]

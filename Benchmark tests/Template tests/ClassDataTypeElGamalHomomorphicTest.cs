@@ -13,7 +13,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeElGamalHomomorphicTests
 {
     private ElGamalHomomorphic _elGamal = null!;
@@ -54,8 +54,8 @@ public class ClassDataTypeElGamalHomomorphicTests
 
         _elGamal = new ElGamalHomomorphic((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        var generatedDate = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
-        _yourDataEncrypted = _elGamal.Encrypt(generatedDate);
+        var generatedType = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        _yourDataEncrypted = _elGamal.Encrypt(generatedType);
     }
 
     [Benchmark]

@@ -9,7 +9,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypePaillierTests
 {
     private Paillier _goldwasserMicali = null!;
@@ -36,8 +36,8 @@ public class ClassDataTypePaillierTests
 
         _goldwasserMicali = new Paillier(_key.Public, _key.Private);
 
-        var generatedDate = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _goldwasserMicali.Encrypt(generatedDate);
+        var generatedType = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _goldwasserMicali.Encrypt(generatedType);
     }
 
     [Benchmark]

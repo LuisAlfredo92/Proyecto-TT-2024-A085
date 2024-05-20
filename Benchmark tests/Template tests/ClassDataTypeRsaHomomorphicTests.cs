@@ -13,7 +13,7 @@ namespace Tests.Template_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeRsaHomomorphicTests
 {
     private RsaHomomorphic _rsa = null!;
@@ -45,8 +45,8 @@ public class ClassDataTypeRsaHomomorphicTests
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
 
-        var generatedDate = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _rsa.Encrypt(generatedDate);
+        var generatedType = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _rsa.Encrypt(generatedType);
     }
 
     [Benchmark]

@@ -6,14 +6,14 @@ namespace Tests.Template_tests;
 
 [MemoryDiagnoser]
 [AllStatisticsColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeAesTests
 {
     private Aes _aes = null!;
     private byte[] _yourData = null!;
     private byte[] _tag = null!;
 
-    [GlobalSetup(Target = nameof(EncryptNamesAes))]
+    [GlobalSetup(Target = nameof(EncryptTypeAes))]
     public void SetupEncryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -25,9 +25,9 @@ public class ClassDataTypeAesTests
     }
 
     [Benchmark]
-    public byte[] EncryptNamesAes() => _aes.Encrypt(_yourData, out _);
+    public byte[] EncryptTypeAes() => _aes.Encrypt(_yourData, out _);
 
-    [GlobalSetup(Target = nameof(DecryptNamesAes))]
+    [GlobalSetup(Target = nameof(DecryptTypeAes))]
     public void SetupDecryption()
     {
         Span<byte> key = stackalloc byte[32], nonce = stackalloc byte[AesGcm.NonceByteSizes.MaxSize];
@@ -35,10 +35,10 @@ public class ClassDataTypeAesTests
         RandomNumberGenerator.Fill(nonce);
         _aes = new Aes(key, nonce.ToArray());
 
-        var generatedDate = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
-        _yourData = _aes.Encrypt(generatedDate, out _tag);
+        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = _aes.Encrypt(generatedType, out _tag);
     }
 
     [Benchmark]
-    public byte[] DecryptNamesAes() => _aes.Decrypt(_yourData, _tag);
+    public byte[] DecryptTypeAes() => _aes.Decrypt(_yourData, _tag);
 }
