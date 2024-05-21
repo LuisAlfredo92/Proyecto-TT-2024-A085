@@ -30,7 +30,7 @@ public class ClassDataTypeRsaHomomorphicTests
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
 
-        _yourData = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = BigInteger.ValueOf([DataGeneratorNumber]);
     }
 
     [Benchmark]
@@ -45,7 +45,7 @@ public class ClassDataTypeRsaHomomorphicTests
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
 
-        var generatedType = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = BigInteger.ValueOf([DataGeneratorNumber]);
         _yourData = _rsa.Encrypt(generatedType);
     }
 

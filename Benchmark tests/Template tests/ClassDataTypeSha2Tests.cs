@@ -18,7 +18,7 @@ public class ClassDataTypeSha2Tests
     [GlobalSetup(Target = nameof(EncryptTypeSha2))]
     public void SetupEncryption()
     {
-        _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]

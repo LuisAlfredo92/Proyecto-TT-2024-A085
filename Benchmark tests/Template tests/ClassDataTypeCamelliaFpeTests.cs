@@ -24,7 +24,7 @@ public class ClassDataTypeCamelliaFpeTests
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _serpentFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
-        _yourData = CurpsGenerator.Generate().ToCharArray();
+        _yourData = [DataGeneratorCharArray];
     }
 
     [Benchmark]
@@ -37,7 +37,7 @@ public class ClassDataTypeCamelliaFpeTests
         RandomNumberGenerator.Fill(_key);
         _serpentFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
 
-        var generatedType = CurpsGenerator.Generate().ToCharArray();
+        var generatedType = [DataGeneratorCharArray];
         _yourData = _serpentFpe.Encrypt(generatedType);
     }
 

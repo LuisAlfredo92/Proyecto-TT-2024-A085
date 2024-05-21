@@ -34,7 +34,7 @@ public class ClassDataTypeElGamalTests
 
         _elGamal = new ElGamal((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -52,7 +52,7 @@ public class ClassDataTypeElGamalTests
 
         _elGamal = new ElGamal((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourData = _elGamal.Encrypt(generatedType);
     }
 

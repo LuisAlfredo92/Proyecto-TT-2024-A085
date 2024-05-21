@@ -26,7 +26,7 @@ public class ClassDataTypeCast256Tests
         RandomNumberGenerator.Fill(_nonce);
         _cast256 = new Cast256(_key.AsSpan(), _nonce!);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -52,7 +52,7 @@ public class ClassDataTypeCast256Tests
         RandomNumberGenerator.Fill(_nonce);
         _cast256 = new Cast256(_key.AsSpan(), _nonce);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourData = _cast256.Encrypt(generatedType);
     }
 

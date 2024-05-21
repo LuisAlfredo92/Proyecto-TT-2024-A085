@@ -21,7 +21,7 @@ public class ClassDataTypeAesTests
         RandomNumberGenerator.Fill(nonce);
         _aes = new Aes(key, nonce.ToArray());
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -35,7 +35,7 @@ public class ClassDataTypeAesTests
         RandomNumberGenerator.Fill(nonce);
         _aes = new Aes(key, nonce.ToArray());
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourData = _aes.Encrypt(generatedType, out _tag);
     }
 

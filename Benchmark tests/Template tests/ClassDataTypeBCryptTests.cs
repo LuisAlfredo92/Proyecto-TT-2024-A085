@@ -19,7 +19,7 @@ public class ClassDataTypeBCryptTests
     [GlobalSetup(Target = nameof(EncryptTypeBCrypt))]
     public void SetupEncryption()
     {
-        _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]

@@ -25,7 +25,7 @@ public class ClassDataTypeGoldwasserMicaliTests
 
         _goldwasserMicali = new GoldwasserMicali(_key.Public, _key.Private);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -38,7 +38,7 @@ public class ClassDataTypeGoldwasserMicaliTests
 
         _goldwasserMicali = new GoldwasserMicali(_key.Public, _key.Private);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourDataEncrypted = _goldwasserMicali.Encrypt(generatedType);
     }
 

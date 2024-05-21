@@ -19,7 +19,7 @@ public class ClassDataTypeArgon2IdTests
     [GlobalSetup(Target = nameof(EncryptTypeArgon2Id))]
     public void SetupEncryption()
     {
-        _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
