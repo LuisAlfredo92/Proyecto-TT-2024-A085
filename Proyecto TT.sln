@@ -61,9 +61,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rfc tests", "Benchmark test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phone tests", "Benchmark tests\Identifying data tests\Phone tests\Phone tests.csproj", "{DD051279-CD66-4A14-BC7C-CF12CE00BD82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ine cic tests", "Benchmark tests\Identifying data tests\Ine cic tests\Ine cic tests.csproj", "{498E660D-128A-4CF7-9810-DAC4AC4C80CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ine cic tests", "Benchmark tests\Identifying data tests\Ine cic tests\Ine cic tests.csproj", "{498E660D-128A-4CF7-9810-DAC4AC4C80CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Military service number tests", "Benchmark tests\Identifying data tests\Military service number tests\Military service number tests.csproj", "{C467915F-4E19-4C98-8F42-A6D6B232F84A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Military service number tests", "Benchmark tests\Identifying data tests\Military service number tests\Military service number tests.csproj", "{C467915F-4E19-4C98-8F42-A6D6B232F84A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Digital data tests", "Digital data tests", "{BEC0B440-91F5-49A1-9D53-F408F8AFA340}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email tests", "Benchmark tests\Digital data tests\Email tests\Email tests.csproj", "{56FF9D6A-8417-4694-B621-E092EE2B184A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,6 +183,10 @@ Global
 		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C467915F-4E19-4C98-8F42-A6D6B232F84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FF9D6A-8417-4694-B621-E092EE2B184A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FF9D6A-8417-4694-B621-E092EE2B184A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FF9D6A-8417-4694-B621-E092EE2B184A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FF9D6A-8417-4694-B621-E092EE2B184A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,6 +219,8 @@ Global
 		{DD051279-CD66-4A14-BC7C-CF12CE00BD82} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
 		{498E660D-128A-4CF7-9810-DAC4AC4C80CE} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
 		{C467915F-4E19-4C98-8F42-A6D6B232F84A} = {A31331AD-5F12-4157-A903-B089AAB16AFF}
+		{BEC0B440-91F5-49A1-9D53-F408F8AFA340} = {C032C7DE-3E81-40C6-A07B-5803FE75578F}
+		{56FF9D6A-8417-4694-B621-E092EE2B184A} = {BEC0B440-91F5-49A1-9D53-F408F8AFA340}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
