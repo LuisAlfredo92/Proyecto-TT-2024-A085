@@ -69,15 +69,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Digital data tests", "Digit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email tests", "Benchmark tests\Digital data tests\Email tests\Email tests.csproj", "{56FF9D6A-8417-4694-B621-E092EE2B184A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Username tests", "Benchmark tests\Digital data tests\Username tests\Username tests.csproj", "{CB17BF86-EE6B-4018-AA57-C2BA5748CD68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Username tests", "Benchmark tests\Digital data tests\Username tests\Username tests.csproj", "{CB17BF86-EE6B-4018-AA57-C2BA5748CD68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Password tests", "Benchmark tests\Digital data tests\Password tests\Password tests.csproj", "{69A38847-5D41-4206-A263-1CDFC75A0F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Password tests", "Benchmark tests\Digital data tests\Password tests\Password tests.csproj", "{69A38847-5D41-4206-A263-1CDFC75A0F55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labor data", "Labor data", "{90ED2E54-7F87-439F-8575-F9F5893D5883}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company tests", "Benchmark tests\Labor data tests\Company tests\Company tests.csproj", "{A0993BD0-0777-430B-A2B6-70C52C725867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company tests", "Benchmark tests\Labor data tests\Company tests\Company tests.csproj", "{A0993BD0-0777-430B-A2B6-70C52C725867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Position tests", "Benchmark tests\Labor data tests\Position tests\Position tests.csproj", "{BE8F97FD-7790-42DE-AE47-A44B5D999C0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Position tests", "Benchmark tests\Labor data tests\Position tests\Position tests.csproj", "{BE8F97FD-7790-42DE-AE47-A44B5D999C0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transit and migratory data tests", "Transit and migratory data tests", "{A6F5BC0F-D203-447A-847E-F053151ED704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passport id tests", "Benchmark tests\Transit and migratory data tests\Passport id tests\Passport id tests.csproj", "{347C99C4-E79F-4709-92D8-1E24E9120859}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +217,10 @@ Global
 		{BE8F97FD-7790-42DE-AE47-A44B5D999C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE8F97FD-7790-42DE-AE47-A44B5D999C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE8F97FD-7790-42DE-AE47-A44B5D999C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347C99C4-E79F-4709-92D8-1E24E9120859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347C99C4-E79F-4709-92D8-1E24E9120859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347C99C4-E79F-4709-92D8-1E24E9120859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347C99C4-E79F-4709-92D8-1E24E9120859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -252,6 +260,8 @@ Global
 		{90ED2E54-7F87-439F-8575-F9F5893D5883} = {C032C7DE-3E81-40C6-A07B-5803FE75578F}
 		{A0993BD0-0777-430B-A2B6-70C52C725867} = {90ED2E54-7F87-439F-8575-F9F5893D5883}
 		{BE8F97FD-7790-42DE-AE47-A44B5D999C0B} = {90ED2E54-7F87-439F-8575-F9F5893D5883}
+		{A6F5BC0F-D203-447A-847E-F053151ED704} = {C032C7DE-3E81-40C6-A07B-5803FE75578F}
+		{347C99C4-E79F-4709-92D8-1E24E9120859} = {A6F5BC0F-D203-447A-847E-F053151ED704}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
