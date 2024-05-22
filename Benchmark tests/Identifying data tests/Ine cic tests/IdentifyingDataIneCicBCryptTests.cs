@@ -9,7 +9,7 @@ namespace Ine_cic_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class IdentifyingDataIneCicBCryptTests
 {
     private readonly BCrypt _argon2Id = new();

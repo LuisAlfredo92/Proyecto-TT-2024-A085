@@ -7,7 +7,7 @@ namespace Ine_cic_tests;
 
 [MemoryDiagnoser]
 [AllStatisticsColumn]
-[SimpleJob(launchCount: 1000, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class IdentifyingDataIneCicAesTests
 {
     private Aes _aes = null!;
