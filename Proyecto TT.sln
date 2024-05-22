@@ -71,6 +71,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email tests", "Benchmark te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Username tests", "Benchmark tests\Digital data tests\Username tests\Username tests.csproj", "{CB17BF86-EE6B-4018-AA57-C2BA5748CD68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Password tests", "Benchmark tests\Digital data tests\Password tests\Password tests.csproj", "{69A38847-5D41-4206-A263-1CDFC75A0F55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +195,10 @@ Global
 		{CB17BF86-EE6B-4018-AA57-C2BA5748CD68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB17BF86-EE6B-4018-AA57-C2BA5748CD68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB17BF86-EE6B-4018-AA57-C2BA5748CD68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A38847-5D41-4206-A263-1CDFC75A0F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A38847-5D41-4206-A263-1CDFC75A0F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A38847-5D41-4206-A263-1CDFC75A0F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A38847-5D41-4206-A263-1CDFC75A0F55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +234,7 @@ Global
 		{BEC0B440-91F5-49A1-9D53-F408F8AFA340} = {C032C7DE-3E81-40C6-A07B-5803FE75578F}
 		{56FF9D6A-8417-4694-B621-E092EE2B184A} = {BEC0B440-91F5-49A1-9D53-F408F8AFA340}
 		{CB17BF86-EE6B-4018-AA57-C2BA5748CD68} = {BEC0B440-91F5-49A1-9D53-F408F8AFA340}
+		{69A38847-5D41-4206-A263-1CDFC75A0F55} = {BEC0B440-91F5-49A1-9D53-F408F8AFA340}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
