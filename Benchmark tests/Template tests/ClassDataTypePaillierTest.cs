@@ -23,7 +23,7 @@ public class ClassDataTypePaillierTests
 
         _goldwasserMicali = new Paillier(_key.Public, _key.Private);
 
-        _yourData = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = BigInteger.ValueOf([DataGeneratorNumber]);
     }
 
     [Benchmark]
@@ -36,7 +36,7 @@ public class ClassDataTypePaillierTests
 
         _goldwasserMicali = new Paillier(_key.Public, _key.Private);
 
-        var generatedType = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = BigInteger.ValueOf([DataGeneratorNumber]);
         _yourData = _goldwasserMicali.Encrypt(generatedType);
     }
 

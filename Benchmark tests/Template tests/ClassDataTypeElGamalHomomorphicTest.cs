@@ -36,7 +36,7 @@ public class ClassDataTypeElGamalHomomorphicTests
 
         _elGamal = new ElGamalHomomorphic((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        _yourData = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = BigInteger.ValueOf([DataGeneratorNumber]);
     }
 
     [Benchmark]
@@ -54,7 +54,7 @@ public class ClassDataTypeElGamalHomomorphicTests
 
         _elGamal = new ElGamalHomomorphic((ElGamalPublicKeyParameters)_key.Public, (ElGamalPrivateKeyParameters)_key.Private);
 
-        var generatedType = BigInteger.ValueOf(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = BigInteger.ValueOf([DataGeneratorNumber]);
         _yourDataEncrypted = _elGamal.Encrypt(generatedType);
     }
 

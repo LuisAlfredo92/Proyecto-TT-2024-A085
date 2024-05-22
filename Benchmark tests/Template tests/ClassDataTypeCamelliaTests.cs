@@ -26,7 +26,7 @@ public class ClassDataTypeCamelliaTests
         RandomNumberGenerator.Fill(_nonce);
         _camellia = new Camellia(_key.AsSpan(), _nonce!);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -52,7 +52,7 @@ public class ClassDataTypeCamelliaTests
         RandomNumberGenerator.Fill(_nonce);
         _camellia = new Camellia(_key.AsSpan(), _nonce);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourData = _camellia.Encrypt(generatedType);
     }
 

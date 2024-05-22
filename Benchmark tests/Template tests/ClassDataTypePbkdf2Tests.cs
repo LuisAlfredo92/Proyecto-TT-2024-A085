@@ -19,7 +19,7 @@ public class ClassDataTypePbkdf2Tests
     [GlobalSetup(Target = nameof(EncryptTypePbkdf2))]
     public void SetupEncryption()
     {
-        _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]

@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 using Identifying_data.Born_dates;
 using Identifying_data.Curps;
 using Identifying_data.Exterior_numbers;
@@ -28,10 +29,11 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
         for (var i = 0; i < 1_000_000; i++)
         {
             var name = NamesGenerator.Generate();
+            testOutputHelper.WriteLine(name);
             Assert.NotNull(name);
             Assert.NotEmpty(name);
             Assert.True(name.Length >= 1);
-            testOutputHelper.WriteLine(name);
+            Assert.Matches("[ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz .ÁÉÍÓÚáéíóú]", name);
         }
     }
 

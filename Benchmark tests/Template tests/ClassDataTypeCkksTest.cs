@@ -20,7 +20,7 @@ public class ClassDataTypeCkksTests
     public void SetupEncryption()
     {
         _ckks = new Ckks();
-        _yourData = TypeGenerator.GenerateBornDate().Ticks;
+        _yourData = [DataGeneratorNumber];
     }
 
     [Benchmark]
@@ -31,7 +31,7 @@ public class ClassDataTypeCkksTests
     {
         _ckks = new Ckks();
 
-        var generatedType = TypeGenerator.GenerateBornDate().Ticks;
+        var generatedType = [DataGeneratorNumber];
         _yourDataEncrypted = _ckks.Encrypt(generatedType);
     }
 

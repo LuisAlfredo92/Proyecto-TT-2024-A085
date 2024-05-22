@@ -25,7 +25,7 @@ public class ClassDataTypeAesFpeTests
         RandomNumberGenerator.Fill(_key);
         _aesFpe = new AesFpe(_key.AsSpan(), _alphabet);
 
-        _yourData = CurpsGenerator.Generate().ToCharArray();
+        _yourData = [DataGeneratorCharArray];
     }
 
     [Benchmark]
@@ -38,7 +38,7 @@ public class ClassDataTypeAesFpeTests
         RandomNumberGenerator.Fill(_key);
         _aesFpe = new AesFpe(_key.AsSpan(), _alphabet);
 
-        var generatedType = CurpsGenerator.Generate().ToCharArray();
+        var generatedType = [DataGeneratorCharArray];
         _yourData = _aesFpe.Encrypt(generatedType);
     }
 

@@ -18,7 +18,7 @@ public class ClassDataTypeBlake3Tests
     [GlobalSetup(Target = nameof(EncryptTypeBlake3))]
     public void SetupEncryption()
     {
-        _yourData = Encoding.UTF8.GetBytes(CurpsGenerator.Generate());
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]

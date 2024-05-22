@@ -9,11 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ClassDataTypeAesFpeTests.cs" />
+    <Compile Remove="ClassDataTypeCamelliaFpeTests.cs" />
+    <Compile Remove="ClassDataTypeCast256FpeTests.cs" />
+    <Compile Remove="ClassDataTypeSerpentFpeTests.cs" />
+    <Compile Remove="ClassDataTypeTwoFishFpeTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Ciphers\Block ciphers\Block ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\FPE ciphers\FPE ciphers.csproj" />
     <ProjectReference Include="..\..\..\Ciphers\Stream ciphers\Stream ciphers.csproj" />
     <ProjectReference Include="..\..\..\Data generators\Identifying data\Identifying data.csproj" />
   </ItemGroup>

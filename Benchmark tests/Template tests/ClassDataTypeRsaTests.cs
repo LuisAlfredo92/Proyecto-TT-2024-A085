@@ -24,7 +24,7 @@ public class ClassDataTypeRsaTests
         _key = _provider.ExportRSAPrivateKey();
         _rsa = new Rsa(_key);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -37,7 +37,7 @@ public class ClassDataTypeRsaTests
         _key = _provider.ExportRSAPrivateKey();
         _rsa = new Rsa(_key);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourData = _rsa.Encrypt(generatedType);
     }
 

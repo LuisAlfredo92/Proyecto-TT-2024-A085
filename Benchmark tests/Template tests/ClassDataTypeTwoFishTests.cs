@@ -26,7 +26,7 @@ public class ClassDataTypeTwoFishTests
         RandomNumberGenerator.Fill(_nonce);
         _twoFish = new TwoFish(_key.AsSpan(), _nonce!);
 
-        _yourData = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        _yourData = [DataGeneratorBytes];
     }
 
     [Benchmark]
@@ -52,7 +52,7 @@ public class ClassDataTypeTwoFishTests
         RandomNumberGenerator.Fill(_nonce);
         _twoFish = new TwoFish(_key.AsSpan(), _nonce);
 
-        var generatedType = BitConverter.GetBytes(TypeGenerator.GenerateBornDate().Ticks);
+        var generatedType = [DataGeneratorBytes];
         _yourData = _twoFish.Encrypt(generatedType);
     }
 

@@ -13,7 +13,7 @@ namespace Tests.Identifying_data_tests.CURP_tests;
 [SimpleJob(launchCount: 100, iterationCount: 10)]
 public class ClassDataTypeCamelliaFpeTests
 {
-    private CamelliaFpe _serpentFpe = null!;
+    private CamelliaFpe _camelliaFpe = null!;
     private char[] _yourData = null!;
     private byte[]? _key;
     private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
@@ -23,24 +23,24 @@ public class ClassDataTypeCamelliaFpeTests
     {
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
-        _serpentFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
-        _yourData = CurpsGenerator.Generate().ToCharArray();
+        _camelliaFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
+        _yourData = [DataGeneratorCharArray];
     }
 
     [Benchmark]
-    public char[] EncryptTypeCamelliaFpe() => _serpentFpe.Encrypt(_yourData);
+    public char[] EncryptTypeCamelliaFpe() => _camelliaFpe.Encrypt(_yourData);
 
     [GlobalSetup(Target = nameof(DecryptTypeCamelliaFpe))]
     public void SetupDecryption()
     {
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
-        _serpentFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
+        _camelliaFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
 
-        var generatedType = CurpsGenerator.Generate().ToCharArray();
-        _yourData = _serpentFpe.Encrypt(generatedType);
+        var generatedType = [DataGeneratorCharArray];
+        _yourData = _camelliaFpe.Encrypt(generatedType);
     }
 
     [Benchmark]
-    public char[] DecryptTypeCamelliaFpe() => _serpentFpe.Decrypt(_yourData);
+    public char[] DecryptTypeCamelliaFpe() => _camelliaFpe.Decrypt(_yourData);
 }
