@@ -16,7 +16,7 @@ public class TransitAndMigratoryPassportIdTwoFishFpeTests
     private TwoFishFpe _twoFishFpe = null!;
     private char[] _passportId = null!;
     private byte[]? _key;
-    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".ToCharArray();
 
     [GlobalSetup(Target = nameof(EncryptPassportIdTwoFishFpe))]
     public void SetupEncryption()

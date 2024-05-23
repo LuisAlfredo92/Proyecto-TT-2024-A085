@@ -38,6 +38,7 @@
     <ProjectReference Include="..\..\..\Ciphers\Asymmetric ciphers\Asymmetric ciphers.csproj" />
     <ProjectReference Include="..\..\..\Ciphers\Block ciphers\Block ciphers.csproj" />
     <ProjectReference Include="..\..\..\Ciphers\FPE ciphers\FPE ciphers.csproj" />
+    <ProjectReference Include="..\..\..\Ciphers\Hashes\Hashes.csproj" />
     <ProjectReference Include="..\..\..\Ciphers\Stream ciphers\Stream ciphers.csproj" />
     <ProjectReference Include="..\..\..\Data generators\TransitAndMigratoryData\Transit and migratory data.csproj" />
   </ItemGroup>

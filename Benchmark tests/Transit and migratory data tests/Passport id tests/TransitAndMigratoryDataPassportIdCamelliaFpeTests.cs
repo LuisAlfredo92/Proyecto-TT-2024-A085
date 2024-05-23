@@ -16,7 +16,7 @@ public class TransitAndMigratoryPassportIdCamelliaFpeTests
     private CamelliaFpe _camelliaFpe = null!;
     private char[] _passportId = null!;
     private byte[]? _key;
-    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".ToCharArray();
 
     [GlobalSetup(Target = nameof(EncryptPassportIdCamelliaFpe))]
     public void SetupEncryption()

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using BenchmarkDotNet.Attributes;
+using Hashes;
 using Transit_and_migratory_data.Passport_id;
 
 namespace Passport_id_tests;

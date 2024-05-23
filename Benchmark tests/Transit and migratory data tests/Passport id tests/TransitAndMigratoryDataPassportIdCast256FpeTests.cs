@@ -16,7 +16,7 @@ public class TransitAndMigratoryPassportIdCast256FpeTests
     private Cast256Fpe _cast256Fpe = null!;
     private char[] _passportId = null!;
     private byte[]? _key;
-    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".ToCharArray();
 
     [GlobalSetup(Target = nameof(EncryptPassportIdCast256Fpe))]
     public void SetupEncryption()
