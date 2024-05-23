@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using BenchmarkDotNet.Attributes;
 using Hashes;
-using Identifying_data.Curps;
 using Identifying_data.Military_service_number;
 
 namespace Military_service_number_tests;

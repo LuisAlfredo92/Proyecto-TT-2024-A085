@@ -1,7 +1,6 @@
 ﻿using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using FPE_ciphers;
-using LaborData.Company;
 using LaborData.Position;
 
 namespace Position_tests;

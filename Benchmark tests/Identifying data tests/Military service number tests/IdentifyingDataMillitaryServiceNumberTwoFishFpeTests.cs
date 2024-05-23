@@ -1,7 +1,6 @@
 ﻿using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using FPE_ciphers;
-using Identifying_data.Curps;
 using Identifying_data.Military_service_number;
 
 namespace Military_service_number_tests;

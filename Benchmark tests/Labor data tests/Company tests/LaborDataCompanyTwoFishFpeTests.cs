@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Xml.Linq;
 using BenchmarkDotNet.Attributes;
 using FPE_ciphers;
 using LaborData.Company;

@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Text.RegularExpressions;
 using Identifying_data.Born_dates;
 using Identifying_data.Curps;
 using Identifying_data.Exterior_numbers;
