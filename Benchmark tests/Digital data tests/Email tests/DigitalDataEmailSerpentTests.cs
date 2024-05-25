@@ -11,7 +11,7 @@ namespace Email_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 100, iterationCount: 10)]
+[SimpleJob(launchCount: 1, iterationCount: 10)]
 public class DigitalDataEmailSerpentTests
 {
     private Serpent _serpent = null!;

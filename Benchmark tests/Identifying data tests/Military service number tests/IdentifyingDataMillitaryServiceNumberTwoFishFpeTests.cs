@@ -16,7 +16,7 @@ public class IdentifyingDataMillitaryServiceNumberTwoFishFpeTests
     private TwoFishFpe _twoFishFpe = null!;
     private char[] _serviceNumber = null!;
     private byte[]? _key;
-    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".ToCharArray();
 
     [GlobalSetup(Target = nameof(EncryptMillitaryServiceNumberTwoFishFpe))]
     public void SetupEncryption()

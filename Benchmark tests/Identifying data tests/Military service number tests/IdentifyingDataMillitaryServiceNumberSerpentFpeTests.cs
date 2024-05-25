@@ -16,7 +16,7 @@ public class IdentifyingDataMillitaryServiceNumberSerpentFpeTests
     private SerpentFpe _serpentFpe = null!;
     private char[] _serviceNumber = null!;
     private byte[]? _key;
-    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+    private readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".ToCharArray();
 
     [GlobalSetup(Target = nameof(EncryptMillitaryServiceNumberSerpentFpe))]
     public void SetupEncryption()
