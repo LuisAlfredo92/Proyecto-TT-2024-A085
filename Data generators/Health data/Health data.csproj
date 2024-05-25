@@ -22,4 +22,13 @@
     <Folder Include="Treatments\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Clinic studies\Microscope.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Clinic studies\Microscope.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

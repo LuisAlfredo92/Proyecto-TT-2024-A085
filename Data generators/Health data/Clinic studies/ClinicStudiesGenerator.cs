@@ -1,84 +1,116 @@
 ﻿using System.Globalization;
 using General_Data;
+using Identifying_data.Born_dates;
 using Identifying_data.Names;
 using iText.IO.Font.Constants;
+using iText.IO.Image;
+using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using iText.Layout.Borders;
 using iText.Layout.Element;
+using iText.Layout.Properties;
 
 namespace Health_data.Clinic_studies;
 
-//https://www.gob.mx/cms/uploads/attachment/file/609372/GUIA_PARA_ESTRUCTURACION_REPORTE_DE_CASO__REVISION_DICTAMEN_2021.pdf
+// https://es.scribd.com/document/151841469/Analisis-Clinicos-Reportes
 public class ClinicStudiesGenerator
 {
-    private const string PathToExample = "./Clinic studies/{0}.pdf";
+    private const string PathToFile = "./Clinic studies/{0}.pdf";
     private static PdfWriter? _pdfWriter;
     private static readonly PdfFont TitlesFont = PdfFontFactory.CreateFont(StandardFonts.TIMES_BOLD);
     private static readonly PdfFont TextFont = PdfFontFactory.CreateFont(StandardFonts.TIMES_ROMAN);
-    private static readonly Style TitlesStyle = new Style().SetFont(TitlesFont).SetFontSize(14).SetBold();
+    private static readonly Style HeaderStyle = new Style().SetFont(TitlesFont).SetFontSize(24).SetBold().SetTextAlignment(TextAlignment.CENTER);
+    private static readonly Style TitlesStyle = new Style().SetFont(TitlesFont).SetFontSize(14).SetBold().SetTextAlignment(TextAlignment.CENTER);
     private static readonly Style BoldText = new Style().SetFont(TitlesFont).SetFontSize(12).SetBold();
     private static readonly Style RegularText = new Style().SetFont(TextFont).SetFontSize(12);
 
     public static string Generate()
     {
         string fileName = StringGenerator.GenerateString(12),
-            filePath = string.Format(PathToExample, fileName);
+            filePath = string.Format(PathToFile, fileName);
         Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
         using var fileStream = File.Create(filePath);
         _pdfWriter = new PdfWriter(fileStream);
         PdfDocument pdfDocument = new(_pdfWriter);
         using Document document = new(pdfDocument);
 
-        #region General data
-        // Expedient information
-        Table expedientTable = new(3, true);
-        expedientTable.AddCell(new Cell().Add(new Paragraph("Versión: " + Random.Shared.Next()).AddStyle(TitlesStyle)));
-        expedientTable.AddCell(new Cell().Add(new Paragraph("Fecha: " + DateTime.Now.ToString(CultureInfo.CurrentCulture)).AddStyle(TitlesStyle)));
-        expedientTable.AddCell(new Cell().Add(new Paragraph("Sede: " + Random.Shared.Next()).AddStyle(TitlesStyle)));
-        document.Add(expedientTable);
-        document.Add(new Paragraph());
+        #region Header
 
-        // Participants
-        document.Add(WriteValuesParagraph("Autor: ", NamesGenerator.Generate()));
-        document.Add(WriteValuesParagraph("Revisor: ", NamesGenerator.Generate()));
+        Table headerTable = new(3, true);
+        var imageData = ImageDataFactory.Create("./Clinic studies/Microscope.png");
+        Image leftImage = new(imageData),
+            rightImage = new(imageData);
+        leftImage.SetWidth(50);
+        rightImage.SetWidth(50).SetHorizontalAlignment(HorizontalAlignment.RIGHT);
+        headerTable.AddCell(new Cell().Add(leftImage).SetBorder(Border.NO_BORDER));
+        headerTable.AddCell(new Cell().Add(new Paragraph("Estudios clínicos").AddStyle(HeaderStyle)).SetTextAlignment(TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE).SetBorder(Border.NO_BORDER));
+        headerTable.AddCell(new Cell().Add(rightImage).SetBorder(Border.NO_BORDER));
+        document.Add(headerTable);
+
         #endregion
 
-        #region Case structure
-        // Title
-        document.Add(new Paragraph("Estudios clínicos").AddStyle(TitlesStyle));
+        #region Document data
 
-        // Abstract
-        document.Add(new Paragraph("Resumen").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        document.Add(new Paragraph("Datos del paciente").AddStyle(TitlesStyle));
+        Table dataTable = new(2, true);
 
-        // Introduction
-        document.Add(new Paragraph("Introducción").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Nombre: ", NamesGenerator.Generate())).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Fecha de muestra: ", DatesGenerator.GenerateDate(DateTime.MinValue, DateTime.MaxValue).ToString(CultureInfo.InvariantCulture))).SetBorder(Border.NO_BORDER));
+        var bornDate = BornDatesGenerator.GenerateBornDate();
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Fecha de nacimiento: ", bornDate.ToString(CultureInfo.InvariantCulture))).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Registro: ", Random.Shared.Next().ToString())).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Edad: ", (DateTime.Now.Year - bornDate.Year + (DateTime.Now.DayOfYear < bornDate.DayOfYear ? -1 :  0)).ToString())).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Sexo: ", Random.Shared.Next(2) == 0 ? "Masculino" : "Femenino")).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Peso: ", Random.Shared.Next(50, 180).ToString())).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Altura: ", Random.Shared.Next(150, 200).ToString())).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().Add(WriteValuesParagraph("Médico: ", NamesGenerator.Generate())).SetBorder(Border.NO_BORDER));
+        dataTable.AddCell(new Cell().SetBorder(Border.NO_BORDER));
 
-        // Clinical findings
-        document.Add(new Paragraph("Hallazgos clínicos").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        document.Add(dataTable);
 
-        // Therapeutic focus
-        document.Add(new Paragraph("Intervención terapéutica").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        #endregion
 
-        // Follow-up and outcomes
-        document.Add(new Paragraph("Seguimiento y resultados").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        #region Studies
 
-        // Discussion
-        document.Add(new Paragraph("Discusión").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        document.Add(new Paragraph("Resultados").AddStyle(TitlesStyle));
+        Table studiesTable = new(4, true);
 
-        // Recommendations
-        document.Add(new Paragraph("Recomendaciones").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        // Headers
+        Color headerColor = new DeviceRgb(0, 255, 255);
+        studiesTable.AddCell(new Cell().Add(new Paragraph("Parámetro").AddStyle(BoldText)).SetBackgroundColor(headerColor));
+        studiesTable.AddCell(new Cell().Add(new Paragraph("Resultado").AddStyle(BoldText)).SetBackgroundColor(headerColor));
+        studiesTable.AddCell(new Cell().Add(new Paragraph("Unidad").AddStyle(BoldText)).SetBackgroundColor(headerColor));
+        studiesTable.AddCell(new Cell().Add(new Paragraph("Valores de referencia").AddStyle(BoldText)).SetBackgroundColor(headerColor));
 
-        // Patient perspective
-        document.Add(new Paragraph("Perspectiva del paciente").AddStyle(TitlesStyle));
-        document.Add(new Paragraph(StringGenerator.GenerateStringWithSpaces(Random.Shared.Next(64, 512))).AddStyle(RegularText));
+        // Results
+        var limit = Random.Shared.Next(1, 11);
+        for (var i = 0; i < limit; i++)
+        {
+            studiesTable.AddCell(new Cell().Add(new Paragraph(StringGenerator.GenerateString(10))));
+            studiesTable.AddCell(new Cell().Add(new Paragraph(Random.Shared.Next(100).ToString())));
+            studiesTable.AddCell(new Cell().Add(new Paragraph(StringGenerator.GenerateString(3))));
+            studiesTable.AddCell(new Cell().Add(new Paragraph($"{Random.Shared.Next(100)}-{Random.Shared.Next(100)}")));
+        }
+
+        document.Add(studiesTable);
+
+        document.Add(new Paragraph("Observaciones:").AddStyle(BoldText));
+        document.Add(new Paragraph(StringGenerator.GenerateString(Random.Shared.Next(0, 256))).AddStyle(RegularText));
+
+        #endregion
+
+        #region Footer
+
+        const string footerMsg =
+            "IMPORTANTE: Los resultados incluidos en este reporte no sustituyen la consulta médica. Para una interpretación adecuada,es necesario que un médico los revise y coleccione con información clínica (signos, síntomas, antecedentes) y la obtenida deotras pruebas complementarias";
+        document.Add(new Paragraph(footerMsg).AddStyle(BoldText).SetTextAlignment(TextAlignment.JUSTIFIED));
+
         #endregion
 
         return filePath;

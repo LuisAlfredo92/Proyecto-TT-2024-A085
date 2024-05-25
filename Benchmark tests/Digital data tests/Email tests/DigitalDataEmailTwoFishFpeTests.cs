@@ -1,9 +1,7 @@
 ﻿using System.Security.Cryptography;
-using System.Xml.Linq;
 using BenchmarkDotNet.Attributes;
 using Digital_data.Email;
 using FPE_ciphers;
-using Identifying_data.Names;
 
 namespace Email_tests;
 
