@@ -12,7 +12,7 @@ namespace Email_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class DigitalDataEmailTwoFishFpeTests
 {
     private TwoFishFpe _twoFishFpe = null!;

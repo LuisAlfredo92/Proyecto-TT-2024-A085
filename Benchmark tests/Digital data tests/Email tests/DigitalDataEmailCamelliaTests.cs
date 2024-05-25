@@ -11,7 +11,7 @@ namespace Email_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class DigitalDataEmailCamelliaTests
 {
     private Camellia _camellia = null!;

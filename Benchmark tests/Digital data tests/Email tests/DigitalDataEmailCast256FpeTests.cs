@@ -10,7 +10,7 @@ namespace Email_tests;
 [MeanColumn]
 [MedianColumn]
 [MaxColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class DigitalDataEmailCast256FpeTests
 {
     private Cast256Fpe _cast256Fpe = null!;

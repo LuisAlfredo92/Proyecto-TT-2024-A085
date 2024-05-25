@@ -8,7 +8,7 @@ namespace Email_tests;
 
 [MemoryDiagnoser]
 [AllStatisticsColumn]
-[SimpleJob(launchCount: 1, iterationCount: 10)]
+[SimpleJob(launchCount: 100, iterationCount: 10)]
 public class DigitalDataEmailAesTests
 {
     private Aes _aes = null!;
