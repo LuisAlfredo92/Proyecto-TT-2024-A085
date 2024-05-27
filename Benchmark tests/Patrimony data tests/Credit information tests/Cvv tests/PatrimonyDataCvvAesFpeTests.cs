@@ -26,7 +26,7 @@ public class PatrimonyDataCvvAesFpeTests
         RandomNumberGenerator.Fill(_key);
         _aesFpe = new AesFpe(_key.AsSpan(), _alphabet);
 
-        _cvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(4, '0').ToCharArray();
+        _cvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(8, '0').ToCharArray();
     }
 
     [Benchmark]
@@ -39,7 +39,7 @@ public class PatrimonyDataCvvAesFpeTests
         RandomNumberGenerator.Fill(_key);
         _aesFpe = new AesFpe(_key.AsSpan(), _alphabet);
 
-        var generatedCvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(4, '0').ToCharArray();
+        var generatedCvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(8, '0').ToCharArray();
         _cvv = _aesFpe.Encrypt(generatedCvv);
     }
 

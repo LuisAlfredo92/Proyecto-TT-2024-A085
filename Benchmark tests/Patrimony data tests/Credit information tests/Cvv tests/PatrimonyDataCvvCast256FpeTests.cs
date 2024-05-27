@@ -25,7 +25,7 @@ public class PatrimonyDataCvvCast256FpeTests
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _cast256Fpe = new Cast256Fpe(_key.AsSpan(), _alphabet);
-        _cvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(4, '0').ToCharArray();
+        _cvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(8, '0').ToCharArray();
     }
 
     [Benchmark]
@@ -38,7 +38,7 @@ public class PatrimonyDataCvvCast256FpeTests
         RandomNumberGenerator.Fill(_key);
         _cast256Fpe = new Cast256Fpe(_key.AsSpan(), _alphabet);
 
-        var generatedCvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(4, '0').ToCharArray();
+        var generatedCvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(8, '0').ToCharArray();
         _cvv = _cast256Fpe.Encrypt(generatedCvv);
     }
 

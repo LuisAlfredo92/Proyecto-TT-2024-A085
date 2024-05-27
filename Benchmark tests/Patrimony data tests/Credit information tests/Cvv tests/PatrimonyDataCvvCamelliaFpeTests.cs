@@ -25,7 +25,7 @@ public class PatrimonyDataCvvCamelliaFpeTests
         _key = new byte[32];
         RandomNumberGenerator.Fill(_key);
         _camelliaFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
-        _cvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(4, '0').ToCharArray();
+        _cvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(8, '0').ToCharArray();
     }
 
     [Benchmark]
@@ -38,7 +38,7 @@ public class PatrimonyDataCvvCamelliaFpeTests
         RandomNumberGenerator.Fill(_key);
         _camelliaFpe = new CamelliaFpe(_key.AsSpan(), _alphabet);
 
-        var generatedCvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(4, '0').ToCharArray();
+        var generatedCvv = CvvGenerator.GenerateCvv().ToString(CultureInfo.InvariantCulture).PadLeft(8, '0').ToCharArray();
         _cvv = _camelliaFpe.Encrypt(generatedCvv);
     }
 
