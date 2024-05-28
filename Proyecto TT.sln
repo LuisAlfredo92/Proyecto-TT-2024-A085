@@ -119,23 +119,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Afore tests", "Benchmark te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Health data", "Health data", "{14DE3015-E63E-4AA2-A31D-AB235660BBBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinic studies tests", "Benchmark tests\Health data tests\Clinic studies tests\Clinic studies tests.csproj", "{1DD132FD-15E8-4666-BCB8-F80E297C066F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clinic studies tests", "Benchmark tests\Health data tests\Clinic studies tests\Clinic studies tests.csproj", "{1DD132FD-15E8-4666-BCB8-F80E297C066F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinic historical tests", "Benchmark tests\Health data tests\Clinic historical tests\Clinic historical tests.csproj", "{5E31D9EC-C0AD-4231-89D9-77352CD767E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clinic historical tests", "Benchmark tests\Health data tests\Clinic historical tests\Clinic historical tests.csproj", "{5E31D9EC-C0AD-4231-89D9-77352CD767E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nss tests", "Benchmark tests\Health data tests\Nss tests\Nss tests.csproj", "{8218F29B-7A3A-4CEF-82E7-B48F6185EF4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nss tests", "Benchmark tests\Health data tests\Nss tests\Nss tests.csproj", "{8218F29B-7A3A-4CEF-82E7-B48F6185EF4C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Academic data tests", "Academic data tests", "{0A6093B3-0304-47A0-B8AD-A8B32FC7A240}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School tests", "Benchmark tests\Academic data tests\School tests\School tests.csproj", "{108ED2F3-F51B-4740-9B35-0B8C63CF92A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School tests", "Benchmark tests\Academic data tests\School tests\School tests.csproj", "{108ED2F3-F51B-4740-9B35-0B8C63CF92A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Degrees tests", "Benchmark tests\Academic data tests\Degrees tests\Degrees tests.csproj", "{FFA9651D-A9FC-4A5A-9A49-987A33440DC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Degrees tests", "Benchmark tests\Academic data tests\Degrees tests\Degrees tests.csproj", "{FFA9651D-A9FC-4A5A-9A49-987A33440DC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referrals tests", "Benchmark tests\Academic data tests\Referrals tests\Referrals tests.csproj", "{540FFD99-B14C-4EE7-89C3-DD9EEC0A19DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Referrals tests", "Benchmark tests\Academic data tests\Referrals tests\Referrals tests.csproj", "{540FFD99-B14C-4EE7-89C3-DD9EEC0A19DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report cards tests", "Benchmark tests\Academic data tests\Report cards tests\Report cards tests.csproj", "{E1641827-83C8-412A-873A-92EBB6A32531}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Report cards tests", "Benchmark tests\Academic data tests\Report cards tests\Report cards tests.csproj", "{E1641827-83C8-412A-873A-92EBB6A32531}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Certifications tests", "Benchmark tests\Academic data tests\Certifications tests\Certifications tests.csproj", "{43029892-68EF-4363-BAE3-7AC03979A07B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Certifications tests", "Benchmark tests\Academic data tests\Certifications tests\Certifications tests.csproj", "{43029892-68EF-4363-BAE3-7AC03979A07B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enrolment tests", "Benchmark tests\Academic data tests\Enrolment tests\Enrolment tests.csproj", "{B32611E7-92FF-4EBA-9377-3646287EDE70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -363,6 +365,10 @@ Global
 		{43029892-68EF-4363-BAE3-7AC03979A07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43029892-68EF-4363-BAE3-7AC03979A07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43029892-68EF-4363-BAE3-7AC03979A07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B32611E7-92FF-4EBA-9377-3646287EDE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32611E7-92FF-4EBA-9377-3646287EDE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32611E7-92FF-4EBA-9377-3646287EDE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32611E7-92FF-4EBA-9377-3646287EDE70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -431,6 +437,7 @@ Global
 		{540FFD99-B14C-4EE7-89C3-DD9EEC0A19DE} = {0A6093B3-0304-47A0-B8AD-A8B32FC7A240}
 		{E1641827-83C8-412A-873A-92EBB6A32531} = {0A6093B3-0304-47A0-B8AD-A8B32FC7A240}
 		{43029892-68EF-4363-BAE3-7AC03979A07B} = {0A6093B3-0304-47A0-B8AD-A8B32FC7A240}
+		{B32611E7-92FF-4EBA-9377-3646287EDE70} = {0A6093B3-0304-47A0-B8AD-A8B32FC7A240}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
