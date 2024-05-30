@@ -141,11 +141,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enrolment tests", "Benchmar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ideological tests", "Ideological tests", "{E371DCF6-E02B-4709-B95D-52C02F05457D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Religion tests", "Benchmark tests\Ideological tests\Religion tests\Religion tests.csproj", "{1E46D1AB-D266-4A59-8369-5C580BC77545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Religion tests", "Benchmark tests\Ideological tests\Religion tests\Religion tests.csproj", "{1E46D1AB-D266-4A59-8369-5C580BC77545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Union affiliation tests", "Benchmark tests\Ideological tests\Union affiliation tests\Union affiliation tests.csproj", "{659451EB-88B2-4451-AA04-5F42D9D4DB91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Union affiliation tests", "Benchmark tests\Ideological tests\Union affiliation tests\Union affiliation tests.csproj", "{659451EB-88B2-4451-AA04-5F42D9D4DB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Civil organizations tests", "Benchmark tests\Ideological tests\Civil organizations tests\Civil organizations tests.csproj", "{4846BB4A-8E2B-4FC1-8A5D-57C8038117F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Civil organizations tests", "Benchmark tests\Ideological tests\Civil organizations tests\Civil organizations tests.csproj", "{4846BB4A-8E2B-4FC1-8A5D-57C8038117F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Biometric data", "Biometric data", "{968B31F7-7EAC-41FF-A805-F19DB7FC692B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iris tests", "Benchmark tests\Biometric data tests\Iris tests\Iris tests.csproj", "{45AC444B-A3CA-46A6-B11B-EF425173D1C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scar tests", "Benchmark tests\Biometric data tests\Scar tests\Scar tests.csproj", "{BE4EFE33-0703-4CF5-8B43-00D1CBBDDF15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adn tests", "Benchmark tests\Biometric data tests\Adn tests\Adn tests.csproj", "{B8CA4ABE-8629-4685-B465-74870B462C2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fingerprint tests", "Benchmark tests\Biometric data tests\Fingerprint tests\Fingerprint tests.csproj", "{8E8FD594-0D8D-459B-86B5-3AC876EB768F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -389,6 +399,22 @@ Global
 		{4846BB4A-8E2B-4FC1-8A5D-57C8038117F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4846BB4A-8E2B-4FC1-8A5D-57C8038117F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4846BB4A-8E2B-4FC1-8A5D-57C8038117F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AC444B-A3CA-46A6-B11B-EF425173D1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AC444B-A3CA-46A6-B11B-EF425173D1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AC444B-A3CA-46A6-B11B-EF425173D1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AC444B-A3CA-46A6-B11B-EF425173D1C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE4EFE33-0703-4CF5-8B43-00D1CBBDDF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE4EFE33-0703-4CF5-8B43-00D1CBBDDF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE4EFE33-0703-4CF5-8B43-00D1CBBDDF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE4EFE33-0703-4CF5-8B43-00D1CBBDDF15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8CA4ABE-8629-4685-B465-74870B462C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8CA4ABE-8629-4685-B465-74870B462C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8CA4ABE-8629-4685-B465-74870B462C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8CA4ABE-8629-4685-B465-74870B462C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8FD594-0D8D-459B-86B5-3AC876EB768F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8FD594-0D8D-459B-86B5-3AC876EB768F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8FD594-0D8D-459B-86B5-3AC876EB768F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8FD594-0D8D-459B-86B5-3AC876EB768F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -462,6 +488,11 @@ Global
 		{1E46D1AB-D266-4A59-8369-5C580BC77545} = {E371DCF6-E02B-4709-B95D-52C02F05457D}
 		{659451EB-88B2-4451-AA04-5F42D9D4DB91} = {E371DCF6-E02B-4709-B95D-52C02F05457D}
 		{4846BB4A-8E2B-4FC1-8A5D-57C8038117F3} = {E371DCF6-E02B-4709-B95D-52C02F05457D}
+		{968B31F7-7EAC-41FF-A805-F19DB7FC692B} = {C032C7DE-3E81-40C6-A07B-5803FE75578F}
+		{45AC444B-A3CA-46A6-B11B-EF425173D1C0} = {968B31F7-7EAC-41FF-A805-F19DB7FC692B}
+		{BE4EFE33-0703-4CF5-8B43-00D1CBBDDF15} = {968B31F7-7EAC-41FF-A805-F19DB7FC692B}
+		{B8CA4ABE-8629-4685-B465-74870B462C2D} = {968B31F7-7EAC-41FF-A805-F19DB7FC692B}
+		{8E8FD594-0D8D-459B-86B5-3AC876EB768F} = {968B31F7-7EAC-41FF-A805-F19DB7FC692B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF2636D-FB12-4B48-AF41-811D3C4647D9}
