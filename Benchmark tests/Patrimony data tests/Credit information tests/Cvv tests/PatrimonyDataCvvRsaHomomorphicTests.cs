@@ -26,7 +26,7 @@ public class PatrimonyDataCvvRsaHomomorphicTests
     public void SetupEncryption()
     {
         _pGen = new RsaKeyPairGenerator();
-        _pGen.Init(new KeyGenerationParameters(new SecureRandom(), 256));
+        _pGen.Init(new KeyGenerationParameters(new SecureRandom(), 4096));
         _key = _pGen.GenerateKeyPair();
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
@@ -41,7 +41,7 @@ public class PatrimonyDataCvvRsaHomomorphicTests
     public void SetupDecryption()
     {
         _pGen = new RsaKeyPairGenerator();
-        _pGen.Init(new KeyGenerationParameters(new SecureRandom(), 256));
+        _pGen.Init(new KeyGenerationParameters(new SecureRandom(), 4096));
         _key = _pGen.GenerateKeyPair();
 
         _rsa = new RsaHomomorphic((_key.Public as RsaKeyParameters)!, (_key.Private as RsaKeyParameters)!);
