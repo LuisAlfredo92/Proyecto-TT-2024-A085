@@ -1,4 +1,6 @@
 using System.Security.Cryptography;
+using Identifying_data.Phone_numbers;
+using Xunit.Abstractions;
 using Aes = BlockCiphers.Aes;
 
 namespace Validation_tests.Ciphers.Block_ciphers;
@@ -8,7 +10,7 @@ namespace Validation_tests.Ciphers.Block_ciphers;
 /// Most of the tests were taken from the NIST test vectors:
 /// https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/examples/AES_GCM.pdf
 /// </summary>
-public class AesTests
+public class AesTests(ITestOutputHelper testOutputHelper)
 {
     /// <summary>
     /// Tests the default AES encryption and decryption
@@ -190,5 +192,22 @@ public class AesTests
         Assert.Equal(encryptedExpected, encrypted);
         Assert.Equal(tagExpected, tag);
         Assert.Equal(plainBytes, decrypted);
+    }
+
+    [Fact]
+    public void ShortInputs()
+    {
+        Span<byte> key = stackalloc byte[16];
+        byte[] nonce = new byte[AesGcm.NonceByteSizes.MaxSize],
+            plainBytes = BitConverter.GetBytes(PhoneNumbersGenerator.GeneratePhoneNumber());
+        Random.Shared.NextBytes(nonce);
+        Random.Shared.NextBytes(key);
+
+        Aes aes = new(key, nonce);
+
+        var encrypted = aes.Encrypt(plainBytes, out var tag);
+
+        testOutputHelper.WriteLine(plainBytes.Length.ToString());
+        testOutputHelper.WriteLine(encrypted.Length.ToString());
     }
 }

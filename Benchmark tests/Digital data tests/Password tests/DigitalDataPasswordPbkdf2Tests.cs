@@ -13,7 +13,7 @@ namespace Password_tests;
 [SimpleJob(launchCount: 100, iterationCount: 10)]
 public class DigitalDataPasswordPbkdf2Tests
 {
-    private readonly Pbkdf2 _argon2Id = new();
+    private readonly Pbkdf2 _pbkdf2 = new(iterations:600_000);
     private byte[] _password = null!;
 
     [GlobalSetup(Target = nameof(EncryptPasswordPbkdf2))]
@@ -23,5 +23,5 @@ public class DigitalDataPasswordPbkdf2Tests
     }
 
     [Benchmark]
-    public Span<byte> EncryptPasswordPbkdf2() => _argon2Id.Hash(_password);
+    public Span<byte> EncryptPasswordPbkdf2() => _pbkdf2.Hash(_password);
 }

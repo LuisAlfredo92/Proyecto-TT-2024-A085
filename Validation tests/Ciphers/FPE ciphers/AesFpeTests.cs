@@ -1,13 +1,15 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using FPE_ciphers;
+using Identifying_data.Phone_numbers;
 using Xunit.Abstractions;
 
 namespace Validation_tests.Ciphers.FPE_ciphers;
 
-public class AesFpeTests(ITestOutputHelper outputHelper)
+public class AesFpeTests(ITestOutputHelper testOutputHelper)
 {
     private static readonly char[] Alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
+
 
     [Fact]
     public void TestCase1()
@@ -68,7 +70,7 @@ public class AesFpeTests(ITestOutputHelper outputHelper)
         {
             Unsafe.Add(ref reference, i) = _alphabet[Random.Shared.Next(_alphabet.Length)];
         }
-        outputHelper.WriteLine($"Generated data: {plainData.ToString()}");
+        testOutputHelper.WriteLine($"Generated data: {plainData.ToString()}");
 
         var arrays = Math.Ceiling(plainData.Length / 30f);
         var names = new char[(int)arrays][];
@@ -82,21 +84,35 @@ public class AesFpeTests(ITestOutputHelper outputHelper)
 
         for (var i = 0; i < names.Length; i++)
         {
-            outputHelper.WriteLine($"Name {i}: {new string(names[i])}");
+            testOutputHelper.WriteLine($"Name {i}: {new string(names[i])}");
         }
 
         var cipherData = new char[(int)arrays][];
         for (var i = 0; i < names.Length; i++)
         {
             cipherData[i] = aesFpe.Encrypt(names[i]);
-            outputHelper.WriteLine($"Encrypted name {i}: {new string(cipherData[i])}");
+            testOutputHelper.WriteLine($"Encrypted name {i}: {new string(cipherData[i])}");
         }
 
         var decryptedData = new char[(int)arrays][];
         for (var i = 0; i < cipherData.Length; i++)
         {
             decryptedData[i] = aesFpe.Decrypt(cipherData[i]);
-            outputHelper.WriteLine($"Decrypted name {i}: {new string(decryptedData[i])}");
+            testOutputHelper.WriteLine($"Decrypted name {i}: {new string(decryptedData[i])}");
         }
+    }
+
+    [Fact]
+    public void ShortInputs()
+    {
+        var alphabet = "0123456789".ToCharArray();
+        Span<byte> key = stackalloc byte[32];
+        var plainData = PhoneNumbersGenerator.GeneratePhoneNumber().ToString().ToCharArray();
+        AesFpe aesFpe = new(key, alphabet);
+
+        var encrypted = aesFpe.Encrypt(plainData);
+
+        testOutputHelper.WriteLine($"Plain: {new string(plainData)}");
+        testOutputHelper.WriteLine($"Encrypted: {new string(encrypted)}");
     }
 }

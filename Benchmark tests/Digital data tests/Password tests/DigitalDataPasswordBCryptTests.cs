@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using BenchmarkDotNet.Attributes;
 using Digital_data.Passwords;
 using Hashes;
@@ -13,7 +13,7 @@ namespace Password_tests;
 [SimpleJob(launchCount: 100, iterationCount: 10)]
 public class DigitalDataPasswordBCryptTests
 {
-    private readonly BCrypt _argon2Id = new();
+    private readonly BCrypt _bCrypt = new(cost:10);
     private byte[] _password = null!;
 
     [GlobalSetup(Target = nameof(EncryptPasswordBCrypt))]
@@ -23,5 +23,5 @@ public class DigitalDataPasswordBCryptTests
     }
 
     [Benchmark]
-    public Span<byte> EncryptPasswordBCrypt() => _argon2Id.Hash(_password);
+    public Span<byte> EncryptPasswordBCrypt() => _bCrypt.Hash(_password);
 }
