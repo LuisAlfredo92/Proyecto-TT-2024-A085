@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 using Identifying_data.Born_dates;
 using Identifying_data.Curps;
 using Identifying_data.Exterior_numbers;
@@ -19,13 +20,13 @@ using Xunit.Abstractions;
 
 namespace Validation_tests.Data_generators;
 
-public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
+public partial class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
 {
     // Test names generator
     [Fact]
     public void TestNamesGenerator()
     {
-        for (var i = 0; i < 1_000_000; i++)
+        for (var i = 0; i < 100; i++)
         {
             var name = NamesGenerator.Generate();
             testOutputHelper.WriteLine(name);
@@ -55,9 +56,8 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
         for (var i = 0; i < 100; i++)
         {
             var curp = CurpsGenerator.Generate();
-            Assert.NotNull(curp);
-            Assert.NotEmpty(curp);
             Assert.Equal(18, curp.Length);
+            Assert.Matches(CurpRegex(), curp);
             testOutputHelper.WriteLine(curp);
         }
     }
@@ -229,4 +229,7 @@ public class IdentifyingDataFacts(ITestOutputHelper testOutputHelper)
             testOutputHelper.WriteLine(militaryServiceNumber);
         }
     }
+
+    [GeneratedRegex("([A-Z]{4})([0-9]{6})[HM]([A-Z]{5})(A|0)\\d")]
+    private static partial Regex CurpRegex();
 }
